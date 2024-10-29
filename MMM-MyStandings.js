@@ -311,7 +311,7 @@ Module.register("MMM-MyStandings",{
 	socketNotificationReceived: function(notification, payload) {
 		if (notification.startsWith("STANDINGS_RESULT")) {
 			var league = notification.split("-")[1];
-			this.standingsInfo.push(this.cleanupData(payload.children, league));
+			this.standingsInfo.push(this.cleanupData(payload.result.children, league));
 			this.standingsSportInfo.push(league);
 		}
 	},
