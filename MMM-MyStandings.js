@@ -268,7 +268,7 @@ Module.register("MMM-MyStandings",{
 		}
 
 		var sport;
-
+		var self = this;
 		for (var i = 0; i < this.config.sports.length; i++) {
 			switch (this.config.sports[i].league) {
 				case "MLB":
@@ -298,7 +298,13 @@ Module.register("MMM-MyStandings",{
 					break;
 			}
 
-			this.sendSocketNotification("STANDINGS_RESULT-" + this.config.sports[i].league, this.config.url + sport);
+			this.sendSocketNotification(
+				"STANDINGS_RESULT-" + this.config.sports[i].league, 
+				{
+					url: this.config.url + sport,
+					uniqueID: JSON.stringify(this.config.sports)
+				}
+			);
 		}
 	},
 
