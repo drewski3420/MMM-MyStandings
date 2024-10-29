@@ -309,7 +309,7 @@ Module.register("MMM-MyStandings",{
 	},
 
 	socketNotificationReceived: function(notification, payload) {
-		if (notification.startsWith("STANDINGS_RESULT")) {
+		if (notification.startsWith("STANDINGS_RESULT") && payload.uniqueID == JSON.stringify(this.config.sports) ) {
 			var league = notification.split("-")[1];
 			this.standingsInfo.push(this.cleanupData(payload.result.children, league));
 			this.standingsSportInfo.push(league);
