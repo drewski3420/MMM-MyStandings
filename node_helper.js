@@ -28,6 +28,8 @@ module.exports = NodeHelper.create({
 
 	//Subclass socketNotificationReceived received.
 	socketNotificationReceived: function(notification, payload) {
-		this.getData(notification, payload);
+		if (notification.startsWith("STANDINGS_RESULT")) {
+			this.getData(notification, payload);
+		}
 	}
 });
