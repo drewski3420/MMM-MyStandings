@@ -16,7 +16,10 @@ module.exports = NodeHelper.create({
 		request({ url: payload.url, method: 'GET' }, function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				var result = JSON.parse(body);
-				self.sendSocketNotification(notification, result);
+				self.sendSocketNotification(notification, {
+					result: result,
+					uniqueID: payload.uniqueID
+				});
 			} else {
 				console.log("MMM-MyStandings : Could not load data.");
 			}
