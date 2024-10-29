@@ -6,15 +6,14 @@ var NodeHelper = require('node_helper');
 var request = require('request');
 
 module.exports = NodeHelper.create({
-
 	start: function () {
 		console.log('MMM-MyStandings helper started ...');
 	},
 
-	getData: function (notification, url) {
+	getData: function (notification, payload) {
 		var self = this;
-		//console.log('requesting:' + url);
-		request({ url: url, method: 'GET' }, function (error, response, body) {
+		//console.log('requesting:' + payload.url);
+		request({ url: payload.url, method: 'GET' }, function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				var result = JSON.parse(body);
 				self.sendSocketNotification(notification, result);
