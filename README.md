@@ -11,13 +11,12 @@ Uses the ESPN API for sports standings
 ![screenshot1](screenshot1.JPG)
 
 ## Installing the module
-Go to your MagicMirror modules directory by entering `cd MagicMirror/modules`
-
-run `git clone https://github.com/vincep5/MMM-MyStandings`
-
-run `cd MMM-MyStandings` to get into the newly created folder
-
-run `npm install` to install the dependencies
+```bash
+cd MagicMirror/modules
+git clone https://github.com/vincep5/MMM-MyStandings
+cd MMM-MyStandings
+npm install
+```
 
 ## Config
 Add `MMM-MyStandings` module to the `modules` array in the `config/config.js` file:
