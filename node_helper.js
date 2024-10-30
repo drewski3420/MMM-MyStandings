@@ -25,14 +25,18 @@ module.exports = NodeHelper.create({
 		// 		console.log("MMM-MyStandings : Could not load data.");
 		// 	}
 		// });
-		axios.get(payload.url)
-			.then( function(response) {
-				var result = JSON.parse(response.data);
-				self.sendSocketNotification(notification, {
-					result: result,
-					uniqueID: payload.uniqueID
-				});
-			})
+		axios
+			.get(payload.url)
+			// .then( function(response) {
+			// 	var result = JSON.parse(response.data);
+			// 	self.sendSocketNotification(notification, {
+			// 		result: result,
+			// 		uniqueID: payload.uniqueID
+			// 	});
+			// })
+			.then(({data}) => {
+			    console.log(data);
+			});
 			.catch( function(r_err) {
 				console.log( "MMM-MyStandings : Could not load data." );      
 			})
