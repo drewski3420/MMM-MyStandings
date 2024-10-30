@@ -37,7 +37,7 @@ module.exports = NodeHelper.create({
 			  });
 			// .catch( function(r_err) {
 			// 	console.log( "MMM-MyStandings : Could not load data." );      
-			})
+			// })
 	},
 
 	//Subclass socketNotificationReceived received.
