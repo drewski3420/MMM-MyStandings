@@ -227,7 +227,7 @@ else you can just configure leagues without groups like this
 	"ZIM_PREMIER_LEAGUE"
 ````
 
-## Alternate ways of showing sports
+## Alternative ways of showing sports
 ````javascript
 		sports: [
 			{ league: "NFL" },
