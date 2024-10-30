@@ -20,10 +20,10 @@ module.exports = NodeHelper.create({
 					result: response.data,
 					uniqueID: payload.uniqueID
 				});
-			  });
+			  })
 			.catch( function(r_err) {
 				console.log( "MMM-MyStandings : Could not load data." );      
-			})
+			});
 	},
 
 	//Subclass socketNotificationReceived received.
