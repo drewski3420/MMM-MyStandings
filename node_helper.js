@@ -40,7 +40,7 @@ module.exports = NodeHelper.create({
 			    console.log(response.statusText);
 			    console.log(response.headers);
 			    console.log(response.config);
-			  });
+			  })
 			.catch( function(r_err) {
 				console.log( "MMM-MyStandings : Could not load data." );      
 			})
