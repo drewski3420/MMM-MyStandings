@@ -238,4 +238,4 @@ This will rotate ALL NFL and only NHL's Central Division
 
 ## Thank You
 
-Special thanks to @vincep5, who did most of the work on this module.  I just updated it after the fact.
+Special thanks to [@vincep5](https://github.com/vincep5/), who did most of the work on this module.  I just updated it after the fact.
