@@ -13,31 +13,17 @@ module.exports = NodeHelper.create({
 
 	getData: function (notification, payload) {
 		var self = this;
-		//console.log('requesting:' + payload.url);
-		// request({ url: payload.url, method: 'GET' }, function (error, response, body) {
-		// 	if (!error && response.statusCode == 200) {
-		// 		var result = JSON.parse(body);
-		// 		self.sendSocketNotification(notification, {
-		// 			result: result,
-		// 			uniqueID: payload.uniqueID
-		// 		});
-		// 	} else {
-		// 		console.log("MMM-MyStandings : Could not load data.");
-		// 	}
-		// });
 		axios
 			.get(payload.url)
 			.then((response) => {
-			    //console.log(response.data);
-			    //var result = JSON.parse(response.data);
 				self.sendSocketNotification(notification, {
 					result: response.data,
 					uniqueID: payload.uniqueID
 				});
 			  });
-			// .catch( function(r_err) {
-			// 	console.log( "MMM-MyStandings : Could not load data." );      
-			// })
+			.catch( function(r_err) {
+				console.log( "MMM-MyStandings : Could not load data." );      
+			})
 	},
 
 	//Subclass socketNotificationReceived received.
