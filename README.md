@@ -16,7 +16,6 @@ cd ~/MagicMirror/modules
 git clone https://github.com/dathbe/MMM-MyStandings
 cd MMM-MyStandings
 git switch audit
-git pull
 npm install
 ```
 
@@ -236,3 +235,7 @@ else you can just configure leagues without groups like this
 		]
 ````
 This will rotate ALL NFL and only NHL's Central Division
+
+## Thank You
+
+Special thanks to @vincep5, who did most of the work on this module.  I just updated it after the fact.
