@@ -28,7 +28,7 @@ module.exports = NodeHelper.create({
 		axios
 			.get(payload.url)
 			.then((response) => {
-			    //console.log(response.data);
+			    console.log(response.data);
 			    var result = JSON.parse(response.data);
 				self.sendSocketNotification(notification, {
 					result: result,
