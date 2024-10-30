@@ -12,7 +12,7 @@ Uses the ESPN API for sports standings
 
 ## Installing the module
 ```bash
-cd MagicMirror/modules
+cd ~MagicMirror/modules
 git clone https://github.com/dathbe/MMM-MyStandings
 cd MMM-MyStandings
 git switch audit
