@@ -4,6 +4,7 @@
  */
 var NodeHelper = require('node_helper');
 var request = require('request');
+const axios = require("axios");
 
 module.exports = NodeHelper.create({
 	start: function () {
