@@ -27,19 +27,13 @@ module.exports = NodeHelper.create({
 		// });
 		axios
 			.get(payload.url)
-			// .then( function(response) {
-			// 	var result = JSON.parse(response.data);
-			// 	self.sendSocketNotification(notification, {
-			// 		result: result,
-			// 		uniqueID: payload.uniqueID
-			// 	});
-			// })
 			.then((response) => {
 			    console.log(response.data);
-			    console.log(response.status);
-			    console.log(response.statusText);
-			    console.log(response.headers);
-			    console.log(response.config);
+			    var result = JSON.parse(response.data);
+				self.sendSocketNotification(notification, {
+					result: result,
+					uniqueID: payload.uniqueID
+				});
 			  })
 			.catch( function(r_err) {
 				console.log( "MMM-MyStandings : Could not load data." );      
