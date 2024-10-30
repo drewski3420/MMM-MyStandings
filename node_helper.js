@@ -34,9 +34,9 @@ module.exports = NodeHelper.create({
 					result: result,
 					uniqueID: payload.uniqueID
 				});
-			  })
-			.catch( function(r_err) {
-				console.log( "MMM-MyStandings : Could not load data." );      
+			  });
+			// .catch( function(r_err) {
+			// 	console.log( "MMM-MyStandings : Could not load data." );      
 			})
 	},
 
