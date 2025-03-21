@@ -42,7 +42,7 @@ modules: [
 				{ league: "NFL", groups: ["AFC East", "AFC North", "AFC South", "AFC West", "NFC East", "NFC North", "NFC South", "NFC West"] },
 				{ league: "NHL", groups: ["Atlantic Division", "Metropolitan Division", "Central Division", "Pacific Division"] },
 				{ league: "MLS", groups: ["Eastern Conference", "Western Conference"] },
-				{ league: "NCAAF", groups: ["American Athletic Conference", "Atlantic Coast Conference," "Big 12 Conference", "Big Ten Conference", "Conference USA", "FBS Independents", "Mid-American Conference," "Mountain West Conference", "PAC-12 Conference", "Southeastern Conference", "Sunbelt Conference"]
+				{ league: "NCAAF", groups: ["American Athletic Conference", "Atlantic Coast Conference", "Big 12 Conference", "Big Ten Conference", "Conference USA", "FBS Independents", "Mid-American Conference," "Mountain West Conference", "PAC-12 Conference", "Southeastern Conference", "Sunbelt Conference"]
 
 
 
