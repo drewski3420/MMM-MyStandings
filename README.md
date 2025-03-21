@@ -1,5 +1,6 @@
 # MMM-MyStandings
-MagicMirror module to get ESPN standings for the major US sports
+MagicMirror module to get ESPN standings for the major US sports.  This is a fork of the original MMM-MyStandings from user vincep5.  It has been updated with the ability to display multiple modules simultaneously and to patch some vulnerabilities.
+
 # MMM-MyStandings
 MagicMirror module to get ESPN standings for the major US sports.  I was inspired by MMM-MyScoreboard and figured that this will compliment it nicely.
 The module will rotate through different sports.  If you only want to show one sport or one division, the module will just display one without rotating.
