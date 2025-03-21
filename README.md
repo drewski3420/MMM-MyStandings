@@ -45,7 +45,7 @@ modules: [
 				{ league: "MLS", groups: ["Eastern Conference", "Western Conference"] },
 				{ league: "NCAAF", groups: ["American Athletic Conference", "Atlantic Coast Conference", "Big 12 Conference", "Big Ten Conference",
 										"Conference USA", "FBS Independents", "Mid-American Conference", "Mountain West Conference",
-										"PAC-12 Conference", "Southeastern Conference", "Sunbelt Conference"]
+										"Pac-12 Conference", "Southeastern Conference", "Sunbelt Conference"]
 				{ league: "NCAAM", groups: ["America East Conference", "American Athletic Conference", "Atlantic 10 Conference", "Atlantic Coast Conference",
 										"Atlantic Sun Conference", "Big 12 Conference", "Big East Conference", "Big Sky Conference",
 										"Big South Conference", "Big Ten Conference", "Big West Conference", "Colonial Athletic Association",
