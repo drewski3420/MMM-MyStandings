@@ -15,7 +15,6 @@ Uses the ESPN API for sports standings
 cd ~/MagicMirror/modules
 git clone https://github.com/dathbe/MMM-MyStandings
 cd MMM-MyStandings
-git switch audit
 npm install
 ```
 
