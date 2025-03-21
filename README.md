@@ -43,13 +43,6 @@ modules: [
 				{ league: "NHL", groups: ["Atlantic Division", "Metropolitan Division", "Central Division", "Pacific Division"] },
 				{ league: "MLS", groups: ["Eastern Conference", "Western Conference"] },
 				{ league: "NCAAF", groups: ["American Athletic Conference", "Atlantic Coast Conference", "Big 12 Conference", "Big Ten Conference", "Conference USA", "FBS Independents", "Mid-American Conference," "Mountain West Conference", "PAC-12 Conference", "Southeastern Conference", "Sunbelt Conference"]
-
-
-
-no longer good:"American Athletic - East", "American Athletic - West", "Atlantic Coast Conference - Atlantic", "Atlantic Coast Conference - Coastal",
-										"Big 12 Conference", "Big Ten - East", "Big Ten - West", "Conference USA - East", "Conference USA - West",
-										"FBS Independents", "Mid-American - East", "Mid-American - West", "Mountain West - Mountain", "Mountain West - West",
-										"Pac 12 - North", "Pac 12 - South", "SEC - East", "SEC - West", "Sun Belt - East", "Sun Belt - West"] }
 				{ league: "NCAAM", groups: ["America East Conference", "American Athletic Conference", "Atlantic 10 Conference", "Atlantic Coast Conference", "Atlantic Sun Conference",
 										"Big 12 Conference", "Big East Conference", "Big Sky Conference", "Big South Conference",
 										"Big Ten Conference", "Big West Conference", "Colonial Athletic Association", "Conference USA",
