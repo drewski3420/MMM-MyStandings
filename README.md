@@ -38,19 +38,23 @@ modules: [
 			rotateInterval: 1 * 60 * 1000, // every 1 minute
 			sports: [
 				{ league: "NBA", groups: ["Atlantic", "Central", "Southeast", "Northwest", "Pacific", "Southwest"] },
-				{ league: "MLB", groups: ["American League East", "American League Central", "American League West", "National League East", "National League Central", "National League West"] },
+				{ league: "MLB", groups: ["American League East", "American League Central", "American League West", "National League East",
+										"National League Central", "National League West"] },
 				{ league: "NFL", groups: ["AFC East", "AFC North", "AFC South", "AFC West", "NFC East", "NFC North", "NFC South", "NFC West"] },
 				{ league: "NHL", groups: ["Atlantic Division", "Metropolitan Division", "Central Division", "Pacific Division"] },
 				{ league: "MLS", groups: ["Eastern Conference", "Western Conference"] },
-				{ league: "NCAAF", groups: ["American Athletic Conference", "Atlantic Coast Conference", "Big 12 Conference", "Big Ten Conference", "Conference USA", "FBS Independents", "Mid-American Conference," "Mountain West Conference", "PAC-12 Conference", "Southeastern Conference", "Sunbelt Conference"]
-				{ league: "NCAAM", groups: ["America East Conference", "American Athletic Conference", "Atlantic 10 Conference", "Atlantic Coast Conference", "Atlantic Sun Conference",
-										"Big 12 Conference", "Big East Conference", "Big Sky Conference", "Big South Conference",
-										"Big Ten Conference", "Big West Conference", "Colonial Athletic Association", "Conference USA",
-										"Horizon League", "Ivy League", "Metro Atlantic Athletic Conference", "Mid-American Conference",
-										"Mid-Eastern Athletic Conference", "Missouri Valley Conference", "Mountain West Conference", "Northeast Conference",
-										"Ohio Valley Conference", "Pac-12 Conference", "Patriot League", "Southeastern Conference",
-										"Southern Conference", "Southland Conference", "Southwestern Athletic Conference", "Summit League",
-										"Sun Belt Conference", "West Coast Conference", "Western Athletic Conference"] }
+				{ league: "NCAAF", groups: ["American Athletic Conference", "Atlantic Coast Conference", "Big 12 Conference", "Big Ten Conference",
+										"Conference USA", "FBS Independents", "Mid-American Conference," "Mountain West Conference",
+										"PAC-12 Conference", "Southeastern Conference", "Sunbelt Conference"]
+				{ league: "NCAAM", groups: ["America East Conference", "American Athletic Conference", "Atlantic 10 Conference", "Atlantic Coast Conference",
+										"Atlantic Sun Conference", "Big 12 Conference", "Big East Conference", "Big Sky Conference",
+										"Big South Conference", "Big Ten Conference", "Big West Conference", "Colonial Athletic Association",
+										"Conference USA", "Horizon League", "Ivy League", "Metro Atlantic Athletic Conference",
+										"Mid-American Conference", "Mid-Eastern Athletic Conference", "Missouri Valley Conference",
+										"Mountain West Conference", "Northeast Conference", "Ohio Valley Conference", "Pac-12 Conference",
+										"Patriot League", "Southeastern Conference", "Southern Conference", "Southland Conference",
+										"Southwestern Athletic Conference", "Summit League", "Sun Belt Conference", "West Coast Conference",
+										"Western Athletic Conference"] }
 			],
 			nameStyle: "short",
 			showLogos: true,
