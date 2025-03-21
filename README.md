@@ -19,6 +19,13 @@ git switch audit
 npm install
 ```
 
+## Updating the module
+```bash
+cd ~/MagicMirror/modules/MMM-MyStandings
+git pull
+npm install
+```
+
 ## Config
 Add `MMM-MyStandings` module to the `modules` array in the `config/config.js` file:
 ````javascript
@@ -235,3 +242,6 @@ else you can just configure leagues without groups like this
 		]
 ````
 This will rotate ALL NFL and only NHL's Central Division
+
+# Thank You
+Special thank you to [vincep5](https://github.com/vincep5/), who created the original version of this module and did most of the work.
