@@ -268,7 +268,7 @@ Module.register("MMM-MyStandings",{
 		}
 
 		var sport;
-
+		var self = this;
 		for (var i = 0; i < this.config.sports.length; i++) {
 			switch (this.config.sports[i].league) {
 				case "MLB":
@@ -298,14 +298,20 @@ Module.register("MMM-MyStandings",{
 					break;
 			}
 
-			this.sendSocketNotification("STANDINGS_RESULT-" + this.config.sports[i].league, this.config.url + sport);
+			this.sendSocketNotification(
+				"STANDINGS_RESULT-" + this.config.sports[i].league, 
+				{
+					url: this.config.url + sport,
+					uniqueID: JSON.stringify(this.config.sports)
+				}
+			);
 		}
 	},
 
 	socketNotificationReceived: function(notification, payload) {
-		if (notification.startsWith("STANDINGS_RESULT")) {
+		if (notification.startsWith("STANDINGS_RESULT") && payload.uniqueID == JSON.stringify(this.config.sports) ) {
 			var league = notification.split("-")[1];
-			this.standingsInfo.push(this.cleanupData(payload.children, league));
+			this.standingsInfo.push(this.cleanupData(payload.result.children, league));
 			this.standingsSportInfo.push(league);
 		}
 	},

@@ -11,13 +11,13 @@ Uses the ESPN API for sports standings
 ![screenshot1](screenshot1.JPG)
 
 ## Installing the module
-Go to your MagicMirror modules directory by entering `cd MagicMirror/modules`
-
-run `git clone https://github.com/vincep5/MMM-MyStandings`
-
-run `cd MMM-MyStandings` to get into the newly created folder
-
-run `npm install` to install the dependencies
+```bash
+cd ~/MagicMirror/modules
+git clone https://github.com/dathbe/MMM-MyStandings
+cd MMM-MyStandings
+git switch audit
+npm install
+```
 
 ## Config
 Add `MMM-MyStandings` module to the `modules` array in the `config/config.js` file:
@@ -227,7 +227,7 @@ else you can just configure leagues without groups like this
 	"ZIM_PREMIER_LEAGUE"
 ````
 
-## Alternate ways of showing sports
+## Alternative ways of showing sports
 ````javascript
 		sports: [
 			{ league: "NFL" },
