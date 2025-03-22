@@ -31,11 +31,11 @@
 							<td></td>
 						{% endif %}
 						{% if config.nameStyle === "short" %}
-							<td>{{tm.team.shortDisplayName}}</td>
+							<td class="nameCell">{{tm.team.shortDisplayName}}</td>
 						{% elseif config.nameStyle === "full" %}
-							<td>{{tm.team.displayName}}</td>
+							<td class="nameCell">{{tm.team.displayName}}</td>
 						{% elseif config.nameStyle === "abbreviation" %}
-							<td>{{tm.team.abbreviation}}</td>
+							<td class="nameCell">{{tm.team.abbreviation}}</td>
 						{% endif %}
 						{% for stat in tm.stats %}
 							{% if stat.name === "points" %}
