@@ -6,21 +6,21 @@
 				<tr class="league-separator">
 					<td colspan="2"><span>{% if division.shortName !== undefined %}{{division.shortName}}{% else %}{{division.name}}{% endif %}</span></td>
 				{% if currentSport === "NHL" %}
-					<td>W</td><td>L</td><td>OTL</td><td class="bold">PTS</td>
+					<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">OTL</td><td class="bold">PTS</td>
 				{% elseif currentSport === "MLB" %}
 					<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
 				{% elseif currentSport === "NBA" %}
-					<td>W</td><td>L</td><td>GB</td>
+					<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
 				{% elseif currentSport === "NFL" %}
 					<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">T</td>
 				{% elseif currentSport === "MLS" %}
-					<td>W</td><td>T</td><td>L</td><td class="bold">PTS</td>
+					<td class="dataCell">W</td><td class="dataCell">T</td><td class="dataCell">L</td><td class="bold">PTS</td>
 				{% elseif currentSport === "NCAAF" %}
-					<td>Conf</td><td>Overall</td>
+					<td class="dataCell">Conf</td><td class="dataCell">Overall</td>
 				{% elseif currentSport === "NCAAM" %}
-					<td>Conf</td><td>Overall</td>
+					<td class="dataCell">Conf</td><td class="dataCell">Overall</td>
 				{% else %}
-					<td>W</td><td>T</td><td>L</td><td class="bold">PTS</td>
+					<td class="dataCell">W</td><td class="dataCell">T</td><td class="dataCell">L</td><td class="bold">PTS</td>
 				{% endif %}
 				</tr>
 				{% for tm in division.standings.entries %}
