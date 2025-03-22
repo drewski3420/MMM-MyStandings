@@ -54,3 +54,8 @@
 	font-weight: bold;
 	padding-left: 10px;
 }
+
+.dataCell {
+	text-alignt: right;
+	padding: 0px 7px;
+}
