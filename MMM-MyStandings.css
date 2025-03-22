@@ -10,8 +10,9 @@
 }
 
 .MMM-MyStandings .logo {
-	width: 24px;
-	height: 24px;
+	max-width: 30px;
+	max-height: 30px;
+	padding-right: 5px;
 }
 
 .MMM-MyStandings .league-separator {
@@ -64,4 +65,8 @@
 .MMM-MyStandings .nameCell {
 	text-align: left;
 	padding-right: 7px;
+}
+
+.MMM-MyStandings .buffer {
+	height: 4px;
 }
