@@ -659,7 +659,7 @@ Module.register("MMM-MyStandings",{
 							break;
 						}
 						switch (entry.name) {
-							case "vs Conference":
+							case "vs. Conf.":
 								newEntry.name = entry.displayName;
 								newEntry.value = entry.displayValue;
 								newStats.push({
@@ -667,7 +667,7 @@ Module.register("MMM-MyStandings",{
 									value: newEntry
 								});
 								break;
-							case "Season":
+							case "overall":
 								newEntry.name = entry.displayName;
 								newEntry.value = entry.displayValue;
 								newStats.push({
