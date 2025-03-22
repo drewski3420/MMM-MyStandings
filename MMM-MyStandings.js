@@ -635,7 +635,7 @@ Module.register("MMM-MyStandings",{
 							break;
 						}
 						switch (entry.name) {
-							case "vsConf":
+							case "vs. Conf.":
 								newEntry.name = entry.displayName;
 								newEntry.value = entry.displayValue;
 								newStats.push({
