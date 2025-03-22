@@ -4,7 +4,7 @@
    viewBox="0 0 735.96485 699.8042"
    version="1.1"
    id="svg3"
-   sodipodi:docname="TBL.svg"
+   sodipodi:docname="TB.svg"
    width="735.96484"
    height="699.8042"
    inkscape:version="1.4 (86a8ad7, 2024-10-11)"
@@ -16,7 +16,7 @@
      id="defs3" />
   <sodipodi:namedview
      id="namedview3"
-     pagecolor="#ffffff"
+     pagecolor="#25b530"
      bordercolor="#000000"
      borderopacity="0.25"
      inkscape:showpageshadow="2"
@@ -24,7 +24,7 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="0.91796875"
-     inkscape:cx="370.38298"
+     inkscape:cx="371.47234"
      inkscape:cy="405.78723"
      inkscape:window-width="3440"
      inkscape:window-height="1377"
@@ -32,6 +32,15 @@
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg3" />
+  <rect
+     style="fill:#ffffff"
+     id="rect1"
+     width="550.12756"
+     height="421.58295"
+     x="81.702126"
+     y="140.52766"
+     ry="115.47234"
+     rx="271.25107" />
   <path
      id="path4"
      style="fill:#ffffff"
