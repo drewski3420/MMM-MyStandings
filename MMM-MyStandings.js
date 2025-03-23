@@ -272,7 +272,7 @@ Module.register("MMM-MyStandings",{
 		for (var i = 0; i < this.config.sports.length; i++) {
 			switch (this.config.sports[i].league) {
 				case "MLB":
-					sportUrl = this.config.url + "baseball/mlb/standings?level=3&sort=gamesbehind:asc,winpercent:desc";
+					sport = "baseball/mlb/standings?level=3&sort=gamesbehind:asc,winpercent:desc";
 					break;
 				case "NBA":
 					sportUrl = this.config.url + "basketball/nba/standings?level=3&sort=gamesbehind:asc,winpercent:desc";
@@ -307,7 +307,7 @@ Module.register("MMM-MyStandings",{
 			this.sendSocketNotification(
 				"STANDINGS_RESULT-" + this.config.sports[i].league, 
 				{
-					url: sportUrl,
+					url: this.config.url + sport,
 					uniqueID: JSON.stringify(this.config.sports)
 				}
 			);
