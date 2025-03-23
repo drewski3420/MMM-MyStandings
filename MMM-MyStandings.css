@@ -6,12 +6,11 @@
 .MMM-MyStandings .standings {
 	border-collapse: collapse;
 	font-size: 20px;
-	line-height: 40px;
 }
 
 .MMM-MyStandings .logo {
-	max-width: 30px;
-	max-height: 24px;
+	max-width: 40px;
+	max-height: 25px;
 	padding-right: 5px;
 }
 
