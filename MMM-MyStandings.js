@@ -268,40 +268,48 @@ Module.register("MMM-MyStandings",{
 		}
 
 		var sport;
+		var sportUrl;
 		var self = this;
 		for (var i = 0; i < this.config.sports.length; i++) {
 			switch (this.config.sports[i].league) {
 				case "MLB":
-					sport = "baseball/mlb/standings?level=3&sort=gamesbehind:asc,winpercent:desc";
+					sportUrl = this.config.url + "baseball/mlb/standings?level=3&sort=gamesbehind:asc,winpercent:desc";
 					break;
 				case "NBA":
-					sport = "basketball/nba/standings?level=3&sort=gamesbehind:asc,winpercent:desc";
+					sportUrl = this.config.url + "basketball/nba/standings?level=3&sort=gamesbehind:asc,winpercent:desc";
 					break;
 				case "NFL":
-					sport = "football/nfl/standings?level=3&sort=winpercent:desc,playoffseed:asc";
+					sportUrl = this.config.url + "football/nfl/standings?level=3&sort=winpercent:desc,playoffseed:asc";
 					break;
 				case "NHL":
-					sport = "hockey/nhl/standings?level=3&sort=points:desc,winpercent:desc,playoffseed:asc";
+					sportUrl = this.config.url + "hockey/nhl/standings?level=3&sort=points:desc,winpercent:desc,playoffseed:asc";
 					break;
 				case "MLS":
-					sport = "soccer/usa.1/standings?sort=rank:asc";
+					sportUrl = this.config.url + "soccer/usa.1/standings?sort=rank:asc";
 					break;
 				case "NCAAF":
-					sport = "football/college-football/standings?group=80&level=3&sort=leaguewinpercent:desc,vsconf_wins:desc,vsconf_gamesbehind:asc,vsconf_playoffseed:asc,wins:desc,losses:desc,playoffseed:asc,alpha:asc";
+					sportUrl = this.config.url + "football/college-football/standings?group=80&level=3&sort=leaguewinpercent:desc,vsconf_wins:desc,vsconf_gamesbehind:asc,vsconf_playoffseed:asc,wins:desc,losses:desc,playoffseed:asc,alpha:asc";
 					break;
 				case "NCAAM":
-					//longer url to restrict the amount of json coming back
-					sport = "basketball/mens-college-basketball/standings?group=50&sort=playoffseed:asc,vsconf_winpercent:desc,vsconf_wins:desc,vsconf_losses:asc,vsconf_gamesbehind:asc&includestats=playoffseed,vsconf,vsconf_gamesbehind,vsconf_winpercent,total,winpercent,home,road,streak,vsaprankedteams,vsusarankedteams";
+					sportUrl = this.config.url + "basketball/mens-college-basketball/standings?group=50&sort=playoffseed:asc,vsconf_winpercent:desc,vsconf_wins:desc,vsconf_losses:asc,vsconf_gamesbehind:asc&includestats=playoffseed,vsconf,vsconf_gamesbehind,vsconf_winpercent,total,winpercent,home,road,streak,vsaprankedteams,vsusarankedteams";
+					break;
+				//Currently unused
+				case "NCAAF - Top 25":
+					sportUrl = "https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings";
+					break;
+				//Currently unused
+				case "NCAAM - Top 25":
+					sportUrl = "https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/rankings";
 					break;
 				default: //soccer
-					sport = this.SOCCER_LEAGUE_PATHS[this.config.sports[i].league] + "/standings?sort=rank:asc";
+					sportUrl = this.config.url + this.SOCCER_LEAGUE_PATHS[this.config.sports[i].league] + "/standings?sort=rank:asc";
 					break;
 			}
 
 			this.sendSocketNotification(
 				"STANDINGS_RESULT-" + this.config.sports[i].league, 
 				{
-					url: this.config.url + sport,
+					url: sportUrl,
 					uniqueID: JSON.stringify(this.config.sports)
 				}
 			);
@@ -393,7 +401,7 @@ Module.register("MMM-MyStandings",{
 		var imageType = ".svg";
 		var isSoccer = this.isSoccerLeague(sport);
 
-		if (sport === 'NCAAF' || sport === 'NCAAM') {
+		if (sport.startsWith('NCAA')) {
 			imageType = ".png";
 		}
 
@@ -444,7 +452,11 @@ Module.register("MMM-MyStandings",{
 			for (i = 0; i < formattedStandingsObject[h].standings.entries.length; i++) {
 				if (this.config.useLocalLogos === true && !isSoccer) {
 					var team = formattedStandingsObject[h].standings.entries[i].team;
-					team.logos[0].href = this.file("logos/" + sport + "/" + team.abbreviation + imageType);
+					var logoFolder = sport;
+					if (logoFolder.startsWith('NCAA')) {
+						logoFolder = 'NCAA';
+					}
+					team.logos[0].href = this.file("logos/" + logoFolder + "/" + team.abbreviation + imageType);
 				}
 
 				var newStats = [];
