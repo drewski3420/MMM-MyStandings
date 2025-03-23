@@ -293,9 +293,11 @@ Module.register("MMM-MyStandings",{
 				case "NCAAM":
 					sportUrl = this.config.url + "basketball/mens-college-basketball/standings?group=50&sort=playoffseed:asc,vsconf_winpercent:desc,vsconf_wins:desc,vsconf_losses:asc,vsconf_gamesbehind:asc&includestats=playoffseed,vsconf,vsconf_gamesbehind,vsconf_winpercent,total,winpercent,home,road,streak,vsaprankedteams,vsusarankedteams";
 					break;
+				//Currently unused
 				case "NCAAF - Top 25":
 					sportUrl = "https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings";
 					break;
+				//Currently unused
 				case "NCAAM - Top 25":
 					sportUrl = "https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/rankings";
 					break;
