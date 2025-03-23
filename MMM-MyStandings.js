@@ -291,8 +291,13 @@ Module.register("MMM-MyStandings",{
 					sportUrl = this.config.url + "football/college-football/standings?group=80&level=3&sort=leaguewinpercent:desc,vsconf_wins:desc,vsconf_gamesbehind:asc,vsconf_playoffseed:asc,wins:desc,losses:desc,playoffseed:asc,alpha:asc";
 					break;
 				case "NCAAM":
-					//longer url to restrict the amount of json coming back
 					sportUrl = this.config.url + "basketball/mens-college-basketball/standings?group=50&sort=playoffseed:asc,vsconf_winpercent:desc,vsconf_wins:desc,vsconf_losses:asc,vsconf_gamesbehind:asc&includestats=playoffseed,vsconf,vsconf_gamesbehind,vsconf_winpercent,total,winpercent,home,road,streak,vsaprankedteams,vsusarankedteams";
+					break;
+				case "NCAAF - Top 25":
+					sportUrl = "https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings";
+					break;
+				case "NCAAM - Top 25":
+					sportUrl = "https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/rankings";
 					break;
 				default: //soccer
 					sportUrl = this.config.url + this.SOCCER_LEAGUE_PATHS[this.config.sports[i].league] + "/standings?sort=rank:asc";
