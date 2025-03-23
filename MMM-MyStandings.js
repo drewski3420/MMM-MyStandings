@@ -399,7 +399,7 @@ Module.register("MMM-MyStandings",{
 		var imageType = ".svg";
 		var isSoccer = this.isSoccerLeague(sport);
 
-		if (sport === 'NCAAF' || sport === 'NCAAM') {
+		if (sport === 'NCAAF' || sport === 'NCAAM' || sport === 'NCAAM - Top 25' || sport === 'NCAAF - Top 25') {
 			imageType = ".png";
 		}
 
@@ -450,7 +450,11 @@ Module.register("MMM-MyStandings",{
 			for (i = 0; i < formattedStandingsObject[h].standings.entries.length; i++) {
 				if (this.config.useLocalLogos === true && !isSoccer) {
 					var team = formattedStandingsObject[h].standings.entries[i].team;
-					team.logos[0].href = this.file("logos/" + sport + "/" + team.abbreviation + imageType);
+					var logoFolder = sport;
+					if (logoFolder.startswith('NCAA')) {
+						logoFolder = 'NCAA';
+					}
+					team.logos[0].href = this.file("logos/" + logoFolder + "/" + team.abbreviation + imageType);
 				}
 
 				var newStats = [];
