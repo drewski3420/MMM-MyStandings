@@ -444,10 +444,7 @@ Module.register("MMM-MyStandings",{
 			for (i = 0; i < formattedStandingsObject[h].standings.entries.length; i++) {
 				if (this.config.useLocalLogos === true && !isSoccer) {
 					var team = formattedStandingsObject[h].standings.entries[i].team;
-					logoFolder = sport;
-					if (logoFolder.startsWith('NCAA')) {
-						logoFolder = 'NCAA';
-					}
+					var logoFolder = sport;
 					team.logos[0].href = this.file("logos/" + logoFolder + "/" + team.abbreviation + imageType);
 				}
 
