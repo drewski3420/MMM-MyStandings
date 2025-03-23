@@ -393,7 +393,7 @@ Module.register("MMM-MyStandings",{
 		var imageType = ".svg";
 		var isSoccer = this.isSoccerLeague(sport);
 
-		if (sport.startswith('NCAA')) {
+		if (sport.startsWith('NCAA')) {
 			imageType = ".png";
 		}
 
@@ -445,7 +445,7 @@ Module.register("MMM-MyStandings",{
 				if (this.config.useLocalLogos === true && !isSoccer) {
 					var team = formattedStandingsObject[h].standings.entries[i].team;
 					logoFolder = sport;
-					if (logoFolder.startswith('NCAA')) {
+					if (logoFolder.startsWith('NCAA')) {
 						logoFolder = 'NCAA';
 					}
 					team.logos[0].href = this.file("logos/" + logoFolder + "/" + team.abbreviation + imageType);
