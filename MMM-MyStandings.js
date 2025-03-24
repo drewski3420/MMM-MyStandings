@@ -30,7 +30,6 @@ Module.register("MMM-MyStandings",{
 		nameStyle: "short", // "abbreviation", "full", or "short"
 		showLogos: true,
 		useLocalLogos: true, // true, then display logos from folder.  false, then display logos from the ESPN url
-		forceLocalLogos: false, // for dev purposes only; uses only local SVG files, not ESPN urls
 		showByDivision: true, // true, then display one division at a time.  false, display all divisions per sport
 		fadeSpeed: 2000,
 	},
@@ -457,9 +456,6 @@ Module.register("MMM-MyStandings",{
 					var leagueForLogoPath = sport;
 					if (leagueForLogoPath.startsWith('NCAA')) {
 						leagueForLogoPath = 'NCAA';
-					}
-					if (this.config.forceLocalLogos) {
-						team.logos[0].href = this.file("logos/" + leagueForLogoPath + "/" + team.abbreviation + ".svg");
 					}
 					if (this.localLogos[leagueForLogoPath]) {
 						if (this.localLogos[leagueForLogoPath].indexOf(team.abbreviation + ".svg") !== -1) { 
