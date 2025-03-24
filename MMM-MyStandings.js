@@ -192,6 +192,7 @@ Module.register("MMM-MyStandings",{
 	ignoreDivision: false,
 	isLoaded: false,
 	hasMoreDivisions: false,
+	localLogos: {},
 
 	// Start the module.
 	start: function () {
@@ -215,6 +216,9 @@ Module.register("MMM-MyStandings",{
 
 		// Schedule the first UI load
 		var self = this;
+
+		self.sendSocketNotification("MMM-MYSTANDINGS-GET-LOCAL-LOGOS", {instanceId: self.identifier});
+
 		setTimeout(function() {
 			self.rotateStandings();
 		}, this.config.initialLoadDelay);
@@ -321,6 +325,8 @@ Module.register("MMM-MyStandings",{
 			var league = notification.split("-")[1];
 			this.standingsInfo.push(this.cleanupData(payload.result.children, league));
 			this.standingsSportInfo.push(league);
+		} else if (notification === "MMM-MYSTANDINGS-LOCAL-LOGO-LIST") {
+			this.localLogos = payload.logos;
 		}
 	},
 
@@ -398,12 +404,7 @@ Module.register("MMM-MyStandings",{
 	cleanupData: function(standingsObject, sport) {
 		var g,h,i,j;
 		var formattedStandingsObject = [];
-		var imageType = ".svg";
 		var isSoccer = this.isSoccerLeague(sport);
-
-		if (sport.startsWith('NCAA')) {
-			imageType = ".png";
-		}
 
 		//leagues or conferences - extract out the division
 		for (g = 0; g < standingsObject.length; g++) {
@@ -450,13 +451,20 @@ Module.register("MMM-MyStandings",{
 
 			//teams
 			for (i = 0; i < formattedStandingsObject[h].standings.entries.length; i++) {
-				if (this.config.useLocalLogos === true && !isSoccer) {
+				if (this.config.useLocalLogos === true) {
 					var team = formattedStandingsObject[h].standings.entries[i].team;
-					var logoFolder = sport;
-					if (logoFolder.startsWith('NCAA')) {
-						logoFolder = 'NCAA';
+					var leagueForLogoPath = sport;
+					if (leagueForLogoPath.startsWith('NCAA')) {
+						leagueForLogoPath = 'NCAA';
 					}
-					team.logos[0].href = this.file("logos/" + logoFolder + "/" + team.abbreviation + imageType);
+					if (this.localLogos[leagueForLogoPath]) {
+						if (this.localLogos[leagueForLogoPath].indexOf(team.abbreviation + ".svg") !== -1) { 
+							team.logos[0].href = this.file("logos/" + leagueForLogoPath + "/" + team.abbreviation + ".svg");
+						} 
+						else if (this.localLogos[leagueForLogoPath].indexOf(team.abbreviation + ".png") !== -1) {
+							team.logos[0].href = this.file("logos/" + leagueForLogoPath + "/" + team.abbreviation + ".png");
+						}
+					}
 				}
 
 				var newStats = [];

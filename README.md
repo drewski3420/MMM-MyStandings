@@ -72,7 +72,7 @@ modules: [
 | rotateInterval | 1 * 60 * 1000 // every 1 minute <br> Time in milliseconds to rotate through the leagues or divisions
 | nameStyle | "abbreviation", "full", or <b>"short" </b> <br> Display abbreviation, full name, or short name for the team
 | showLogos | <b>true</b> or false <br> Display logos (true) or not (false)
-| useLocalLogos | <b>true</b> or false <br> Display logos from folder (true) or display logos from the ESPN url (false) <br> Most of the logos are the same from MMM-MyScoreboard
+| useLocalLogos | <b>true</b> or false <br> Display logos from folder if they are available (true) or displays all logos from the ESPN url (false)
 | showByDivision | <b>true</b> or false <br> Show the standings by division (true) or everything at once (false)
 | fadeSpeed | 2000 <br> Time in milliseconds to display the module
 
