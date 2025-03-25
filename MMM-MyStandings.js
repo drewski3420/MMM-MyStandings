@@ -32,6 +32,7 @@ Module.register("MMM-MyStandings",{
 		useLocalLogos: true, // true, then display logos from folder.  false, then display logos from the ESPN url
 		showByDivision: true, // true, then display one division at a time.  false, display all divisions per sport
 		fadeSpeed: 2000,
+		rankingLength: 25,
 	},
 
 	SOCCER_LEAGUE_PATHS: {
@@ -298,11 +299,11 @@ Module.register("MMM-MyStandings",{
 					sportUrl = this.config.url + "basketball/mens-college-basketball/standings?group=50&sort=playoffseed:asc,vsconf_winpercent:desc,vsconf_wins:desc,vsconf_losses:asc,vsconf_gamesbehind:asc&includestats=playoffseed,vsconf,vsconf_gamesbehind,vsconf_winpercent,total,winpercent,home,road,streak,vsaprankedteams,vsusarankedteams";
 					break;
 				//Currently unused
-				case "NCAAF - Top 25":
+				case "NCAAF Rankings":
 					sportUrl = "https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings";
 					break;
 				//Currently unused
-				case "NCAAM - Top 25":
+				case "NCAAM Rankings":
 					sportUrl = "https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/rankings";
 					break;
 				default: //soccer
@@ -321,7 +322,12 @@ Module.register("MMM-MyStandings",{
 	},
 
 	socketNotificationReceived: function(notification, payload) {
-		if (notification.startsWith("STANDINGS_RESULT") && payload.uniqueID == JSON.stringify(this.config.sports) ) {
+		if ( (notification.includes("Rankings")) && payload.uniqueID == JSON.stringify(this.config.sports) ) {
+			var league = notification.split("-")[1];
+			this.standingsInfo.push(this.cleanupRankings(payload.result.rankings, league));
+			//this.standingsInfo.push(payload.result.rankings);
+			this.standingsSportInfo.push(league);
+		} else if (notification.startsWith("STANDINGS_RESULT") && payload.uniqueID == JSON.stringify(this.config.sports) ) {
 			var league = notification.split("-")[1];
 			this.standingsInfo.push(this.cleanupData(payload.result.children, league));
 			this.standingsSportInfo.push(league);
@@ -738,6 +744,7 @@ Module.register("MMM-MyStandings",{
 						}
 					}
 				}
+				
 
 				// Sort these to help display in the correct order
 				function sortByKey(array, key) {
@@ -755,6 +762,54 @@ Module.register("MMM-MyStandings",{
 				}
 
 				formattedStandingsObject[h].standings.entries[i].stats = finalValues;
+			}
+		}
+
+		return formattedStandingsObject;
+	},
+
+	// For sake of size of the arrays, let us remove items that we do not particularly care about
+	cleanupRankings: function(formattedStandingsObject, sport) {
+		var poll,teamNo;
+
+		//Filter polls
+		for (poll = 0; poll < formattedStandingsObject.length; poll++) {
+			var hasMatch = false;
+
+			// We only want to show divisions/groups that we have configured
+			for (var league in this.config.sports) {
+				if (this.config.sports[league].league === sport) {
+					if (this.config.sports[league].groups !== undefined && this.config.sports[league].groups.includes(formattedStandingsObject[poll].name)) {
+						hasMatch = true;
+					} else {
+						formattedStandingsObject[poll] = null;
+					}
+				}
+			}
+
+			// Check to see if we have standings entries
+			if (hasMatch === false || formattedStandingsObject[poll] === null || formattedStandingsObject[poll].ranks === undefined) {
+				formattedStandingsObject[poll] = null;
+				continue;
+			}
+
+			//Use local logos
+			for (teamNo = 0; teamNo < formattedStandingsObject[poll].ranks.length; teamNo++) {
+				if (this.config.useLocalLogos === true) {
+					var team = formattedStandingsObject[poll].ranks[teamNo].team;
+					var leagueForLogoPath = sport;
+					if (leagueForLogoPath.startsWith('NCAA')) {
+						leagueForLogoPath = 'NCAA';
+					}
+					if (this.localLogos[leagueForLogoPath]) {
+						if (this.localLogos[leagueForLogoPath].indexOf(team.abbreviation + ".svg") !== -1) { 
+							team.logos[0].href = this.file("logos/" + leagueForLogoPath + "/" + team.abbreviation + ".svg");
+						} 
+						else if (this.localLogos[leagueForLogoPath].indexOf(team.abbreviation + ".png") !== -1) {
+							team.logos[0].href = this.file("logos/" + leagueForLogoPath + "/" + team.abbreviation + ".png");
+						}
+					}
+				}
 			}
 		}
 
