@@ -69,3 +69,22 @@
 .MMM-MyStandings .buffer {
 	height: 4px;
 }
+
+.MMM-MyStandings .rank {
+	display: inline-block;
+	color: #000;
+	background-color: #C0FF00;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 13px;
+	height: 13px;
+	padding: 0 2px;
+	margin-right: 2px;
+	margin-bottom: 4px;
+	border-bottom: solid 1px #000;
+	border-left: solid 1px #000;
+	border-radius: 2px;
+	top: 0;
+	right: 0;
+	bottom: 2px;
+}
