@@ -54,7 +54,9 @@ modules: [
 										"Mountain West Conference", "Northeast Conference", "Ohio Valley Conference", "Pac-12 Conference",
 										"Patriot League", "Southeastern Conference", "Southern Conference", "Southland Conference",
 										"Southwestern Athletic Conference", "Summit League", "Sun Belt Conference", "West Coast Conference",
-										"Western Athletic Conference"] }
+										"Western Athletic Conference"] },
+				{ league: "NCAAF Rankings", groups: ["AP Top 25", "AFCA Coaches Poll", "FCS Coaches Poll", "AFCA Division II Coaches Poll", "AFCA Division III Coaches Poll"] },
+				{ league: "NCAAM Rankings", groups: ["AP Top 25", "Coaches Poll"] }
 			],
 			nameStyle: "short",
 			showLogos: true,
