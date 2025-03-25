@@ -77,6 +77,7 @@ modules: [
 | useLocalLogos | <b>true</b> or false <br> Display logos from folder if they are available (true) or displays all logos from the ESPN url (false)
 | showByDivision | <b>true</b> or false <br> Show the standings by division (true) or everything at once (false)
 | fadeSpeed | 2000 <br> Time in milliseconds to display the module
+| rankingLength | The number of teams to display when using `NCAAF Ranking` or `NCAAM Ranking`<br><br>**Type:** `int` <br> **Default value:** `25` (all rankings)
 
 
 ## Additional Soccer Leagues
