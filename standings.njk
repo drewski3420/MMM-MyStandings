@@ -1,4 +1,38 @@
-{% if standings %}
+{% if standings and "Rankings" in currentSport %}
+	<table class="standings">
+		{% for poll in standings %}
+			{% if poll != null %}
+			{% if currentDivision === poll.name %}
+				<tr class="league-separator">
+					<td colspan="2"><span>{{currentSport.slice(0, 5)}} {{poll.name}}</span></td>
+				<td class="dataCell">Overall</td><td class="dataCell">PTS</td>
+				</tr>
+				<tr class="buffer"></tr>
+				{% for tm in poll.ranks %}
+					{% if tm.current <= config.rankingLength %}
+						<tr>
+							{% if config.showLogos === true %}
+								<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}" class="logo"/></td>
+							{% else %}
+								<td></td>
+							{% endif %}
+							{% if config.nameStyle === "short" %}
+								<td class="nameCell">{{tm.team.nickname}}<div class="rank">{{tm.current}}</div></td>
+							{% elseif config.nameStyle === "full" %}
+								<td class="nameCell">{{tm.team.nickname}} {{tm.team.name}}<div class="rank">{{tm.current}}</div></td>
+							{% elseif config.nameStyle === "abbreviation" %}
+								<td class="nameCell">{{tm.team.abbreviation}}<div class="rank">{{tm.current}}</div></td>
+							{% endif %}
+							<td class="dataCell">{{tm.recordSummary}}</td>
+							<td class="dataCell">{{tm.points}}</td>
+						</tr>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+			{% endif %}
+		{% endfor %}
+	</table>
+{% elseif standings %}
 	<table class="standings">
 		{% for division in standings %}
 			{% if division != null %}
