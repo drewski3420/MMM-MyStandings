@@ -98,6 +98,7 @@ else you can just configure leagues without groups like this
 ````
 <details>
   <summary><b>Available Soccer Leagues</b> (click to expand)</summary>
+	
 	//International Soccer
 	"AFC_ASIAN_CUP"
 	"AFC_ASIAN_CUP_Q"
