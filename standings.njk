@@ -1,5 +1,5 @@
 {% if standings and "Rankings" in currentSport %}
-	<table class="standings">
+	<table class="standings {% if config.colored === false %}grayscale{% endif %}">
 		{% for poll in standings %}
 			{% if poll != null %}
 			{% if currentDivision === poll.name %}
@@ -32,7 +32,7 @@
 		{% endfor %}
 	</table>
 {% elseif standings %}
-	<table class="standings">
+	<table class="standings {% if config.colored === false %}grayscale{% endif %}">
 		{% for division in standings %}
 			{% if division != null %}
 			{% if config.showByDivision === false or (config.showByDivision and currentDivision === division.name) or ignoreDivision === true %}
@@ -59,7 +59,7 @@
 				{% for tm in division.standings.entries %}
 					<tr>
 						{% if config.showLogos === true %}
-							<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}"/></td>
+							<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}" {% if config.colored === false %}class="grayscale"{% endif %}/></td>
 						{% else %}
 							<td></td>
 						{% endif %}
