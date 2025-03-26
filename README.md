@@ -74,6 +74,7 @@ modules: [
 ````
 
 Select the groups you want to rotate through or no groups to rotate through all groups in the league:
+
 `{ league: "ENG_PREMIERE_LEAGUE" }` will display English Premier League overall standings (because there are no divisions/groups)
 
 ````javascript
