@@ -306,9 +306,11 @@ Module.register("MMM-MyStandings",{
 				case "NCAAF Rankings":
 					sportUrl = this.config.urlRanking + "football/college-football/rankings";
 					break;
-				//Currently unused
 				case "NCAAM Rankings":
 					sportUrl = this.config.urlRanking + "basketball/mens-college-basketball/rankings";
+					break;
+				case "NCAAW Rankings":
+					sportUrl = this.config.urlRanking + "basketball/womens-college-basketball/rankings";
 					break;
 				default: //soccer
 					sportUrl = this.config.url + this.SOCCER_LEAGUE_PATHS[this.config.sports[i].league] + "/standings?sort=rank:asc";
