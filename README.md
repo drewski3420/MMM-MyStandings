@@ -73,10 +73,18 @@ modules: [
 ]
 ````
 
-else you can just configure leagues without groups like this
+Select the groups you want to rotate through or no groups to rotate through all groups in the league:
 ````javascript
 { league: "ENG_PREMIERE_LEAGUE" } //will display English Premier League overall standings (because there are no divisions/groups)
+````javascript
+````
 { league: "MLB" } //will rotate through MLB divisions
+````javascript
+````
+{ league: "NFL", groups: ["AFC East", "AFC North"] } //will rotate between AFCT East and AFC North
+````javascript
+````
+{ league: "NBA", groups: ["Atlantic"] } //will display only the Atlantic Division
 ````
 
 | Option | Description
@@ -248,15 +256,6 @@ If your soccer competition has groups and you want to see groups rotate, conside
 { league: "FIFA_WORLD_CUP", groups: ["Group A"] }, //only show group A
 { league: "FIFA_WORLD_CUP", groups: ["Group A", "Group B", "Group C", "Group D", "Group E", "Group F", "Group G", "Group H"] } //rotates through selected groups
 ````
-
-## Alternative ways of showing sports
-````javascript
-		sports: [
-			{ league: "NFL" },
-			{ league: "NHL", groups: ["Central Division"] }
-		]
-````
-This will rotate ALL NFL and only NHL's Central Division
 
 # Thank You
 Special thank you to [vincep5](https://github.com/vincep5/), who created the original version of this module and did most of the work.
