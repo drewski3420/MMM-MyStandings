@@ -4,9 +4,6 @@ MagicMirror module to get ESPN standings for the major US sports.  This is a for
 vincep5 was inspired by MMM-MyScoreboard and figured that this will complement it nicely.
 The module will rotate through different sports.  If you only want to show one sport or one division, the module will just display one without rotating.
 
-## API
-Uses the ESPN API for sports standings
-
 ## Preview
 ![screenshot1](screenshot1.JPG)
 
@@ -76,6 +73,13 @@ modules: [
 ]
 ````
 
+Select the groups you want to rotate through or no groups to rotate through all groups in the league:
+
+`{ league: "ENG_PREMIERE_LEAGUE" }` will display English Premier League overall standings (because there are no divisions/groups)
+<br>`{ league: "MLB" }` will rotate through MLB divisions
+<br>`{ league: "NFL", groups: ["AFC East", "AFC North"] }` will rotate between AFC East and AFC North
+<br>`{ league: "NBA", groups: ["Atlantic"] }` will display only the Atlantic Division
+
 | Option | Description
 | ------- |  -------
 | updateInterval | Time in milliseconds to update data from ESPN<br><br>**Type:** `int` <br> **Default value:** `60 * 60 * 1000` (every 60 minutes)
@@ -89,18 +93,10 @@ modules: [
 | rankingLength | The number of teams to display when using `NCAAF Rankings` or `NCAAM Rankings`<br><br>**Type:** `int` <br> **Default value:** `25` (all rankings)
 
 
-## Additional Soccer Leagues
-If your soccer competition has groups and you want to see groups rotate, consider this as your config
-````javascript
-{ league: "FIFA_WORLD_CUP", groups: ["GROUP A"] }, //only show group A
-{ league: "UEFA_CHAMPIONS", groups: ["GROUP A", "GROUP B", "GROUP C", "GROUP D", "GROUP E", "GROUP F", "GROUP G", "GROUP H"] }
-````
-else you can just configure leagues without groups like this
-````javascript
-{ league: "ENG_PREMIERE_LEAGUE" }
-````
-
-````javascript
+## Soccer Leagues
+<details>
+  <summary><b>Available Soccer Leagues</b> (click to expand)</summary>
+	
 	//International Soccer
 	"AFC_ASIAN_CUP"
 	"AFC_ASIAN_CUP_Q"
@@ -136,7 +132,7 @@ else you can just configure leagues without groups like this
 	"UEFA_NATIONS"
 	"SAFF_CHAMPIONSHIP"
 	"WOMENS_EUROPEAN_CHAMPIONSHIP"
-
+	
 	//UK/Ireland Soccer
 	"ENG_CHAMPIONSHIP"
 	"ENG_EFL"
@@ -152,7 +148,7 @@ else you can just configure leagues without groups like this
 	"SCO_LEAGUE_2"
 	"SCO_PREM"
 	"WAL_PREM"
-
+	
 	//European Soccer
 	"AUT_BUNDESLIGA"
 	"BEL_DIV_A"
@@ -177,7 +173,7 @@ else you can just configure leagues without groups like this
 	"SUI_SUPER_LEAGUE"
 	"SWE_ALLSVENSKANLIGA"
 	"TUR_SUPER_LIG"
-
+	
 	//South American Soccer
 	"ARG_COPA"
 	"ARG_NACIONAL_B"
@@ -203,7 +199,7 @@ else you can just configure leagues without groups like this
 	"PER_PRIMERA_PRO"
 	"URU_PRIMERA_DIV"
 	"VEN_PRIMERA_PRO"
-
+	
 	//North American Soccer
 	"CONCACAF_CHAMPIONS"
 	"CONCACAF_LEAGUE"
@@ -222,7 +218,7 @@ else you can just configure leagues without groups like this
 	"USA_NWSL"
 	"USA_OPEN"
 	"USA_USL"
-
+	
 	//Asian Soccer
 	"AFC_CHAMPIONS"
 	"AUS_A_LEAGUE"
@@ -234,7 +230,7 @@ else you can just configure leagues without groups like this
 	"MYS_SUPER_LEAGUE"
 	"SGP_PREMIER_LEAGUE"
 	"THA_PREMIER_LEAGUE"
-
+	
 	//African Soccer
 	"CAF_CHAMPIONS"
 	"CAF_CONFED_CUP"
@@ -246,16 +242,13 @@ else you can just configure leagues without groups like this
 	"UGA_SUPER_LEAGUE"
 	"ZAM_SUPER_LEAGUE"
 	"ZIM_PREMIER_LEAGUE"
-````
+</details>
 
-## Alternative ways of showing sports
+If your soccer competition has groups and you want to see groups rotate, consider this as your config
 ````javascript
-		sports: [
-			{ league: "NFL" },
-			{ league: "NHL", groups: ["Central Division"] }
-		]
+{ league: "FIFA_WORLD_CUP", groups: ["Group A"] }, //only show group A
+{ league: "FIFA_WORLD_CUP", groups: ["Group A", "Group B", "Group C", "Group D", "Group E", "Group F", "Group G", "Group H"] } //rotates through selected groups
 ````
-This will rotate ALL NFL and only NHL's Central Division
 
 # Thank You
 Special thank you to [vincep5](https://github.com/vincep5/), who created the original version of this module and did most of the work.
