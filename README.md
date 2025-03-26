@@ -50,7 +50,7 @@ modules: [
 										"Big South Conference", "Big Ten Conference", "Big West Conference", "Colonial Athletic Association",
 										"Conference USA", "Horizon League", "Ivy League", "Metro Atlantic Athletic Conference",
 										"Mid-American Conference", "Mid-Eastern Athletic Conference", "Missouri Valley Conference",
-										"Mountain West Conference", "Northeast Conference", "Ohio Valley Conference", "Pac-12 Conference",
+										"Mountain West Conference", "Northeast Conference", "Ohio Valley Conference",
 										"Patriot League", "Southeastern Conference", "Southern Conference", "Southland Conference",
 										"Southwestern Athletic Conference", "Summit League", "Sun Belt Conference", "West Coast Conference",
 										"Western Athletic Conference"] },
