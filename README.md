@@ -96,13 +96,13 @@ else you can just configure leagues without groups like this
 ````javascript
 { league: "ENG_PREMIERE_LEAGUE" }
 ````
+<details>
+  <summary>Available Soccer Leagues</summary>
+//International Soccer
 
-### Available Soccer Leagues
->! //International Soccer
->! 
->! "AFC_ASIAN_CUP"
->! 
->! "AFC_ASIAN_CUP_Q"
+"AFC_ASIAN_CUP"
+
+"AFC_ASIAN_CUP_Q"
 
 "AFF_CUP"
 "AFR_NATIONS_CUP"
@@ -246,6 +246,7 @@ else you can just configure leagues without groups like this
 "UGA_SUPER_LEAGUE"
 "ZAM_SUPER_LEAGUE"
 "ZIM_PREMIER_LEAGUE"
+</details>
 
 ## Alternative ways of showing sports
 ````javascript
