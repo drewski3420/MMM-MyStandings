@@ -33,6 +33,7 @@ Module.register("MMM-MyStandings",{
 		showByDivision: true, // true, then display one division at a time.  false, display all divisions per sport
 		fadeSpeed: 2000,
 		rankingLength: 25,
+		colored: true // true, then display logos in color.  false, then display logos in grayscale
 	},
 
 	SOCCER_LEAGUE_PATHS: {
