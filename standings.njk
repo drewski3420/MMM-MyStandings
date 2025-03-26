@@ -7,12 +7,11 @@
 					<td colspan="2"><span>{{currentSport.slice(0, 5)}} {{poll.name}}</span></td>
 				<td class="dataCell">Overall</td><td class="dataCell">PTS</td>
 				</tr>
-				<tr class="buffer"></tr>
 				{% for tm in poll.ranks %}
 					{% if tm.current <= config.rankingLength %}
 						<tr>
 							{% if config.showLogos === true %}
-								<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}" class="logo"/></td>
+								<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}"/></td>
 							{% else %}
 								<td></td>
 							{% endif %}
@@ -40,7 +39,7 @@
 				<tr class="league-separator">
 					<td colspan="2"><span>{% if division.shortName !== undefined %}{% if "NCAA" in currentSport %}{{currentSport}} - {% endif %}{{division.shortName}}{% else %}{{division.name}}{% endif %}</span></td>
 				{% if currentSport === "NHL" %}
-					<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">OTL</td><td class="bold">PTS</td>
+					<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">OTL</td><td class="dataCell bold">PTS</td>
 				{% elseif currentSport === "MLB" %}
 					<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
 				{% elseif currentSport === "NBA" %}
@@ -48,20 +47,19 @@
 				{% elseif currentSport === "NFL" %}
 					<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">T</td>
 				{% elseif currentSport === "MLS" %}
-					<td class="dataCell">W</td><td class="dataCell">T</td><td class="dataCell">L</td><td class="bold">PTS</td>
+					<td class="dataCell">W</td><td class="dataCell">T</td><td class="dataCell">L</td><td class="dataCell bold">PTS</td>
 				{% elseif currentSport === "NCAAF" %}
 					<td class="dataCell">Conf</td><td class="dataCell">Overall</td>
 				{% elseif currentSport === "NCAAM" %}
 					<td class="dataCell">Conf</td><td class="dataCell">Overall</td>
 				{% else %}
-					<td class="dataCell">W</td><td class="dataCell">T</td><td class="dataCell">L</td><td class="bold">PTS</td>
+					<td class="dataCell">W</td><td class="dataCell">T</td><td class="dataCell">L</td><td class="dataCell bold">PTS</td>
 				{% endif %}
 				</tr>
-				<tr class="buffer"></tr>
 				{% for tm in division.standings.entries %}
 					<tr>
 						{% if config.showLogos === true %}
-							<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}" class="logo"/></td>
+							<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}"/></td>
 						{% else %}
 							<td></td>
 						{% endif %}
@@ -74,7 +72,7 @@
 						{% endif %}
 						{% for stat in tm.stats %}
 							{% if stat.name === "points" %}
-								<td class="bold">{{stat.value}}</td>
+								<td class="dataCell bold">{{stat.value}}</td>
 							{% else %}
 								<td class="dataCell">{{stat.value}}</td>
 							{% endif %}
