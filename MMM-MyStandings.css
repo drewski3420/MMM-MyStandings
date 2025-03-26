@@ -94,6 +94,6 @@
 	padding-right: 0;
 }
 
-.MMM-MyStandings img {
+.MMM-MyStandings .grayscale {
 	filter: grayscale(100%);
 }
