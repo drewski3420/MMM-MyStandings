@@ -73,6 +73,12 @@ modules: [
 ]
 ````
 
+else you can just configure leagues without groups like this
+````javascript
+{ league: "ENG_PREMIERE_LEAGUE" }
+{ league: "MLB" }
+````
+
 | Option | Description
 | ------- |  -------
 | updateInterval | Time in milliseconds to update data from ESPN<br><br>**Type:** `int` <br> **Default value:** `60 * 60 * 1000` (every 60 minutes)
@@ -86,16 +92,7 @@ modules: [
 | rankingLength | The number of teams to display when using `NCAAF Rankings` or `NCAAM Rankings`<br><br>**Type:** `int` <br> **Default value:** `25` (all rankings)
 
 
-## Additional Soccer Leagues
-If your soccer competition has groups and you want to see groups rotate, consider this as your config
-````javascript
-{ league: "FIFA_WORLD_CUP", groups: ["GROUP A"] }, //only show group A
-{ league: "UEFA_CHAMPIONS", groups: ["GROUP A", "GROUP B", "GROUP C", "GROUP D", "GROUP E", "GROUP F", "GROUP G", "GROUP H"] }
-````
-else you can just configure leagues without groups like this
-````javascript
-{ league: "ENG_PREMIERE_LEAGUE" }
-````
+## Soccer Leagues
 <details>
   <summary><b>Available Soccer Leagues</b> (click to expand)</summary>
 	
@@ -245,6 +242,12 @@ else you can just configure leagues without groups like this
 	"ZAM_SUPER_LEAGUE"
 	"ZIM_PREMIER_LEAGUE"
 </details>
+
+If your soccer competition has groups and you want to see groups rotate, consider this as your config
+````javascript
+{ league: "FIFA_WORLD_CUP", groups: ["Group A"] }, //only show group A
+{ league: "FIFA_WORLD_CUP", groups: ["Group A", "Group B", "Group C", "Group D", "Group E", "Group F", "Group G", "Group H"] } //rotates through selected groups
+````
 
 ## Alternative ways of showing sports
 ````javascript
