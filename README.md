@@ -75,8 +75,8 @@ modules: [
 
 else you can just configure leagues without groups like this
 ````javascript
-{ league: "ENG_PREMIERE_LEAGUE" }
-{ league: "MLB" }
+{ league: "ENG_PREMIERE_LEAGUE" } //will display English Premier League overall standings (because there are no divisions/groups)
+{ league: "MLB" } //will rotate through MLB divisions
 ````
 
 | Option | Description
