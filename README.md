@@ -97,13 +97,10 @@ else you can just configure leagues without groups like this
 { league: "ENG_PREMIERE_LEAGUE" }
 ````
 <details>
-  <summary><b>Available Soccer Leagues</b></summary>
-//International Soccer
-
-"AFC_ASIAN_CUP"
-
-"AFC_ASIAN_CUP_Q"
-
+  <summary><b>Available Soccer Leagues</b> (click to expand)</summary>
+	//International Soccer
+	"AFC_ASIAN_CUP"
+	"AFC_ASIAN_CUP_Q"
 	"AFF_CUP"
 	"AFR_NATIONS_CUP"
 	"AFR_NATIONS_CUP_Q"
