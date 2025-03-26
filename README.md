@@ -76,9 +76,9 @@ modules: [
 Select the groups you want to rotate through or no groups to rotate through all groups in the league:
 
 `{ league: "ENG_PREMIERE_LEAGUE" }` will display English Premier League overall standings (because there are no divisions/groups)
-<br>`{ league: "MLB" }` //will rotate through MLB divisions
-<br>`{ league: "NFL", groups: ["AFC East", "AFC North"] }` //will rotate between AFCT East and AFC North
-<br>`{ league: "NBA", groups: ["Atlantic"] }` //will display only the Atlantic Division
+<br>`{ league: "MLB" }` will rotate through MLB divisions
+<br>`{ league: "NFL", groups: ["AFC East", "AFC North"] }` will rotate between AFCT East and AFC North
+<br>`{ league: "NBA", groups: ["Atlantic"] }` will display only the Atlantic Division
 
 | Option | Description
 | ------- |  -------
