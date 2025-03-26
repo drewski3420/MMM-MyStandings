@@ -45,9 +45,6 @@ Module.register("MMM-MyStandings",{
 		"AFR_NATIONS_CUP": "soccer/caf.nations",
 		"AFR_NATIONS_CUP_Q": "soccer/caf.nations_qual",
 		"AFR_NATIONS_CHAMPIONSHIP": "soccer/caf.championship",
-		"CONCACAF_GOLD_CUP": "soccer/concacaf.gold",
-		"CONCACAF_NATIONS_Q": "soccer/concacaf.nations.league_qual",
-		"CONCACAF_WOMENS_CHAMPIONSHIP": "soccer/concacaf.womens.championship",
 		"CONMEBOL_COPA_AMERICA": "soccer/conmebol.america",
 		"FIFA_CLUB_WORLD_CUP": "soccer/fifa.cwc",
 		"FIFA_CONFEDERATIONS_CUP": "soccer/fifa.confederations",
@@ -142,8 +139,10 @@ Module.register("MMM-MyStandings",{
 		"VEN_PRIMERA_PRO": "soccer/ven.1",
 
 		//North American Soccer
-		"CONCACAF_CHAMPIONS": "soccer/concacaf.champions",
-		"CONCACAF_LEAGUE": "soccer/concacaf.league",
+		"CONCACAF_GOLD_CUP": "soccer/concacaf.gold",
+		"CONCACAF_NATIONS_LEAGUE": "soccer/concacaf.nations.league",
+		"CONCACAF_NATIONS_Q": "soccer/concacaf.nations.league_qual",
+		"CONCACAF_WOMENS_CHAMPIONSHIP": "soccer/concacaf.womens.championship",
 		"CRC_PRIMERA_DIV": "soccer/crc.1",
 		"GUA_LIGA_NACIONAL": "soccer/gua.1",
 		"HON_PRIMERA_DIV": "soccer/hon.1",
