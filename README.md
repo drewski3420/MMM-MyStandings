@@ -46,7 +46,7 @@ modules: [
 										"Conference USA", "FBS Independents", "Mid-American Conference", "Mountain West Conference",
 										"Pac-12 Conference", "Southeastern Conference", "Sun Belt - East", "Sun Belt - West"]
 				{ league: "NCAAM", groups: ["America East Conference", "American Athletic Conference", "Atlantic 10 Conference", "Atlantic Coast Conference",
-										"Atlantic Sun Conference", "Big 12 Conference", "Big East Conference", "Big Sky Conference",
+										"ASUN Conference", "Big 12 Conference", "Big East Conference", "Big Sky Conference",
 										"Big South Conference", "Big Ten Conference", "Big West Conference", "Colonial Athletic Association",
 										"Conference USA", "Horizon League", "Ivy League", "Metro Atlantic Athletic Conference",
 										"Mid-American Conference", "Mid-Eastern Athletic Conference", "Missouri Valley Conference",
