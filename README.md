@@ -79,8 +79,8 @@ Select the groups you want to rotate through or no groups to rotate through all 
 ````
 ````javascript
 { league: "MLB" } //will rotate through MLB divisions
-````javascript
 ````
+````javascript
 { league: "NFL", groups: ["AFC East", "AFC North"] } //will rotate between AFCT East and AFC North
 ````
 ````javascript
