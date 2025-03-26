@@ -4,9 +4,6 @@ MagicMirror module to get ESPN standings for the major US sports.  This is a for
 vincep5 was inspired by MMM-MyScoreboard and figured that this will complement it nicely.
 The module will rotate through different sports.  If you only want to show one sport or one division, the module will just display one without rotating.
 
-## API
-Uses the ESPN API for sports standings
-
 ## Preview
 ![screenshot1](screenshot1.JPG)
 
@@ -101,12 +98,11 @@ else you can just configure leagues without groups like this
 ````
 
 >!
-````javascript
-	//International Soccer
-	"AFC_ASIAN_CUP"
-	"AFC_ASIAN_CUP_Q"
-	"AFF_CUP"
-	"AFR_NATIONS_CUP"
+>!	//International Soccer
+>!	"AFC_ASIAN_CUP"
+>!	"AFC_ASIAN_CUP_Q"
+>!	"AFF_CUP"
+>!	"AFR_NATIONS_CUP"
 	"AFR_NATIONS_CUP_Q"
 	"AFR_NATIONS_CHAMPIONSHIP"
 	"CONCACAF_GOLD_CUP"
@@ -247,8 +243,6 @@ else you can just configure leagues without groups like this
 	"UGA_SUPER_LEAGUE"
 	"ZAM_SUPER_LEAGUE"
 	"ZIM_PREMIER_LEAGUE"
-````
-!<
 
 ## Alternative ways of showing sports
 ````javascript
