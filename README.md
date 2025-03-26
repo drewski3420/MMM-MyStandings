@@ -97,7 +97,7 @@ else you can just configure leagues without groups like this
 { league: "ENG_PREMIERE_LEAGUE" }
 ````
 
-//International Soccer
+International Soccer
 "AFC_ASIAN_CUP"
 "AFC_ASIAN_CUP_Q"
 "AFF_CUP"
