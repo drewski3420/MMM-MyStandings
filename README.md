@@ -100,6 +100,7 @@ else you can just configure leagues without groups like this
 { league: "ENG_PREMIERE_LEAGUE" }
 ````
 
+>!
 ````javascript
 	//International Soccer
 	"AFC_ASIAN_CUP"
@@ -247,6 +248,7 @@ else you can just configure leagues without groups like this
 	"ZAM_SUPER_LEAGUE"
 	"ZIM_PREMIER_LEAGUE"
 ````
+!<
 
 ## Alternative ways of showing sports
 ````javascript
