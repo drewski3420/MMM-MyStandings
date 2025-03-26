@@ -8,6 +8,7 @@ Module.register("MMM-MyStandings",{
 		initialLoadDelay: 10 * 1000, // 10 second initial load delay
 		lang: config.language,
 		url: "http://site.web.api.espn.com/apis/v2/sports/",
+		urlRanking: "https://site.api.espn.com/apis/site/v2/sports/",
 		sports: [
 			{ league: "NBA", groups: ["Atlantic", "Central", "Southeast", "Northwest", "Pacific", "Southwest"] },
 			{ league: "MLB", groups: ["American League East", "American League Central", "American League West", "National League East", "National League Central", "National League West"] },
@@ -299,13 +300,15 @@ Module.register("MMM-MyStandings",{
 				case "NCAAM":
 					sportUrl = this.config.url + "basketball/mens-college-basketball/standings?group=50&sort=playoffseed:asc,vsconf_winpercent:desc,vsconf_wins:desc,vsconf_losses:asc,vsconf_gamesbehind:asc&includestats=playoffseed,vsconf,vsconf_gamesbehind,vsconf_winpercent,total,winpercent,home,road,streak,vsaprankedteams,vsusarankedteams";
 					break;
-				//Currently unused
+				case "NCAAW:
+					sportUrl = this.config.url + "basketball/womens-college-basketball/standings?group=50&sort=playoffseed:asc,vsconf_winpercent:desc,vsconf_wins:desc,vsconf_losses:asc,vsconf_gamesbehind:asc&includestats=playoffseed,vsconf,vsconf_gamesbehind,vsconf_winpercent,total,winpercent,home,road,streak,vsaprankedteams,vsusarankedteams";
+					break;
 				case "NCAAF Rankings":
-					sportUrl = "https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings";
+					sportUrl = this.config.urlRanking + "football/college-football/rankings";
 					break;
 				//Currently unused
 				case "NCAAM Rankings":
-					sportUrl = "https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/rankings";
+					sportUrl = this.config.urlRanking + "basketball/mens-college-basketball/rankings";
 					break;
 				default: //soccer
 					sportUrl = this.config.url + this.SOCCER_LEAGUE_PATHS[this.config.sports[i].league] + "/standings?sort=rank:asc";
@@ -680,7 +683,7 @@ Module.register("MMM-MyStandings",{
 								break;
 						}
 					}
-					else if (sport === 'NCAAM')
+					else if (sport === 'NCAAM' || sport === 'NCAAW')
 					{
 						if (newStats.length === 2) {
 							break;
