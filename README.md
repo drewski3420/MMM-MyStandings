@@ -98,11 +98,11 @@ else you can just configure leagues without groups like this
 ````
 
 >!
->!	//International Soccer
->!	"AFC_ASIAN_CUP"
->!	"AFC_ASIAN_CUP_Q"
->!	"AFF_CUP"
->!	"AFR_NATIONS_CUP"
+	//International Soccer
+	"AFC_ASIAN_CUP"
+	"AFC_ASIAN_CUP_Q"
+	"AFF_CUP"
+	"AFR_NATIONS_CUP"
 	"AFR_NATIONS_CUP_Q"
 	"AFR_NATIONS_CHAMPIONSHIP"
 	"CONCACAF_GOLD_CUP"
@@ -243,6 +243,7 @@ else you can just configure leagues without groups like this
 	"UGA_SUPER_LEAGUE"
 	"ZAM_SUPER_LEAGUE"
 	"ZIM_PREMIER_LEAGUE"
+!<
 
 ## Alternative ways of showing sports
 ````javascript
