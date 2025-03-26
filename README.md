@@ -76,14 +76,14 @@ modules: [
 Select the groups you want to rotate through or no groups to rotate through all groups in the league:
 ````javascript
 { league: "ENG_PREMIERE_LEAGUE" } //will display English Premier League overall standings (because there are no divisions/groups)
-````javascript
 ````
+````javascript
 { league: "MLB" } //will rotate through MLB divisions
 ````javascript
 ````
 { league: "NFL", groups: ["AFC East", "AFC North"] } //will rotate between AFCT East and AFC North
-````javascript
 ````
+````javascript
 { league: "NBA", groups: ["Atlantic"] } //will display only the Atlantic Division
 ````
 
