@@ -10,23 +10,17 @@ Module.register("MMM-MyStandings",{
 		url: "http://site.web.api.espn.com/apis/v2/sports/",
 		urlRanking: "https://site.api.espn.com/apis/site/v2/sports/",
 		sports: [
-			{ league: "NBA", groups: ["Atlantic", "Central", "Southeast", "Northwest", "Pacific", "Southwest"] },
-			{ league: "MLB", groups: ["American League East", "American League Central", "American League West", "National League East", "National League Central", "National League West"] },
-			{ league: "NFL", groups: ["AFC East", "AFC North", "AFC South", "AFC West", "NFC East", "NFC North", "NFC South", "NFC West"] },
-			{ league: "NHL", groups: ["Atlantic Division", "Metropolitan Division", "Central Division", "Pacific Division"] },
-			{ league: "MLS", groups: ["Eastern Conference", "Western Conference"] },
-			{ league: "NCAAF", groups: ["American Athletic - East", "American Athletic - West", "Atlantic Coast Conference - Atlantic", "Atlantic Coast Conference - Coastal",
-										"Big 12 Conference", "Big Ten - East", "Big Ten - West", "Conference USA - East", "Conference USA - West",
-										"FBS Independents", "Mid-American - East", "Mid-American - West", "Mountain West - Mountain", "Mountain West - West",
-										"Pac 12 - North", "Pac 12 - South", "SEC - East", "SEC - West", "Sun Belt - East", "Sun Belt - West"] },
-			{ league: "NCAAM", groups: ["America East Conference", "American Athletic Conference", "Atlantic 10 Conference", "Atlantic Coast Conference", "Atlantic Sun Conference",
-										"Big 12 Conference", "Big East Conference", "Big Sky Conference", "Big South Conference",
-										"Big Ten Conference", "Big West Conference", "Colonial Athletic Association", "Conference USA",
-										"Horizon League", "Ivy League", "Metro Atlantic Athletic Conference", "Mid-American Conference",
-										"Mid-Eastern Athletic Conference", "Missouri Valley Conference", "Mountain West Conference", "Northeast Conference",
-										"Ohio Valley Conference", "Pac-12 Conference", "Patriot League", "Southeastern Conference",
-										"Southern Conference", "Southland Conference", "Southwestern Athletic Conference", "Summit League",
-										"Sun Belt Conference", "West Coast Conference", "Western Athletic Conference"] }
+			{ league: "NBA", groups: ["Southeast"] },
+			{ league: "MLB", groups: ["American League East"] },
+			{ league: "NFL", groups: ["AFC North"] },
+			{ league: "NHL", groups: ["Metropolitan Division"] },
+			{ league: "MLS", groups: ["Western Conference"] },
+			{ league: "NCAAF", groups: ["Mountain West Conference"] },
+			{ league: "NCAAM", groups: ["Conference USA"] },
+			{ league: "NCAAW", groups: ["Big East Conference"] },
+			{ league: "NCAAF Rankings", groups: ["FCS Coaches Poll"] },
+			{ league: "NCAAM Rankings", groups: ["Coaches Poll"] },
+			{ league: "NCAAW Rankings", groups: ["AP Top 25"] }
 		],
 		nameStyle: "short", // "abbreviation", "full", or "short"
 		showLogos: true,
@@ -199,17 +193,6 @@ Module.register("MMM-MyStandings",{
 
 	// Start the module.
 	start: function () {
-		// Set some default for groups if not found in user config
-		for (var league in this.config.sports) {
-			if (this.config.sports[league].groups === undefined) {
-				for (var leagueDefault in this.defaults.sports) {
-					if (this.config.sports[league].league === this.defaults.sports[leagueDefault].league) {
-						this.config.sports[league].groups = this.defaults.sports[leagueDefault].groups;
-						break;
-					}
-				}
-			}
-		}
 
 		// Get initial API data
 		this.getData(false);
@@ -329,14 +312,14 @@ Module.register("MMM-MyStandings",{
 
 	socketNotificationReceived: function(notification, payload) {
 		if ( (notification.includes("Rankings")) && payload.uniqueID == JSON.stringify(this.config.sports) ) {
-			var league = notification.split("-")[1];
-			this.standingsInfo.push(this.cleanupRankings(payload.result.rankings, league));
+			var receivedLeague = notification.split("-")[1];
+			this.standingsInfo.push(this.cleanupRankings(payload.result.rankings, receivedLeague));
 			//this.standingsInfo.push(payload.result.rankings);
-			this.standingsSportInfo.push(league);
+			this.standingsSportInfo.push(receivedLeague);
 		} else if (notification.startsWith("STANDINGS_RESULT") && payload.uniqueID == JSON.stringify(this.config.sports) ) {
-			var league = notification.split("-")[1];
-			this.standingsInfo.push(this.cleanupData(payload.result.children, league));
-			this.standingsSportInfo.push(league);
+			var receivedLeague = notification.split("-")[1];
+			this.standingsInfo.push(this.cleanupData(payload.result.children, receivedLeague));
+			this.standingsSportInfo.push(receivedLeague);
 		} else if (notification === "MMM-MYSTANDINGS-LOCAL-LOGO-LIST") {
 			this.localLogos = payload.logos;
 		}
@@ -367,24 +350,24 @@ Module.register("MMM-MyStandings",{
 			this.ignoreDivision = false;
 
 			// Determine if we have more divisions/groups for this sport
-			for (var league in this.config.sports) {
-				if (this.config.sports[league].league === this.currentSport) {
+			for (var leagueIdx in this.config.sports) {
+				if (this.config.sports[leagueIdx].league === this.currentSport) {
 
 					// If we dont have divisions/groups for soccer
-					if (this.isSoccerLeague(this.currentSport) && this.config.sports[league].groups === undefined) {
+					if (this.isSoccerLeague(this.currentSport) && this.config.sports[leagueIdx].groups === undefined) {
 						this.ignoreDivision = true;
 						isLastDivisionInSport = true;
 						break;
 					}
 
-					if (this.config.sports[league].groups !== undefined)
+					if (this.config.sports[leagueIdx].groups !== undefined)
 					{
-						this.currentDivision = this.config.sports[league].groups[this.ctDivision];
+						this.currentDivision = this.config.sports[leagueIdx].groups[this.ctDivision];
 
-						if (this.ctDivision === this.config.sports[league].groups.length - 1) {
+						if (this.ctDivision === this.config.sports[leagueIdx].groups.length - 1) {
 							isLastDivisionInSport = true;
 						}
-						if (this.config.sports[league].groups.length > 1) {
+						if (this.config.sports[leagueIdx].groups.length > 1) {
 							this.hasMoreDivisions = true;
 						}
 					}
@@ -418,9 +401,9 @@ Module.register("MMM-MyStandings",{
 		var formattedStandingsObject = [];
 		var isSoccer = this.isSoccerLeague(sport);
 
-		//leagues or conferences - extract out the division
 		for (g = 0; g < standingsObject.length; g++) {
 			if (standingsObject[g].children !== undefined) {
+				//for league or conference data, extract out the division
 				for (h = 0; h < standingsObject[g].children.length; h++) {
 					formattedStandingsObject.push(standingsObject[g].children[h]);
 				}
@@ -433,23 +416,35 @@ Module.register("MMM-MyStandings",{
 			formattedStandingsObject = standingsObject;
 		}
 
+		//If groups in config is empty, use all groups
+		for (var leagueIdx in this.config.sports) {
+			if (this.config.sports[leagueIdx].league === sport && this.config.sports[leagueIdx].groups === undefined) {
+				this.config.sports[leagueIdx].groups = [];
+				if (formattedStandingsObject.length > 1) {
+					for (var s = 0; s < formattedStandingsObject.length; s++) {
+							this.config.sports[leagueIdx].groups.push(formattedStandingsObject[s].name);
+					}
+				}
+			}
+		}
+
 		//division
 		for (h = 0; h < formattedStandingsObject.length; h++) {
 			var hasMatch = false;
 
 			// We only want to show divisions/groups that we have configured
-			for (var league in this.config.sports) {
-				if (this.config.sports[league].league === sport) {
-					if (this.config.sports[league].groups !== undefined && this.config.sports[league].groups.includes(formattedStandingsObject[h].name)) {
+			for (var leagueIdx in this.config.sports) {
+				if (this.config.sports[leagueIdx].league === sport) {
+					if (this.config.sports[leagueIdx].groups !== undefined && this.config.sports[leagueIdx].groups.includes(formattedStandingsObject[h].name)) {
 						hasMatch = true;
 					} else {
 						// Soccer is the only sport where we do not really need to look for divisions/groups
 						// We must have found a match for all other non-soccer sports
 						// For soccer, if there is a group defined in the config, only do those divisions/groups
-						if (!isSoccer) {
-							formattedStandingsObject[h] = null;
-						} else {
+						if (isSoccer) {
 							hasMatch = true;
+						} else {
+							formattedStandingsObject[h] = null; //remove the division from memory to save space
 						}
 					}
 				}
@@ -774,9 +769,21 @@ Module.register("MMM-MyStandings",{
 		return formattedStandingsObject;
 	},
 
-	// For sake of size of the arrays, let us remove items that we do not particularly care about
+	// For sake of size of the arrays, let us remove items that we do not particularly care about (NCAA Rankings version)
 	cleanupRankings: function(formattedStandingsObject, sport) {
 		var poll,teamNo;
+
+		//If groups in config is empty, use all groups
+		for (var leagueIdx in this.config.sports) {
+			if (this.config.sports[leagueIdx].league === sport && this.config.sports[leagueIdx].groups === undefined) {
+				this.config.sports[leagueIdx].groups = [];
+				if (formattedStandingsObject.length > 1) {
+					for (var s = 0; s < formattedStandingsObject.length; s++) {
+							this.config.sports[leagueIdx].groups.push(formattedStandingsObject[s].name);
+					}
+				}
+			}
+		}
 
 		//Filter polls
 		for (poll = 0; poll < formattedStandingsObject.length; poll++) {
