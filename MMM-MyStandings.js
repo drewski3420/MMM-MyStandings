@@ -7,8 +7,6 @@ Module.register("MMM-MyStandings",{
 		rotateInterval: 1 * 60 * 1000, // every 1 minute
 		initialLoadDelay: 10 * 1000, // 10 second initial load delay
 		lang: config.language,
-		url: "http://site.web.api.espn.com/apis/v2/sports/",
-		urlRanking: "https://site.api.espn.com/apis/site/v2/sports/",
 		sports: [
 			{ league: "NBA", groups: ["Southeast"] },
 			{ league: "MLB", groups: ["American League East"] },
@@ -30,6 +28,9 @@ Module.register("MMM-MyStandings",{
 		rankingLength: 25,
 		colored: true // true, then display logos in color.  false, then display logos in grayscale
 	},
+
+	url: "http://site.web.api.espn.com/apis/v2/sports/",
+	urlRanking: "https://site.api.espn.com/apis/site/v2/sports/",
 
 	SOCCER_LEAGUE_PATHS: {
 		//International Soccer
@@ -194,6 +195,9 @@ Module.register("MMM-MyStandings",{
 	// Start the module.
 	start: function () {
 
+		// Set a uniqueID for this instance
+		const uniqueID = JSON.stringify(this.config.sports)
+		
 		// Get initial API data
 		this.getData(false);
 
@@ -263,40 +267,40 @@ Module.register("MMM-MyStandings",{
 		for (var i = 0; i < this.config.sports.length; i++) {
 			switch (this.config.sports[i].league) {
 				case "MLB":
-					sportUrl = this.config.url + "baseball/mlb/standings?level=3&sort=gamesbehind:asc,winpercent:desc";
+					sportUrl = this.url + "baseball/mlb/standings?level=3&sort=gamesbehind:asc,winpercent:desc";
 					break;
 				case "NBA":
-					sportUrl = this.config.url + "basketball/nba/standings?level=3&sort=gamesbehind:asc,winpercent:desc";
+					sportUrl = this.url + "basketball/nba/standings?level=3&sort=gamesbehind:asc,winpercent:desc";
 					break;
 				case "NFL":
-					sportUrl = this.config.url + "football/nfl/standings?level=3&sort=winpercent:desc,playoffseed:asc";
+					sportUrl = this.url + "football/nfl/standings?level=3&sort=winpercent:desc,playoffseed:asc";
 					break;
 				case "NHL":
-					sportUrl = this.config.url + "hockey/nhl/standings?level=3&sort=points:desc,winpercent:desc,playoffseed:asc";
+					sportUrl = this.url + "hockey/nhl/standings?level=3&sort=points:desc,winpercent:desc,playoffseed:asc";
 					break;
 				case "MLS":
-					sportUrl = this.config.url + "soccer/usa.1/standings?sort=rank:asc";
+					sportUrl = this.url + "soccer/usa.1/standings?sort=rank:asc";
 					break;
 				case "NCAAF":
-					sportUrl = this.config.url + "football/college-football/standings?group=80&level=3&sort=leaguewinpercent:desc,vsconf_wins:desc,vsconf_gamesbehind:asc,vsconf_playoffseed:asc,wins:desc,losses:desc,playoffseed:asc,alpha:asc";
+					sportUrl = this.url + "football/college-football/standings?group=80&level=3&sort=leaguewinpercent:desc,vsconf_wins:desc,vsconf_gamesbehind:asc,vsconf_playoffseed:asc,wins:desc,losses:desc,playoffseed:asc,alpha:asc";
 					break;
 				case "NCAAM":
-					sportUrl = this.config.url + "basketball/mens-college-basketball/standings?group=50&sort=playoffseed:asc,vsconf_winpercent:desc,vsconf_wins:desc,vsconf_losses:asc,vsconf_gamesbehind:asc&includestats=playoffseed,vsconf,vsconf_gamesbehind,vsconf_winpercent,total,winpercent,home,road,streak,vsaprankedteams,vsusarankedteams";
+					sportUrl = this.url + "basketball/mens-college-basketball/standings?group=50&sort=playoffseed:asc,vsconf_winpercent:desc,vsconf_wins:desc,vsconf_losses:asc,vsconf_gamesbehind:asc&includestats=playoffseed,vsconf,vsconf_gamesbehind,vsconf_winpercent,total,winpercent,home,road,streak,vsaprankedteams,vsusarankedteams";
 					break;
 				case "NCAAW":
-					sportUrl = this.config.url + "basketball/womens-college-basketball/standings?group=50&sort=playoffseed:asc,vsconf_winpercent:desc,vsconf_wins:desc,vsconf_losses:asc,vsconf_gamesbehind:asc&includestats=playoffseed,vsconf,vsconf_gamesbehind,vsconf_winpercent,total,winpercent,home,road,streak,vsaprankedteams,vsusarankedteams";
+					sportUrl = this.url + "basketball/womens-college-basketball/standings?group=50&sort=playoffseed:asc,vsconf_winpercent:desc,vsconf_wins:desc,vsconf_losses:asc,vsconf_gamesbehind:asc&includestats=playoffseed,vsconf,vsconf_gamesbehind,vsconf_winpercent,total,winpercent,home,road,streak,vsaprankedteams,vsusarankedteams";
 					break;
 				case "NCAAF Rankings":
-					sportUrl = this.config.urlRanking + "football/college-football/rankings";
+					sportUrl = this.urlRanking + "football/college-football/rankings";
 					break;
 				case "NCAAM Rankings":
-					sportUrl = this.config.urlRanking + "basketball/mens-college-basketball/rankings";
+					sportUrl = this.urlRanking + "basketball/mens-college-basketball/rankings";
 					break;
 				case "NCAAW Rankings":
-					sportUrl = this.config.urlRanking + "basketball/womens-college-basketball/rankings";
+					sportUrl = this.urlRanking + "basketball/womens-college-basketball/rankings";
 					break;
 				default: //soccer
-					sportUrl = this.config.url + this.SOCCER_LEAGUE_PATHS[this.config.sports[i].league] + "/standings?sort=rank:asc";
+					sportUrl = this.url + this.SOCCER_LEAGUE_PATHS[this.config.sports[i].league] + "/standings?sort=rank:asc";
 					break;
 			}
 
@@ -304,19 +308,39 @@ Module.register("MMM-MyStandings",{
 				"STANDINGS_RESULT-" + this.config.sports[i].league, 
 				{
 					url: sportUrl,
-					uniqueID: JSON.stringify(this.config.sports)
+					uniqueID: this.uniqueID
 				}
 			);
 		}
 	},
 
 	socketNotificationReceived: function(notification, payload) {
-		if ( (notification.includes("Rankings")) && payload.uniqueID == JSON.stringify(this.config.sports) ) {
+		if (notification.startsWith("STANDINGS_RESULT") && payload.uniqueID == this.uniqueID ) {
+			var receivedLeague = notification.split("-")[1];
+			for (var leagueIdx in this.config.sports) {
+				if (this.config.sports[leagueIdx].league === receivedLeague && this.config.sports[leagueIdx].groups === undefined && payload.result.children.length > 1) {
+					this.config.sports[leagueIdx].groups = []
+					for (var childIdx in payload.result.children) {
+						if (payload.result.children[childIdx].children !== undefined) {
+							for (var child2Idx in payload.result.children[childIdx].children) {
+								//console.log(payload.result.children[childIdx].children[child2Idx].name);
+								this.config.sports[leagueIdx].groups.push(payload.result.children[childIdx].children[child2Idx].name);
+							}
+						} else {
+							//console.log(payload.result.children[childIdx].name);
+							this.config.sports[leagueIdx].groups.push(payload.result.children[childIdx].name);
+						}
+					}
+				}
+			}
+		//console.log(this.config.sports);
+		}
+		if ( (notification.includes("Rankings")) && payload.uniqueID == this.uniqueID ) {
 			var receivedLeague = notification.split("-")[1];
 			this.standingsInfo.push(this.cleanupRankings(payload.result.rankings, receivedLeague));
 			//this.standingsInfo.push(payload.result.rankings);
 			this.standingsSportInfo.push(receivedLeague);
-		} else if (notification.startsWith("STANDINGS_RESULT") && payload.uniqueID == JSON.stringify(this.config.sports) ) {
+		} else if (notification.startsWith("STANDINGS_RESULT") && payload.uniqueID == this.uniqueID ) {
 			var receivedLeague = notification.split("-")[1];
 			this.standingsInfo.push(this.cleanupData(payload.result.children, receivedLeague));
 			this.standingsSportInfo.push(receivedLeague);
@@ -414,18 +438,6 @@ Module.register("MMM-MyStandings",{
 
 		if (formattedStandingsObject.length === 0) {
 			formattedStandingsObject = standingsObject;
-		}
-
-		//If groups in config is empty, use all groups
-		for (var leagueIdx in this.config.sports) {
-			if (this.config.sports[leagueIdx].league === sport && this.config.sports[leagueIdx].groups === undefined) {
-				this.config.sports[leagueIdx].groups = [];
-				if (formattedStandingsObject.length > 1) {
-					for (var s = 0; s < formattedStandingsObject.length; s++) {
-							this.config.sports[leagueIdx].groups.push(formattedStandingsObject[s].name);
-					}
-				}
-			}
 		}
 
 		//division
@@ -772,18 +784,6 @@ Module.register("MMM-MyStandings",{
 	// For sake of size of the arrays, let us remove items that we do not particularly care about (NCAA Rankings version)
 	cleanupRankings: function(formattedStandingsObject, sport) {
 		var poll,teamNo;
-
-		//If groups in config is empty, use all groups
-		for (var leagueIdx in this.config.sports) {
-			if (this.config.sports[leagueIdx].league === sport && this.config.sports[leagueIdx].groups === undefined) {
-				this.config.sports[leagueIdx].groups = [];
-				if (formattedStandingsObject.length > 1) {
-					for (var s = 0; s < formattedStandingsObject.length; s++) {
-							this.config.sports[leagueIdx].groups.push(formattedStandingsObject[s].name);
-					}
-				}
-			}
-		}
 
 		//Filter polls
 		for (poll = 0; poll < formattedStandingsObject.length; poll++) {
