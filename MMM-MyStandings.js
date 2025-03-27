@@ -176,7 +176,10 @@ Module.register("MMM-MyStandings",{
 		"RSA_PREMIERSHIP": "soccer/rsa.1",
 		"UGA_SUPER_LEAGUE": "soccer/uga.1",
 		"ZAM_SUPER_LEAGUE": "soccer/zam.1",
-		"ZIM_PREMIER_LEAGUE": "soccer/zim.1"
+		"ZIM_PREMIER_LEAGUE": "soccer/zim.1",
+
+		//Rugby
+		"Premiership Rugby": "267979",
 	},
 
 	// Module properties.
@@ -309,7 +312,7 @@ Module.register("MMM-MyStandings",{
 				case "NCAAW Rankings":
 					sportUrls.push(this.urlRanking + "basketball/womens-college-basketball/rankings");
 					break;
-				default: //soccer
+				default: //soccer & rugby
 					sportUrls.push(this.url + this.SOCCER_LEAGUE_PATHS[this.config.sports[i].league] + "/standings?sort=rank:asc");
 					break;
 			}
