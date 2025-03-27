@@ -32,57 +32,66 @@
 		{% endfor %}
 	</table>
 {% elseif standings %}
+	{% set somethingToDisplay = 0 %}
 	<table class="standings {% if config.colored === false %}grayscale{% endif %}">
-		{% for division in standings %}
-			{% if division != null %}
-			{% if config.showByDivision === false or (config.showByDivision and currentDivision === division.name) or ignoreDivision === true %}
-				<tr class="league-separator">
-					<td colspan="2"><span>{% if division.shortName !== undefined %}{% if "NCAA" in currentSport %}{{currentSport}} - {% endif %}{{division.shortName}}{% else %}{{division.name}}{% endif %}</span></td>
-				{% if currentSport === "NHL" %}
-					<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">OTL</td><td class="dataCell bold">PTS</td>
-				{% elseif currentSport === "MLB" %}
-					<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
-				{% elseif currentSport === "NBA" %}
-					<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
-				{% elseif currentSport === "NFL" %}
-					<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">T</td>
-				{% elseif currentSport === "MLS" %}
-					<td class="dataCell">W</td><td class="dataCell">T</td><td class="dataCell">L</td><td class="dataCell bold">PTS</td>
-				{% elseif currentSport === "NCAAF" %}
-					<td class="dataCell">Conf</td><td class="dataCell">Overall</td>
-				{% elseif currentSport === "NCAAM" or currentSport === "NCAAW" %}
-					<td class="dataCell">Conf</td><td class="dataCell">Overall</td>
-				{% else %}
-					<td class="dataCell">W</td><td class="dataCell">T</td><td class="dataCell">L</td><td class="dataCell bold">PTS</td>
-				{% endif %}
-				</tr>
-				{% for tm in division.standings.entries %}
-					<tr>
-						{% if config.showLogos === true %}
-							<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}" {% if config.colored === false %}class="grayscale"{% endif %}/></td>
+	{% for division in standings %}
+		{% if division != null %}
+		{% if config.showByDivision === false or (config.showByDivision and currentDivision === division.name) or ignoreDivision === true %}
+			{% set somethingToDisplay = 1 %}
+			<tr class="league-separator">
+				<td colspan="2"><span>{% if division.shortName !== undefined %}{% if "NCAA" in currentSport %}{{currentSport}} - {% endif %}{{division.shortName}}{% else %}{{division.name}}{% endif %}</span></td>
+			{% if currentSport === "NHL" %}
+				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">OTL</td><td class="dataCell bold">PTS</td>
+			{% elseif currentSport === "MLB" %}
+				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
+			{% elseif currentSport === "NBA" %}
+				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
+			{% elseif currentSport === "NFL" %}
+				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">T</td>
+			{% elseif currentSport === "MLS" %}
+				<td class="dataCell">W</td><td class="dataCell">T</td><td class="dataCell">L</td><td class="dataCell bold">PTS</td>
+			{% elseif currentSport === "NCAAF" %}
+				<td class="dataCell">Conf</td><td class="dataCell">Overall</td>
+			{% elseif currentSport === "NCAAM" or currentSport === "NCAAW" %}
+				<td class="dataCell">Conf</td><td class="dataCell">Overall</td>
+			{% elseif currentSport === "F1" %}
+				<td class="dataCell">Rank</td><td class="dataCell bold">Points</td>
+			{% else %}
+				<td class="dataCell">W</td><td class="dataCell">T</td><td class="dataCell">L</td><td class="dataCell bold">PTS</td>
+			{% endif %}
+			</tr>
+			{% for tm in division.standings.entries %}
+				<tr>
+					{% if config.showLogos === true %}
+						<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}" {% if config.colored === false %}class="grayscale"{% endif %}/></td>
+					{% else %}
+						<td></td>
+					{% endif %}
+					{% if config.nameStyle === "short" %}
+						<td class="nameCell">{{tm.team.shortDisplayName}}</td>
+					{% elseif config.nameStyle === "full" %}
+						<td class="nameCell">{{tm.team.displayName}}</td>
+					{% elseif config.nameStyle === "abbreviation" %}
+						<td class="nameCell">{{tm.team.abbreviation}}</td>
+					{% endif %}
+					{% for stat in tm.stats %}
+						{% if stat.name === "points" %}
+							<td class="dataCell bold">{{stat.value}}</td>
 						{% else %}
-							<td></td>
+							<td class="dataCell">{{stat.value}}</td>
 						{% endif %}
-						{% if config.nameStyle === "short" %}
-							<td class="nameCell">{{tm.team.shortDisplayName}}</td>
-						{% elseif config.nameStyle === "full" %}
-							<td class="nameCell">{{tm.team.displayName}}</td>
-						{% elseif config.nameStyle === "abbreviation" %}
-							<td class="nameCell">{{tm.team.abbreviation}}</td>
-						{% endif %}
-						{% for stat in tm.stats %}
-							{% if stat.name === "points" %}
-								<td class="dataCell bold">{{stat.value}}</td>
-							{% else %}
-								<td class="dataCell">{{stat.value}}</td>
-							{% endif %}
-						{% endfor %}
-					</tr>
-				{% endfor %}
-			{% endif %}
-			{% endif %}
-		{% endfor %}
+					{% endfor %}
+				</tr>
+			{% endfor %}
+		{% endif %}
+		{% endif %}
+	{% endfor %}
 	</table>
+	{% if somethingToDisplay === 0 %}
+		<div class="dimmed light small">
+			MMM-MyStandings Error:<br>"{{currentSport}}" - "{{currentDivision}}"<br>not a valid division.<br>Check your config file.
+		</div>
+	{% endif %}
 {% else %}
 	<div class="dimmed light small">
 		{{ "Loading MyStandings..." | translate | safe }}
