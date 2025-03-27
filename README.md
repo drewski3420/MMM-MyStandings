@@ -41,7 +41,7 @@ modules: [
 				{ league: "MLS", groups: ["Eastern Conference", "Western Conference"] },
 				{ league: "NCAAF", groups: ["American Athletic Conference", "Atlantic Coast Conference", "Big 12 Conference", "Big Ten Conference",
 										"Conference USA", "FBS Independents", "Mid-American Conference", "Mountain West Conference",
-										"Pac-12 Conference", "Southeastern Conference", "Sun Belt - East", "Sun Belt - West"]
+										"Pac-12 Conference", "Southeastern Conference", "Sun Belt - East", "Sun Belt - West"] },
 				{ league: "NCAAM", groups: ["America East Conference", "American Athletic Conference", "Atlantic 10 Conference", "Atlantic Coast Conference",
 										"ASUN Conference", "Big 12 Conference", "Big East Conference", "Big Sky Conference",
 										"Big South Conference", "Big Ten Conference", "Big West Conference", "Colonial Athletic Association",
@@ -76,7 +76,7 @@ modules: [
 Select the groups you want to rotate through or no groups to rotate through all groups in the league:
 
 `{ league: "ENG_PREMIERE_LEAGUE" }` will display English Premier League overall standings (because there are no divisions/groups)
-<br>`{ league: "MLB" }` will rotate through MLB divisions
+<br>`{ league: "MLB" }` will rotate through all MLB divisions
 <br>`{ league: "NFL", groups: ["AFC East", "AFC North"] }` will rotate between AFC East and AFC North
 <br>`{ league: "NBA", groups: ["Atlantic"] }` will display only the Atlantic Division
 
@@ -246,7 +246,8 @@ Select the groups you want to rotate through or no groups to rotate through all 
 If your soccer competition has groups and you want to see groups rotate, consider this as your config
 ````javascript
 { league: "FIFA_WORLD_CUP", groups: ["Group A"] }, //only show group A
-{ league: "FIFA_WORLD_CUP", groups: ["Group A", "Group B", "Group C", "Group D", "Group E", "Group F", "Group G", "Group H"] } //rotates through selected groups
+{ league: "FIFA_WORLD_CUP", groups: ["Group A", "Group B", "Group C", "Group D", "Group E", "Group G", "Group H"] } //rotates through selected groups
+{ league: "FIFA_WORLD_CUP" } //rotates through all groups
 ````
 
 # Thank You
