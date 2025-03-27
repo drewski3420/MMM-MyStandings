@@ -27,6 +27,7 @@ Module.register("MMM-MyStandings",{
 		fadeSpeed: 2000,
 		rankingLength: 25,
 		colored: true // true, then display logos in color.  false, then display logos in grayscale
+		uniqueID: ""
 	},
 
 	url: "http://site.web.api.espn.com/apis/v2/sports/",
@@ -206,7 +207,7 @@ Module.register("MMM-MyStandings",{
 	start: function () {
 
 		// Set a uniqueID for this instance
-		const uniqueID = JSON.stringify(this.config.sports)
+		this.defaults.uniqueID = JSON.stringify(this.config.sports);
 		
 		// Get initial API data
 		this.getData(false);
@@ -347,7 +348,7 @@ Module.register("MMM-MyStandings",{
 					"STANDINGS_RESULT-" + this.config.sports[i].league, 
 					{
 						url: sportUrls[j],
-						uniqueID: this.uniqueID
+						uniqueID: this.defaults.uniqueID
 					}
 				);
 			}
@@ -355,7 +356,7 @@ Module.register("MMM-MyStandings",{
 	},
 
 	socketNotificationReceived: function(notification, payload) {
-		if (notification.startsWith("STANDINGS_RESULT") && payload.uniqueID == this.uniqueID ) {
+		if (notification.startsWith("STANDINGS_RESULT") && payload.uniqueID == this.defaults.uniqueID ) {
 			var receivedLeague = notification.split("-")[1];
 			for (var leagueIdx in this.config.sports) {
 				if (this.config.sports[leagueIdx].league === receivedLeague && this.config.sports[leagueIdx].groups === undefined && payload.result.children.length > 1) {
@@ -372,11 +373,11 @@ Module.register("MMM-MyStandings",{
 				}
 			}
 		}
-		if (notification.includes("Rankings") && payload.uniqueID == this.uniqueID) {
+		if (notification.includes("Rankings") && payload.uniqueID == this.defaults.uniqueID) {
 			var receivedLeague = notification.split("-")[1];
 			this.standingsInfo.push(this.cleanupRankings(payload.result.rankings, receivedLeague));
 			this.standingsSportInfo.push(receivedLeague);
-		} else if (notification.startsWith("STANDINGS_RESULT") && payload.uniqueID == this.uniqueID) {
+		} else if (notification.startsWith("STANDINGS_RESULT") && payload.uniqueID == this.defaults.uniqueID) {
 			var receivedLeague = notification.split("-")[1];
 			if (payload.result.standings) {
 				this.standingsInfo.push(this.cleanupData(payload.result, receivedLeague));
