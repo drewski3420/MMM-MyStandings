@@ -88,7 +88,7 @@ Select the groups you want to rotate through or no groups to rotate through all 
 | showLogos | Display logos (true) or not (false)<br><br>**Type:** `boolean` <br> **Default value:** `true`
 | useLocalLogos | Display logos from folder if they are available (true) or displays all logos from the ESPN url (false)<br><br>**Type:** `boolean` <br> **Default value:** `true`
 | colored | Chooses whether to display the module in full color (true) or grayscale (false)<br><br>**Type:** `boolean` <br> **Default value:** `true`
-| showByDivision | Show the standings by division (true) or everything at once (false)<br><br>**Type:** `boolean` <br> **Default value:** `true`
+| showByDivision | Rotate through each division/group separately (true) or show all divisions/groups at once stacked on top of one another (false)<br><br>**Type:** `boolean` <br> **Default value:** `true`
 | fadeSpeed | Time in milliseconds to display the module<br><br>**Type:** `int` <br> **Default value:** `2000` (2 seconds)
 | rankingLength | The number of teams to display when using `NCAAF Rankings` or `NCAAM Rankings`<br><br>**Type:** `int` <br> **Default value:** `25` (all rankings)
 
