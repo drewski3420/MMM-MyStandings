@@ -30,7 +30,7 @@ modules: [
 		module: "MMM-MyStandings",
 		position: "top_right",
 		config: {
-			updateInterval: 60 * 60 * 1000, // every 60 minutes
+			updateInterval: 4* 60 * 60 * 1000, // every 4 hours
 			rotateInterval: 1 * 60 * 1000, // every 1 minute
 			sports: [
 				{ league: "NBA", groups: ["Atlantic", "Central", "Southeast", "Northwest", "Pacific", "Southwest"] },
