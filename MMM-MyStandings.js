@@ -176,7 +176,21 @@ Module.register("MMM-MyStandings",{
 		"RSA_PREMIERSHIP": "soccer/rsa.1",
 		"UGA_SUPER_LEAGUE": "soccer/uga.1",
 		"ZAM_SUPER_LEAGUE": "soccer/zam.1",
-		"ZIM_PREMIER_LEAGUE": "soccer/zim.1"
+		"ZIM_PREMIER_LEAGUE": "soccer/zim.1",
+
+		//Rugby
+		"Premiership Rugby": "rugby/267979",
+		"Rugby World Cup": "rugby/164205",
+		"Six Nations Rugby": "rugby/180659",
+		"The Rugby Championship": "rugby/244293",
+		"European Rugby Champions Cup": "rugby/271937",
+		"United Rugby Championship": "rugby/270557",
+		"Super Rugby Pacific": "rugby/242041",
+		"Olympic Men's 7s Rugby": "rugby/282",
+		"Olympic Women's Rugby Sevens": "rugby/283",
+		"International Test Match Rugby": "rugby/289234",
+		"URBA Top 12 Rugby": "rugby/289279",
+		"Mitre 10 Cup Rugby": "rugby/270563"
 	},
 
 	// Module properties.
@@ -309,7 +323,7 @@ Module.register("MMM-MyStandings",{
 				case "NCAAW Rankings":
 					sportUrls.push(this.urlRanking + "basketball/womens-college-basketball/rankings");
 					break;
-				default: //soccer
+				default: //soccer & rugby
 					sportUrls.push(this.url + this.SOCCER_LEAGUE_PATHS[this.config.sports[i].league] + "/standings?sort=rank:asc");
 					break;
 			}
@@ -727,6 +741,46 @@ Module.register("MMM-MyStandings",{
 								newEntry.value = entry.displayValue;
 								newStats.push({
 									key: 2,
+									value: newEntry
+								});
+								break;
+						}
+					}
+					else if (sport.includes('Rugby'))
+					{
+						if (newStats.length === 4) {
+							break;
+						}
+						switch (entry.name) {
+							case "gamesWon":
+								newEntry.name = entry.name;
+								newEntry.value = entry.value;
+								newStats.push({
+									key: 1,
+									value: newEntry
+								});
+								break;
+							case "gamesDrawn":
+								newEntry.name = entry.name;
+								newEntry.value = entry.value;
+								newStats.push({
+									key: 2,
+									value: newEntry
+								});
+								break;
+							case "gamesLost":
+								newEntry.name = entry.name;
+								newEntry.value = entry.value;
+								newStats.push({
+									key: 3,
+									value: newEntry
+								});
+								break;
+							case "points":
+								newEntry.name = entry.name;
+								newEntry.value = entry.value;
+								newStats.push({
+									key: 4,
 									value: newEntry
 								});
 								break;

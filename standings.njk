@@ -54,6 +54,8 @@
 				<td class="dataCell">Conf</td><td class="dataCell">Overall</td>
 			{% elseif currentSport === "NCAAM" or currentSport === "NCAAW" %}
 				<td class="dataCell">Conf</td><td class="dataCell">Overall</td>
+			{% elseif "Rugby" in currentSport %}
+				<td class="dataCell">W</td><td class="dataCell">D</td><td class="dataCell">L</td><td class="dataCell bold">PTS</td>
 			{% elseif currentSport === "F1" %}
 				<td class="dataCell">Rank</td><td class="dataCell bold">Points</td>
 			{% else %}
