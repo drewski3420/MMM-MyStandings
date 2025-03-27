@@ -2,7 +2,7 @@
 	<table class="standings {% if config.colored === false %}grayscale{% endif %}">
 		{% for poll in standings %}
 			{% if poll != null %}
-			{% if currentDivision === poll.name %}
+			{% if config.showByDivision === false or (config.showByDivision and currentDivision === poll.name) %}
 				<tr class="league-separator">
 					<td colspan="2"><span>{{currentSport.slice(0, 5)}} {{poll.name}}</span></td>
 				<td class="dataCell">Overall</td><td class="dataCell">PTS</td>
