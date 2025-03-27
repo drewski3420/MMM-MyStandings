@@ -247,7 +247,7 @@ If your soccer competition has groups and you want to see groups rotate, conside
 ````javascript
 { league: "FIFA_WORLD_CUP", groups: ["Group A"] }, //only show group A
 { league: "FIFA_WORLD_CUP", groups: ["Group A", "Group B", "Group C", "Group D", "Group E", "Group G", "Group H"] } //rotates through selected groups
-{ league: "FIFA_WORLD_CUP" } //rotates through all groups
+{ league: "FIFA_WORLD_CUP" } //rotates through all groups or displays overall standings if there are no groups
 ````
 ## Rugby Leagues
 <details>
