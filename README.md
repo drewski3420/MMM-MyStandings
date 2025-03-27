@@ -266,8 +266,28 @@ If your soccer competition has groups and you want to see groups rotate, conside
 ````javascript
 { league: "FIFA_WORLD_CUP", groups: ["Group A"] }, //only show group A
 { league: "FIFA_WORLD_CUP", groups: ["Group A", "Group B", "Group C", "Group D", "Group E", "Group G", "Group H"] } //rotates through selected groups
-{ league: "FIFA_WORLD_CUP" } //rotates through all groups
+{ league: "FIFA_WORLD_CUP" } //rotates through all groups or displays overall standings if there are no groups
 ````
+## Rugby Leagues
+<details>
+  <summary><b>Available Rugby Leagues</b> (click to expand)</summary>
+	
+	//Rugby
+	"Premiership Rugby"
+	"Rugby World Cup"
+	"Six Nations Rugby"
+	"The Rugby Championship"
+	"European Rugby Champions Cup"
+	"United Rugby Championship"
+	"Super Rugby Pacific"
+	"Olympic Men's 7s Rugby"
+	"Olympic Women's Rugby Sevens"
+	"International Test Match Rugby"
+	"URBA Top 12 Rugby"
+	"Mitre 10 Cup Rugby"
+</details>
+
+Rugby leagues work similarly to soccer leagues.
 
 # Thank You
 Special thank you to [vincep5](https://github.com/vincep5/), who created the original version of this module and did most of the work.
