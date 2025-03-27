@@ -33,8 +33,9 @@ modules: [
 			updateInterval: 60 * 60 * 1000, // every 60 minutes
 			rotateInterval: 1 * 60 * 1000, // every 1 minute
 			sports: [
-				{ league: "NBA", groups: ["Atlantic", "Central", "Southeast", "Northwest", "Pacific", "Southwest", "Western Conference",
-								"Eastern Conference", "National Basketball Association"] },
+				{ league: "NBA", groups: ["Atlantic", "Central", "Southeast", "Northwest", "Pacific",
+								"Southwest", "Western Conference", "Eastern Conference",
+								"National Basketball Association"] },
 				{ league: "MLB", groups: ["American League East", "American League Central", "American League West", "National League East",
 								"National League Central", "National League West", "American League", "National League",
 								"Major League Baseball"] },
