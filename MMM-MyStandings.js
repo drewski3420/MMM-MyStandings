@@ -547,12 +547,6 @@ Module.register("MMM-MyStandings",{
 						formattedStandingsObject[h].shortName = formattedStandingsObject[h].abbreviation + " Wild Card";
 					}
 				}
-				if (formattedStandingsObject[h].name && !formattedStandingsObject[h].name.startsWith(this.config.sports[leagueIdx].league)) {
-					this.config.sports[leagueIdx].league + " " + formattedStandingsObject[h].name;
-				}
-				if (formattedStandingsObject[h].shortName &&!formattedStandingsObject[h].shortName.startsWith(this.config.sports[leagueIdx].league)) {
-					this.config.sports[leagueIdx].league + " " + formattedStandingsObject[h].shortName;
-				}
 			}
 
 			// Check to see if we have standings entries
