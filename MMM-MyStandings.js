@@ -3,7 +3,7 @@
 Module.register("MMM-MyStandings",{
 	// Default module config.
 	defaults: {
-		updateInterval: 4* 60 * 60 * 1000, // every 4 hours
+		updateInterval: 4 * 60 * 60 * 1000, // every 4 hours
 		rotateInterval: 1 * 60 * 1000, // every 1 minute
 		initialLoadDelay: 10 * 1000, // 10 second initial load delay
 		lang: config.language,
