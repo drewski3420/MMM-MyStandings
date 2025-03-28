@@ -105,7 +105,7 @@ Select the groups you want to rotate through or no groups to rotate through all 
 | ------- |  -------
 | updateInterval | Time in milliseconds to update data from ESPN<br><br>**Type:** `int` <br> **Default value:** `60 * 60 * 1000` (every 60 minutes)
 | rotateInterval | Time in milliseconds to rotate through the leagues or divisions<br><br>**Type:** `int` <br> **Default value:** `1 * 60 * 1000` (every 1 minute)
-| nameStyle | Display abbreviation, full name, or short name for the team<br><br>**Type:** `string` Options: "abbreviation", "full", or "short"<br> **Default value:** `short`
+| nameStyle | Display abbreviation, full name, or short name for the team<br><br>**Type:** `string` Options: `abbreviation`, `full`, or `short`<br> **Default value:** `short`
 | showLogos | Display logos (true) or not (false)<br><br>**Type:** `boolean` <br> **Default value:** `true`
 | useLocalLogos | Display logos from folder if they are available (`true`) or displays all logos from the ESPN url (`false`)<br><br>**Type:** `boolean` <br> **Default value:** `true`
 | colored | Chooses whether to display the module in full color (`true`) or grayscale (`false`)<br><br>**Type:** `boolean` <br> **Default value:** `true`
