@@ -17,11 +17,11 @@
 							{% endif %}
 							<td class="nameCell"><div class="rank">{{tm.current}}</div>
 							{% if config.nameStyle === "short" %}
-								{{tm.team.nickname}}<div class="rank">{{tm.current}}</div></td>
+								{{tm.team.nickname}}</td>
 							{% elseif config.nameStyle === "full" %}
 								{{tm.team.nickname}} {{tm.team.name}}</td>
 							{% elseif config.nameStyle === "abbreviation" %}
-								{{tm.team.abbreviation}}<div class="rank">{{tm.current}}</div></td>
+								{{tm.team.abbreviation}}</td>
 							{% endif %}
 							<td class="dataCell">{{tm.recordSummary}}</td>
 							<td class="dataCell">{{tm.points}}</td>
