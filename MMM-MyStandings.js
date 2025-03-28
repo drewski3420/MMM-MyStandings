@@ -541,12 +541,12 @@ Module.register("MMM-MyStandings",{
 				} else if (this.config.sports[leagueIdx].league + "_PLAYOFFS" === sport) {
 					if (this.config.sports[leagueIdx].groups.includes(formattedStandingsObject[h].abbreviation + " Playoffs")) {
 						hasMatch = true;
-						formattedStandingsObject[h].name = formattedStandingsObject[h].abbreviation + " Playoffs";
+						formattedStandingsObject[h].name = this.config.sports[leagueIdx].league + formattedStandingsObject[h].abbreviation + " Playoffs";
 					}
 					if (this.config.sports[leagueIdx].groups.includes(formattedStandingsObject[h].abbreviation + " Wild Card")) {
 						hasMatch = true;
-						formattedStandingsObject[h].name = formattedStandingsObject[h].abbreviation + " Wild Card";
-						formattedStandingsObject[h].shortName = formattedStandingsObject[h].abbreviation + " Wild Card";
+						formattedStandingsObject[h].name = this.config.sports[leagueIdx].league + formattedStandingsObject[h].abbreviation + " Wild Card";
+						formattedStandingsObject[h].shortName = this.config.sports[leagueIdx].league + formattedStandingsObject[h].abbreviation + " Wild Card";
 					}
 				}
 			}
