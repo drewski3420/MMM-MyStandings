@@ -320,7 +320,7 @@ Module.register("MMM-MyStandings",{
 					//}
 					// playoffs: http://site.web.api.espn.com/apis/v2/sports/football/nfl/standings?view=playoff
 					//sportUrls.push(this.url + "football/nfl/standings?level=3&sort=winpercent:desc,playoffseed:asc");
-					sportUrls.push(this.url + "football/nfl/standings?view=playoff"); //&sort=playoffseed:asc
+					sportUrls.push(this.url + "football/nfl/standings?view=playoff&sort=playoffseed:asc"); //&sort=playoffseed:asc
 					break;
 				case "NHL":
 					if (this.config.sports[i].groups && this.nhl_l1.some(item => this.config.sports[i].groups.includes(item))) {
