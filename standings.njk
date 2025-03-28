@@ -4,7 +4,7 @@
 			{% if poll != null %}
 			{% if config.showByDivision === false or (config.showByDivision and currentDivision === poll.name) %}
 				<tr class="league-separator">
-					<td colspan="2"><span>{{currentSport.slice(0, 5)}} {{poll.name}}</span></td>
+					<td colspan="2"><span>{{poll.shortName}}</span></td>
 				<td class="dataCell">Overall</td><td class="dataCell">PTS</td>
 				</tr>
 				{% for tm in poll.ranks %}
@@ -12,15 +12,18 @@
 						<tr>
 							{% if config.showLogos === true %}
 								<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}"/></td>
+								<td class="nameCell">
 							{% else %}
 								<td></td>
+								<td class="nameCell nameCellNoLogo">
 							{% endif %}
-							{% if config.nameStyle === "short" %}
-								<td class="nameCell">{{tm.team.nickname}}<div class="rank">{{tm.current}}</div></td>
-							{% elseif config.nameStyle === "full" %}
-								<td class="nameCell">{{tm.team.nickname}} {{tm.team.name}}<div class="rank">{{tm.current}}</div></td>
+							<div class="rank">{{tm.current}}</div>
+							{% if config.nameStyle === "full" %}
+								{{tm.team.nickname}} {{tm.team.name}}</td>
 							{% elseif config.nameStyle === "abbreviation" %}
-								<td class="nameCell">{{tm.team.abbreviation}}<div class="rank">{{tm.current}}</div></td>
+								{{tm.team.abbreviation}}</td>
+							{% else %}
+								{{tm.team.nickname}}</td>
 							{% endif %}
 							<td class="dataCell">{{tm.recordSummary}}</td>
 							<td class="dataCell">{{tm.points}}</td>
@@ -39,14 +42,14 @@
 		{% if config.showByDivision === false or (config.showByDivision and currentDivision === division.name) or ignoreDivision === true %}
 			{% set somethingToDisplay = 1 %}
 			<tr class="league-separator">
-				<td colspan="2"><span>{% if division.shortName !== undefined %}{% if "NCAA" in currentSport %}{{currentSport}} - {% endif %}{{division.shortName}}{% else %}{{division.name}}{% endif %}</span></td>
-			{% if currentSport === "NHL" %}
+				<td colspan="2"><span>{{division.shortName}}</span></td>
+			{% if currentSport === "NHL" or currentSport === "NHL_PLAYOFFS" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">OTL</td><td class="dataCell bold">PTS</td>
-			{% elseif currentSport === "MLB" %}
+			{% elseif currentSport === "MLB" or currentSport === "MLB_PLAYOFFS" or currentSport === "MLB_WILDCARD" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
 			{% elseif currentSport === "NBA" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
-			{% elseif currentSport === "NFL" %}
+			{% elseif currentSport === "NFL" or currentSport === "NFL_PLAYOFFS" or currentSport === "NHL_WILDCARD" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">T</td>
 			{% elseif currentSport === "MLS" %}
 				<td class="dataCell">W</td><td class="dataCell">T</td><td class="dataCell">L</td><td class="dataCell bold">PTS</td>
@@ -66,15 +69,18 @@
 				<tr>
 					{% if config.showLogos === true %}
 						<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}" {% if config.colored === false %}class="grayscale"{% endif %}/></td>
+						<td class="nameCell">
 					{% else %}
 						<td></td>
+						<td class="nameCell nameCellNoLogo">
 					{% endif %}
-					{% if config.nameStyle === "short" %}
-						<td class="nameCell">{{tm.team.shortDisplayName}}</td>
-					{% elseif config.nameStyle === "full" %}
-						<td class="nameCell">{{tm.team.displayName}}</td>
+					{% if ("_WILDCARD" in currentSport or "_PLAYOFFS" in currentSport or (currentSport === "NBA" and "Conference" in currentDivision) or (currentSport === "NHL" and "Division" in currentDivision) or (currentSport === "MLS" and "Conference" in currentDivision)) and loop.index <= config.playoffFieldSize[currentSport] %}<div class="rank">{{loop.index}}</div>{% elseif (currentSport === "NBA" and "Conference" in currentDivision) and loop.index <= config.playoffFieldSize["NBA_PLAYIN"]%}<div class="rank grayscale">{{loop.index}}</div>{% endif %}
+					{% if config.nameStyle === "full" %}
+						{{tm.team.displayName}}</td>
 					{% elseif config.nameStyle === "abbreviation" %}
-						<td class="nameCell">{{tm.team.abbreviation}}</td>
+						{{tm.team.abbreviation}}</td>
+					{% else %}
+						{{tm.team.shortDisplayName}}</td>
 					{% endif %}
 					{% for stat in tm.stats %}
 						{% if stat.name === "points" %}

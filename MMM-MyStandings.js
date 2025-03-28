@@ -212,16 +212,44 @@ Module.register("MMM-MyStandings",{
 	nba_l2: ["Western Conference","Eastern Conference"],
 	mlb_l1: ["Major League Baseball"],
 	mlb_l2: ["American League","National League"],
+	mlb_wc: ["AL Wild Card","NL Wild Card"],
+	mlb_po: ["AL Playoffs", "NL Playoffs"],
 	nfl_l1: ["National Football League"],
 	nfl_l2: ["American Football Conference","National Football Conference"],
+	nfl_po: ["AFC Playoffs", "NFC Playoffs"],
 	nhl_l1: ["National Hockey League"],
 	nhl_l2: ["Western Conference","Eastern Conference"],
+	nhl_wc: ["West Wild Card","East Wild Card"],
+	nhl_po: ["West Playoffs","East Playoffs"],
+	
+	playoffFieldSize: {},
+	shortNameLookup: {},
 
 	// Start the module.
 	start: function () {
 
 		// Set a uniqueId for this instance
 		this.defaults.uniqueID = JSON.stringify(this.config.sports);
+		
+		//Set Playoff Field Sizes
+		this.config.playoffFieldSize = {};
+		this.config.playoffFieldSize["NFL_PLAYOFFS"] = 7;
+		this.config.playoffFieldSize["MLB_WILDCARD"] = 3;
+		this.config.playoffFieldSize["MLB_PLAYOFFS"] = 6;
+		this.config.playoffFieldSize["NBA"] = 6;
+		this.config.playoffFieldSize["NBA_PLAYIN"] = 10;
+		this.config.playoffFieldSize["NHL"] = 3;
+		this.config.playoffFieldSize["NHL_WILDCARD"] = 2;
+		this.config.playoffFieldSize["NHL_PLAYOFFS"] = 8;
+		this.config.playoffFieldSize["MLS"] = 9;
+		
+		//Set Short Name dictionary
+		this.config.shortNameLookup = {};
+		this.config.shortNameLookup["National Football Conference"] = "NFC";
+		this.config.shortNameLookup["American Football Conference"] = "AFC";
+		this.config.shortNameLookup["National Hockey League"] = "NHL";
+		this.config.shortNameLookup["American League"] = "American League";
+		this.config.shortNameLookup["National League"] = "National League";
 		
 		// Get initial API data
 		this.getData(false);
@@ -294,12 +322,17 @@ Module.register("MMM-MyStandings",{
 			switch (this.config.sports[i].league) {
 				case "MLB":
 					if (this.config.sports[i].groups && this.mlb_l1.some(item => this.config.sports[i].groups.includes(item))) {
-						sportUrls.push(this.url + "baseball/mlb/standings?level=1&sort=gamesbehind:asc,winpercent:desc");
+						sportUrls.push(this.url + "baseball/mlb/standings?level=1&sort=gamesbehind:asc,winpercent:desc,playoffseed:asc");
 					}
 					if (this.config.sports[i].groups && this.mlb_l2.some(item => this.config.sports[i].groups.includes(item))) {
-						sportUrls.push(this.url + "baseball/mlb/standings?level=2&sort=gamesbehind:asc,winpercent:desc");
+						sportUrls.push(this.url + "baseball/mlb/standings?level=2&sort=gamesbehind:asc,winpercent:desc,playoffseed:asc");
 					}
-					// wild card: http://site.web.api.espn.com/apis/v2/sports/baseball/mlb/standings?view=wild-card&sort=gamesbehind:asc,winpercent:desc
+					if (this.config.sports[i].groups && this.mlb_wc.some(item => this.config.sports[i].groups.includes(item))) {
+						sportUrls.push(this.url + "baseball/mlb/standings?view=wild-card&type=1&level=2&sort=gamesbehind:asc,winpercent:desc,playoffseed:asc&startingseason=2024&seasontype=2"); 
+					}
+					if (this.config.sports[i].groups && this.mlb_po.some(item => this.config.sports[i].groups.includes(item))) {
+						sportUrls.push(this.url + "baseball/mlb/standings?view=playoff&level=2&sort=playoffseed:asc"); 
+					}
 					sportUrls.push(this.url + "baseball/mlb/standings?level=3&sort=gamesbehind:asc,winpercent:desc");
 					break;
 				case "NBA":
@@ -307,7 +340,7 @@ Module.register("MMM-MyStandings",{
 						sportUrls.push(this.url + "basketball/nba/standings?level=1&sort=gamesbehind:asc,winpercent:desc");
 					}
 					if (this.config.sports[i].groups && this.nba_l2.some(item => this.config.sports[i].groups.includes(item))) {
-						sportUrls.push(this.url + "basketball/nba/standings?level=2&sort=gamesbehind:asc,winpercent:desc");
+						sportUrls.push(this.url + "basketball/nba/standings?level=2&sort=gamesbehind:asc,winpercent:desc,playoffseed:asc");
 					}
 					sportUrls.push(this.url + "basketball/nba/standings?level=3&sort=gamesbehind:asc,winpercent:desc");
 					break;
@@ -318,7 +351,9 @@ Module.register("MMM-MyStandings",{
 					if (this.config.sports[i].groups && this.nfl_l2.some(item => this.config.sports[i].groups.includes(item))) {
 						sportUrls.push(this.url + "football/nfl/standings?level=2&sort=winpercent:desc,playoffseed:asc");
 					}
-					// playoffs: http://site.web.api.espn.com/apis/v2/sports/football/nfl/standings?view=playoff
+					if (this.config.sports[i].groups && this.nfl_po.some(item => this.config.sports[i].groups.includes(item))) {
+						sportUrls.push(this.url + "football/nfl/standings?view=playoff&sort=playoffseed:asc");
+					}
 					sportUrls.push(this.url + "football/nfl/standings?level=3&sort=winpercent:desc,playoffseed:asc");
 					break;
 				case "NHL":
@@ -327,6 +362,12 @@ Module.register("MMM-MyStandings",{
 					}
 					if (this.config.sports[i].groups && this.nhl_l2.some(item => this.config.sports[i].groups.includes(item))) {
 						sportUrls.push(this.url + "hockey/nhl/standings?level=2&sort=points:desc,winpercent:desc,playoffseed:asc");
+					}
+					if (this.config.sports[i].groups && this.nhl_wc.some(item => this.config.sports[i].groups.includes(item))) {
+						sportUrls.push(this.url + "hockey/nhl/standings?view=wild-card&type=3&level=2&sort=playoffseed%3Aasc%2Cpoints%3Adesc%2Cgamesplayed%3Aasc%2Crotwins%3Adesc&seasontype=2");
+					}
+					if (this.config.sports[i].groups && this.nhl_po.some(item => this.config.sports[i].groups.includes(item))) {
+						sportUrls.push(this.url + "hockey/nhl/standings?view=playoff&level=2&sort=playoffseed:asc");
 					}
 					//wild card http://site.web.api.espn.com/apis/v2/sports/hockey/nhl/standings?view=wild-card
 					sportUrls.push(this.url + "hockey/nhl/standings?level=3&sort=points:desc,winpercent:desc,playoffseed:asc");
@@ -358,8 +399,14 @@ Module.register("MMM-MyStandings",{
 			}
 
 			for (var j = 0; j < sportUrls.length; j++) {
+				var notificationSuffix = ""
+				if (sportUrls[j].includes("view=playoff")) {
+					notificationSuffix = "_PLAYOFFS"
+				} else if (sportUrls[j].includes("view=wild-card")) {
+					notificationSuffix = "_WILDCARD"
+				}
 				this.sendSocketNotification(
-					"STANDINGS_RESULT-" + this.config.sports[i].league, 
+					"STANDINGS_RESULT-" + this.config.sports[i].league + notificationSuffix, 
 					{
 						url: sportUrls[j],
 						uniqueID: this.defaults.uniqueID
@@ -372,6 +419,7 @@ Module.register("MMM-MyStandings",{
 	socketNotificationReceived: function(notification, payload) {
 		if (notification.startsWith("STANDINGS_RESULT") && payload.uniqueID == this.defaults.uniqueID ) {
 			var receivedLeague = notification.split("-")[1];
+			console.log("MyStandings notification received for " + receivedLeague);
 			for (var leagueIdx in this.config.sports) {
 				if (this.config.sports[leagueIdx].league === receivedLeague && this.config.sports[leagueIdx].groups === undefined && payload.result.children.length > 1) {
 					this.config.sports[leagueIdx].groups = []
@@ -410,6 +458,7 @@ Module.register("MMM-MyStandings",{
 
 	// This function helps rotate through different configured sports and rotate through divisions if that is configured
 	rotateStandings: function() {
+		
 		// If we do not have any data, do not try to load the UI
 		if (this.standingsInfo === undefined || this.standingsInfo === null || this.standingsInfo.length === 0) {
 			return;
@@ -509,6 +558,28 @@ Module.register("MMM-MyStandings",{
 							formattedStandingsObject[h] = null; //remove the division from memory to save space
 						}
 					}
+				} else if (this.config.sports[leagueIdx].league + "_PLAYOFFS" === sport) {
+					if (this.config.sports[leagueIdx].groups.includes(formattedStandingsObject[h].abbreviation + " Playoffs")) {
+						hasMatch = true;
+						formattedStandingsObject[h].name = formattedStandingsObject[h].abbreviation + " Playoffs";
+						formattedStandingsObject[h].shortName = formattedStandingsObject[h].abbreviation + " Playoffs";
+					}
+				} else if (this.config.sports[leagueIdx].league + "_WILDCARD" === sport) {
+					if (this.config.sports[leagueIdx].groups.includes(formattedStandingsObject[h].abbreviation + " Wild Card")) {
+						hasMatch = true;
+						formattedStandingsObject[h].name = formattedStandingsObject[h].abbreviation + " Wild Card";
+						formattedStandingsObject[h].shortName = formattedStandingsObject[h].abbreviation + " Wild Card";
+					}
+				}
+			}
+			if (formattedStandingsObject[h] !== null) {
+				if (this.config.shortNameLookup[formattedStandingsObject[h].name] !== undefined) {
+					formattedStandingsObject[h].shortName = this.config.shortNameLookup[formattedStandingsObject[h].name];
+				} else if (formattedStandingsObject[h].shortName === undefined) {
+					formattedStandingsObject[h].shortName = formattedStandingsObject[h].name
+				}
+				if (!formattedStandingsObject[h].shortName.startsWith(sport)) {
+					formattedStandingsObject[h].shortName = sport.replace(" Rankings","").replace("_PLAYOFFS","").replace("_WILDCARD","") + " " + formattedStandingsObject[h].shortName
 				}
 			}
 
@@ -519,10 +590,12 @@ Module.register("MMM-MyStandings",{
 			}
 
 			//teams
+			var eliminatedPos = 100;
+			team_cycle:
 			for (i = 0; i < formattedStandingsObject[h].standings.entries.length; i++) {
 				if (this.config.useLocalLogos === true) {
 					var team = formattedStandingsObject[h].standings.entries[i].team;
-					var leagueForLogoPath = sport;
+					var leagueForLogoPath = sport.replace("_PLAYOFFS","").replace("_WILDCARD","");
 					if (leagueForLogoPath.startsWith('NCAA')) {
 						leagueForLogoPath = 'NCAA';
 					}
@@ -544,6 +617,50 @@ Module.register("MMM-MyStandings",{
 
 					if (sport === 'NHL')
 					{
+						if (newStats.length === 4) {
+							break;
+						}
+						switch (entry.name) {
+							case "wins":
+								newEntry.name = entry.name;
+								newEntry.value = entry.value;
+								newStats.push({
+									key: 1,
+									value: newEntry
+								});
+								break;
+							case "losses":
+								newEntry.name = entry.name;
+								newEntry.value = entry.value;
+								newStats.push({
+									key: 2,
+									value: newEntry
+								});
+								break;
+							case "otLosses":
+								newEntry.name = entry.name;
+								newEntry.value = entry.value;
+								newStats.push({
+									key: 3,
+									value: newEntry
+								});
+								break;
+							case "points":
+								newEntry.name = entry.name;
+								newEntry.value = entry.value;
+								newStats.push({
+									key: 4,
+									value: newEntry
+								});
+								break;
+						}
+					}
+					else if (sport === 'NHL_PLAYOFFS' || sport === 'NHL_WILDCARD')
+					{
+						if (entry.name === "clincher" && entry.displayValue === "e") {
+							eliminatedPos = i;
+							break team_cycle;
+						}
 						if (newStats.length === 4) {
 							break;
 						}
@@ -614,6 +731,42 @@ Module.register("MMM-MyStandings",{
 								break;
 						}
 					}
+					else if (sport === 'MLB_PLAYOFFS' || sport === 'MLB_WILDCARD')
+					{
+						if (entry.name === "clincher" && entry.displayValue === "e") {
+							eliminatedPos = i;
+							break team_cycle;
+						}
+						if (newStats.length === 3) {
+							break;
+						}
+						switch (entry.name) {
+							case "wins":
+								newEntry.name = entry.name;
+								newEntry.value = entry.value;
+								newStats.push({
+									key: 1,
+									value: newEntry
+								});
+								break;
+							case "losses":
+								newEntry.name = entry.name;
+								newEntry.value = entry.value;
+								newStats.push({
+									key: 2,
+									value: newEntry
+								});
+								break;
+							case "gamesBehind":
+								newEntry.name = entry.name;
+								newEntry.value = entry.displayValue;
+								newStats.push({
+									key: 3,
+									value: newEntry
+								});
+								break;
+						}
+					}
 					else if (sport === 'NBA')
 					{
 						if (newStats.length === 3) {
@@ -648,6 +801,42 @@ Module.register("MMM-MyStandings",{
 					}
 					else if (sport === 'NFL')
 					{
+						if (newStats.length === 3) {
+							break;
+						}
+						switch (entry.name) {
+							case "wins":
+								newEntry.name = entry.name;
+								newEntry.value = entry.value;
+								newStats.push({
+									key: 1,
+									value: newEntry
+								});
+								break;
+							case "losses":
+								newEntry.name = entry.name;
+								newEntry.value = entry.value;
+								newStats.push({
+									key: 2,
+									value: newEntry
+								});
+								break;
+							case "ties":
+								newEntry.name = entry.name;
+								newEntry.value = entry.value;
+								newStats.push({
+									key: 3,
+									value: newEntry
+								});
+								break;
+						}
+					}
+					else if (sport === 'NFL_PLAYOFFS')
+					{
+						if (entry.name === "clincher" && entry.displayValue === "e") {
+							eliminatedPos = i;
+							break team_cycle;
+						}
 						if (newStats.length === 3) {
 							break;
 						}
@@ -866,6 +1055,7 @@ Module.register("MMM-MyStandings",{
 
 				formattedStandingsObject[h].standings.entries[i].stats = finalValues;
 			}
+			formattedStandingsObject[h].standings.entries.splice(eliminatedPos, 100);
 		}
 
 		return formattedStandingsObject.filter(Boolean);
@@ -887,6 +1077,16 @@ Module.register("MMM-MyStandings",{
 					} else {
 						formattedStandingsObject[poll] = null;
 					}
+				}
+			}
+			if (formattedStandingsObject[poll] !== null) {
+				if (this.config.shortNameLookup[formattedStandingsObject[poll].name] !== undefined) {
+					formattedStandingsObject[poll].shortName = this.config.shortNameLookup[formattedStandingsObject[poll].name];
+				} else if (formattedStandingsObject[poll].shortName === undefined) {
+					formattedStandingsObject[poll].shortName = formattedStandingsObject[poll].name
+				}
+				if (!formattedStandingsObject[poll].shortName.startsWith(sport)) {
+					formattedStandingsObject[poll].shortName = sport.replace(" Rankings","").replace("_PLAYOFFS","") + " " + formattedStandingsObject[poll].shortName
 				}
 			}
 

@@ -38,14 +38,16 @@ modules: [
 							"American League West", "National League East",
 							"National League Central", "National League West",
 							"American League", "National League",
-							"Major League Baseball"] },
+							"Major League Baseball", "AL Playoffs", "NL Playoffs",
+							"AL Wild Card", "NL Wild Card"] },
 			{ league: "NFL", groups: ["AFC East", "AFC North", "AFC South", "AFC West", "NFC East",
 							"NFC North", "NFC South", "NFC West",
 							"American Football Conference", "National Football Conference",
-							"National Football League"] },
+							"National Football League", "AFC Playoffs", "NFC Playoffs"] },
 			{ league: "NHL", groups: ["Atlantic Division", "Metropolitan Division", "Central Division",
 							"Pacific Division", "Western Conference", "Eastern Conference",
-							"National Hockey League"] },
+							"National Hockey League", "West Playoffs", "East Playoffs",
+							"West Wild Card", "East Wild Card"] },
 			{ league: "MLS", groups: ["Eastern Conference", "Western Conference"] },
 			{ league: "NCAAF", groups: ["American Athletic Conference", "Atlantic Coast Conference",
 							"Big 12 Conference", "Big Ten Conference", "Conference USA",
@@ -101,13 +103,13 @@ Select the groups you want to rotate through or no groups to rotate through all 
 
 | Option | Description
 | ------- |  -------
-| updateInterval | Time in milliseconds to update data from ESPN<br><br>**Type:** `int` <br> **Default value:** `60 * 60 * 1000` (every 60 minutes)
+| updateInterval | Time in milliseconds to update data from ESPN<br><br>**Type:** `int` <br> **Default value:** `4 * 60 * 60 * 1000` (every 4 hours)
 | rotateInterval | Time in milliseconds to rotate through the leagues or divisions<br><br>**Type:** `int` <br> **Default value:** `1 * 60 * 1000` (every 1 minute)
-| nameStyle | Display abbreviation, full name, or short name for the team<br><br>**Type:** `string` Options: "abbreviation", "full", or "short"<br> **Default value:** `short`
+| nameStyle | Display abbreviation, full name, or short name for the team<br><br>**Type:** `string` Options: `abbreviation`, `full`, or `short`<br> **Default value:** `short`
 | showLogos | Display logos (true) or not (false)<br><br>**Type:** `boolean` <br> **Default value:** `true`
-| useLocalLogos | Display logos from folder if they are available (true) or displays all logos from the ESPN url (false)<br><br>**Type:** `boolean` <br> **Default value:** `true`
-| colored | Chooses whether to display the module in full color (true) or grayscale (false)<br><br>**Type:** `boolean` <br> **Default value:** `true`
-| showByDivision | Rotate through each division/group separately (true) or show all divisions/groups at once stacked on top of one another (false)<br><br>**Type:** `boolean` <br> **Default value:** `true`
+| useLocalLogos | Display logos from folder if they are available (`true`) or displays all logos from the ESPN url (`false`)<br><br>**Type:** `boolean` <br> **Default value:** `true`
+| colored | Chooses whether to display the module in full color (`true`) or grayscale (`false`)<br><br>**Type:** `boolean` <br> **Default value:** `true`
+| showByDivision | Rotate through each division/group separately (`true`) or show all divisions/groups at once stacked on top of one another (`false`).  Note that `false` only combines divisions of the same type.  For example, in MLB, divisions will be grouped together, NL/AL leagues will be grouped together, playoffs will be grouped together, and wild cards will be grouped together.<br><br>**Type:** `boolean` <br> **Default value:** `true`
 | fadeSpeed | Time in milliseconds to display the module<br><br>**Type:** `int` <br> **Default value:** `2000` (2 seconds)
 | rankingLength | The number of teams to display when using `NCAAF Rankings` or `NCAAM Rankings`<br><br>**Type:** `int` <br> **Default value:** `25` (all rankings)
 
