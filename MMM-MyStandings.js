@@ -547,10 +547,10 @@ Module.register("MMM-MyStandings",{
 						formattedStandingsObject[h].shortName = formattedStandingsObject[h].abbreviation + " Wild Card";
 					}
 				}
-				if (!formattedStandingsObject[h].name.startsWith(this.config.sports[leagueIdx].league) {
+				if (!formattedStandingsObject[h].name.startsWith(this.config.sports[leagueIdx].league)) {
 					this.config.sports[leagueIdx].league + " " + formattedStandingsObject[h].name;
 				}
-				if if (!formattedStandingsObject[h].shortName.startsWith(this.config.sports[leagueIdx].league) {
+				if if (!formattedStandingsObject[h].shortName.startsWith(this.config.sports[leagueIdx].league)) {
 					this.config.sports[leagueIdx].league + " " + formattedStandingsObject[h].shortName;
 				}
 			}
