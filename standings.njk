@@ -15,12 +15,13 @@
 							{% else %}
 								<td></td>
 							{% endif %}
+							<td class="nameCell"><div class="rank">{{tm.current}}</div>
 							{% if config.nameStyle === "short" %}
-								<td class="nameCell">{{tm.team.nickname}}<div class="rank">{{tm.current}}</div></td>
+								{{tm.team.nickname}}<div class="rank">{{tm.current}}</div></td>
 							{% elseif config.nameStyle === "full" %}
-								<td class="nameCell">{{tm.team.nickname}} {{tm.team.name}}<div class="rank">{{tm.current}}</div></td>
+								{{tm.team.nickname}} {{tm.team.name}}</td>
 							{% elseif config.nameStyle === "abbreviation" %}
-								<td class="nameCell">{{tm.team.abbreviation}}<div class="rank">{{tm.current}}</div></td>
+								{{tm.team.abbreviation}}<div class="rank">{{tm.current}}</div></td>
 							{% endif %}
 							<td class="dataCell">{{tm.recordSummary}}</td>
 							<td class="dataCell">{{tm.points}}</td>
@@ -40,13 +41,13 @@
 			{% set somethingToDisplay = 1 %}
 			<tr class="league-separator">
 				<td colspan="2"><span>{% if division.shortName !== undefined %}{% if "NCAA" in currentSport %}{{currentSport}} - {% endif %}{{division.shortName}}{% else %}{{division.name}}{% endif %}</span></td>
-			{% if currentSport === "NHL" %}
+			{% if currentSport === "NHL" or currentSport === "NHL_PLAYOFFS" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">OTL</td><td class="dataCell bold">PTS</td>
-			{% elseif currentSport === "MLB" %}
+			{% elseif currentSport === "MLB" or currentSport === "MLB_PLAYOFFS" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
 			{% elseif currentSport === "NBA" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
-			{% elseif currentSport === "NFL" %}
+			{% elseif currentSport === "NFL" or currentSport === "NFL_PLAYOFFS" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">T</td>
 			{% elseif currentSport === "MLS" %}
 				<td class="dataCell">W</td><td class="dataCell">T</td><td class="dataCell">L</td><td class="dataCell bold">PTS</td>
@@ -69,12 +70,13 @@
 					{% else %}
 						<td></td>
 					{% endif %}
+					<td class="nameCell">{% if ("_PLAYOFFS" in currentSport or (currentSport === "NBA" and "Conference" in currentDivision)) and loop.index <= config.playoffFieldSize[currentSport] %}<div class="rank">{{loop.index}}</div>{% elseif (currentSport === "NBA" and "Conference" in currentDivision) and loop.index <= config.playoffFieldSize["NBA_PLAYIN"]%}<div class="rank grayscale">{{loop.index}}</div>{% endif %}
 					{% if config.nameStyle === "short" %}
-						<td class="nameCell">{{tm.team.shortDisplayName}}</td>
+						{{tm.team.shortDisplayName}}</td>
 					{% elseif config.nameStyle === "full" %}
-						<td class="nameCell">{{tm.team.displayName}}</td>
+						{{tm.team.displayName}}</td>
 					{% elseif config.nameStyle === "abbreviation" %}
-						<td class="nameCell">{{tm.team.abbreviation}}</td>
+						{{tm.team.abbreviation}}</td>
 					{% endif %}
 					{% for stat in tm.stats %}
 						{% if stat.name === "points" %}
