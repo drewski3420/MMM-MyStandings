@@ -12,10 +12,12 @@
 						<tr>
 							{% if config.showLogos === true %}
 								<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}"/></td>
+								<td class="nameCell">
 							{% else %}
 								<td></td>
+								<td class="nameCell nameCellNoLogo">
 							{% endif %}
-							<td class="nameCell"><div class="rank">{{tm.current}}</div>
+							<div class="rank">{{tm.current}}</div>
 							{% if config.nameStyle === "full" %}
 								{{tm.team.nickname}} {{tm.team.name}}</td>
 							{% elseif config.nameStyle === "abbreviation" %}
@@ -67,10 +69,12 @@
 				<tr>
 					{% if config.showLogos === true %}
 						<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}" {% if config.colored === false %}class="grayscale"{% endif %}/></td>
+						<td class="nameCell">
 					{% else %}
 						<td></td>
+						<td class="nameCell nameCellNoLogo">
 					{% endif %}
-					<td class="nameCell">{% if ("_WILDCARD" in currentSport or "_PLAYOFFS" in currentSport or (currentSport === "NBA" and "Conference" in currentDivision) or (currentSport === "NHL" and "Division" in currentDivision) or (currentSport === "MLS" and "Conference" in currentDivision)) and loop.index <= config.playoffFieldSize[currentSport] %}<div class="rank">{{loop.index}}</div>{% elseif (currentSport === "NBA" and "Conference" in currentDivision) and loop.index <= config.playoffFieldSize["NBA_PLAYIN"]%}<div class="rank grayscale">{{loop.index}}</div>{% endif %}
+					{% if ("_WILDCARD" in currentSport or "_PLAYOFFS" in currentSport or (currentSport === "NBA" and "Conference" in currentDivision) or (currentSport === "NHL" and "Division" in currentDivision) or (currentSport === "MLS" and "Conference" in currentDivision)) and loop.index <= config.playoffFieldSize[currentSport] %}<div class="rank">{{loop.index}}</div>{% elseif (currentSport === "NBA" and "Conference" in currentDivision) and loop.index <= config.playoffFieldSize["NBA_PLAYIN"]%}<div class="rank grayscale">{{loop.index}}</div>{% endif %}
 					{% if config.nameStyle === "full" %}
 						{{tm.team.displayName}}</td>
 					{% elseif config.nameStyle === "abbreviation" %}
