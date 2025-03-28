@@ -234,6 +234,7 @@ Module.register("MMM-MyStandings",{
 		this.config.playoffFieldSize["MLB_PLAYOFFS"] = 3;
 		this.config.playoffFieldSize["NBA"] = 6;
 		this.config.playoffFieldSize["NBA_PLAYIN"] = 10;
+		this.config.playoffFieldSize["NHL"] = 3;
 		this.config.playoffFieldSize["NHL_PLAYOFFS"] = 2;
 		
 		// Get initial API data
