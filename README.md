@@ -103,7 +103,7 @@ Select the groups you want to rotate through or no groups to rotate through all 
 
 | Option | Description
 | ------- |  -------
-| updateInterval | Time in milliseconds to update data from ESPN<br><br>**Type:** `int` <br> **Default value:** `60 * 60 * 1000` (every 60 minutes)
+| updateInterval | Time in milliseconds to update data from ESPN<br><br>**Type:** `int` <br> **Default value:** `4 * 60 * 60 * 1000` (every 4 hours)
 | rotateInterval | Time in milliseconds to rotate through the leagues or divisions<br><br>**Type:** `int` <br> **Default value:** `1 * 60 * 1000` (every 1 minute)
 | nameStyle | Display abbreviation, full name, or short name for the team<br><br>**Type:** `string` Options: `abbreviation`, `full`, or `short`<br> **Default value:** `short`
 | showLogos | Display logos (true) or not (false)<br><br>**Type:** `boolean` <br> **Default value:** `true`
