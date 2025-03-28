@@ -42,7 +42,7 @@ modules: [
 			{ league: "NFL", groups: ["AFC East", "AFC North", "AFC South", "AFC West", "NFC East",
 							"NFC North", "NFC South", "NFC West",
 							"American Football Conference", "National Football Conference",
-							"National Football League"] },
+							"National Football League", "AFC Playoffs", "NFC Playoffs"] },
 			{ league: "NHL", groups: ["Atlantic Division", "Metropolitan Division", "Central Division",
 							"Pacific Division", "Western Conference", "Eastern Conference",
 							"National Hockey League"] },
