@@ -5,7 +5,7 @@ vincep5 was inspired by MMM-MyScoreboard and figured that this will complement i
 The module will rotate through different sports.  If you only want to show one sport or one division, the module will just display one without rotating.
 
 ## Preview
-![screenshot1](screenshot1.JPG)
+![screenshot](screenshot.png)
 
 ## Installing the module
 ```bash
