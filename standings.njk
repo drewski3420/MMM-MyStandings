@@ -4,7 +4,7 @@
 			{% if poll != null %}
 			{% if config.showByDivision === false or (config.showByDivision and currentDivision === poll.name) %}
 				<tr class="league-separator">
-					<td colspan="2"><span>{% if division.shortName !== undefined %}{{poll.shortName}}{% else %}{{poll.name}}{% endif %}</span></td>
+					<td colspan="2"><span>{{poll.shortName}}</span></td>
 				<td class="dataCell">Overall</td><td class="dataCell">PTS</td>
 				</tr>
 				{% for tm in poll.ranks %}
@@ -40,14 +40,14 @@
 		{% if config.showByDivision === false or (config.showByDivision and currentDivision === division.name) or ignoreDivision === true %}
 			{% set somethingToDisplay = 1 %}
 			<tr class="league-separator">
-				<td colspan="2"><span>{% if division.shortName !== undefined %}{{division.shortName}}{% else %}{{division.name}}{% endif %}</span></td>
+				<td colspan="2"><span>{{division.shortName}}</span></td>
 			{% if currentSport === "NHL" or currentSport === "NHL_PLAYOFFS" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">OTL</td><td class="dataCell bold">PTS</td>
-			{% elseif currentSport === "MLB" or currentSport === "MLB_PLAYOFFS" %}
+			{% elseif currentSport === "MLB" or currentSport === "MLB_PLAYOFFS" or currentSport === "MLB_WILDCARD" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
 			{% elseif currentSport === "NBA" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
-			{% elseif currentSport === "NFL" or currentSport === "NFL_PLAYOFFS" %}
+			{% elseif currentSport === "NFL" or currentSport === "NFL_PLAYOFFS" or currentSport === "NHL_WILDCARD" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">T</td>
 			{% elseif currentSport === "MLS" %}
 				<td class="dataCell">W</td><td class="dataCell">T</td><td class="dataCell">L</td><td class="dataCell bold">PTS</td>
@@ -70,7 +70,7 @@
 					{% else %}
 						<td></td>
 					{% endif %}
-					<td class="nameCell">{% if ("_PLAYOFFS" in currentSport or (currentSport === "NBA" and "Conference" in currentDivision) or (currentSport === "NHL" and "Division" in currentDivision)) and loop.index <= config.playoffFieldSize[currentSport] %}<div class="rank">{{loop.index}}</div>{% elseif (currentSport === "NBA" and "Conference" in currentDivision) and loop.index <= config.playoffFieldSize["NBA_PLAYIN"]%}<div class="rank grayscale">{{loop.index}}</div>{% endif %}
+					<td class="nameCell">{% if ("_WILDCARD" in currentSport or "_PLAYOFFS" in currentSport or (currentSport === "NBA" and "Conference" in currentDivision) or (currentSport === "NHL" and "Division" in currentDivision) or (currentSport === "MLS" and "Conference" in currentDivision)) and loop.index <= config.playoffFieldSize[currentSport] %}<div class="rank">{{loop.index}}</div>{% elseif (currentSport === "NBA" and "Conference" in currentDivision) and loop.index <= config.playoffFieldSize["NBA_PLAYIN"]%}<div class="rank grayscale">{{loop.index}}</div>{% endif %}
 					{% if config.nameStyle === "short" %}
 						{{tm.team.shortDisplayName}}</td>
 					{% elseif config.nameStyle === "full" %}
