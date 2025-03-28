@@ -396,8 +396,8 @@ Module.register("MMM-MyStandings",{
 
 	socketNotificationReceived: function(notification, payload) {
 		if (notification.startsWith("STANDINGS_RESULT") && payload.uniqueID == this.defaults.uniqueID ) {
-			console.log(notification)
 			var receivedLeague = notification.split("-")[1];
+			console.log("Notification received for " + receivedLeague);
 			for (var leagueIdx in this.config.sports) {
 				if (this.config.sports[leagueIdx].league === receivedLeague && this.config.sports[leagueIdx].groups === undefined && payload.result.children.length > 1) {
 					this.config.sports[leagueIdx].groups = []
@@ -436,8 +436,6 @@ Module.register("MMM-MyStandings",{
 
 	// This function helps rotate through different configured sports and rotate through divisions if that is configured
 	rotateStandings: function() {
-		console.log(this.standingsSportInfo);
-		console.log(this.standingsInfo);
 		
 		// If we do not have any data, do not try to load the UI
 		if (this.standingsInfo === undefined || this.standingsInfo === null || this.standingsInfo.length === 0) {
