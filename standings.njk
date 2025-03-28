@@ -75,13 +75,13 @@
 						<td class="nameCell nameCellNoLogo">
 					{% endif %}
 					{% if ("_WILDCARD" in currentSport or "_PLAYOFFS" in currentSport or 
-					(currentSport === "NBA" and "Conference" in currentDivision) or 
-					(currentSport === "NHL" and "Division" in currentDivision) or 
-					(currentSport === "MLS" and "Conference" in currentDivision) or
+					(currentSport === "NBA" and "Conference" in division) or 
+					(currentSport === "NHL" and "Division" in division) or 
+					(currentSport === "MLS" and "Conference" in division) or
 					(currentSport === "NWSL")
 					)
 					and loop.index <= config.playoffFieldSize[currentSport] %}
-					<div class="rank">{{loop.index}}</div>{% elseif (currentSport === "NBA" and "Conference" in currentDivision) and loop.index <= config.playoffFieldSize["NBA_PLAYIN"]%}<div class="rank grayscale">{{loop.index}}</div>
+					<div class="rank">{{loop.index}}</div>{% elseif (currentSport === "NBA" and "Conference" in division) and loop.index <= config.playoffFieldSize["NBA_PLAYIN"]%}<div class="rank grayscale">{{loop.index}}</div>
 					{% endif %}
 					{% if config.nameStyle === "full" %}
 						{{tm.team.displayName}}</td>
