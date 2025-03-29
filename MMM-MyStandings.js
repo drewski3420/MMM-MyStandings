@@ -27,171 +27,17 @@ Module.register("MMM-MyStandings",{
 		fadeSpeed: 2000,
 		rankingLength: 25,
 		colored: true, // true, then display logos in color.  false, then display logos in grayscale
-		uniqueID: ""
+		uniqueID: "",
+		addLeagueToTitle: true,
 	},
 
 	url: "http://site.web.api.espn.com/apis/v2/sports/",
 	urlRanking: "https://site.api.espn.com/apis/site/v2/sports/",
 
 	SOCCER_LEAGUE_PATHS: {
-		//International Soccer
-		"AFC_ASIAN_CUP": "soccer/afc.cup",
-		"AFC_ASIAN_CUP_Q": "soccer/afc.cupq",
-		"AFF_CUP": "soccer/aff.championship",
-		"AFR_NATIONS_CUP": "soccer/caf.nations",
-		"AFR_NATIONS_CUP_Q": "soccer/caf.nations_qual",
-		"AFR_NATIONS_CHAMPIONSHIP": "soccer/caf.championship",
-		"CONMEBOL_COPA_AMERICA": "soccer/conmebol.america",
-		"FIFA_CLUB_WORLD_CUP": "soccer/fifa.cwc",
-		"FIFA_CONFEDERATIONS_CUP": "soccer/fifa.confederations",
-		"FIFA_MENS_OLYMPICS": "soccer/fifa.olympics",
-		"FIFA_WOMENS_OLYMPICS": "soccer/fifa.w.olympics",
-		"FIFA_WOMENS_WORLD_CUP": "soccer/fifa.wwc",
-		"FIFA_WORLD_CUP": "soccer/fifa.world",
-		"FIFA_WORLD_CUP_Q_AFC": "soccer/fifa.worldq.afc",
-		"FIFA_WORLD_CUP_Q_CAF": "soccer/fifa.worldq.caf",
-		"FIFA_WORLD_CUP_Q_CONCACAF": "soccer/fifa.worldq.concacaf",
-		"FIFA_WORLD_CUP_Q_CONMEBOL": "soccer/fifa.worldq.conmebol",
-		"FIFA_WORLD_CUP_Q_OFC": "soccer/fifa.worldq.ofc",
-		"FIFA_WORLD_CUP_Q_UEFA": "soccer/fifa.worldq.uefa",
-		"FIFA_WORLD_U17": "soccer/fifa.world.u17",
-		"FIFA_WORLD_U20": "soccer/fifa.world.u20",
-		"UEFA_CHAMPIONS": "soccer/uefa.champions",
-		"UEFA_CONFERENCE_LEAGUE": "soccer/uefa.europa.conf",
-		"UEFA_EUROPA": "soccer/uefa.europa",
-		"UEFA_EUROPEAN_CHAMPIONSHIP": "soccer/uefa.euro",
-		"UEFA_EUROPEAN_CHAMPIONSHIP_Q": "soccer/uefa.euroq",
-		"UEFA_EUROPEAN_CHAMPIONSHIP_U19": "soccer/uefa.euro.u19",
-		"UEFA_EUROPEAN_CHAMPIONSHIP_U21": "soccer/uefa.euro_u21",
-		"UEFA_NATIONS": "soccer/uefa.nations",
-		"SAFF_CHAMPIONSHIP": "soccer/afc.saff.championship",
-		"WOMENS_EUROPEAN_CHAMPIONSHIP": "soccer/uefa.weuro",
-
-		//UK / Ireland Soccer
-		"ENG_CHAMPIONSHIP": "soccer/eng.2",
-		"ENG_EFL": "soccer/eng.trophy",
-		"ENG_LEAGUE_1": "soccer/eng.3",
-		"ENG_LEAGUE_2": "soccer/eng.4",
-		"ENG_NATIONAL": "soccer/eng.5",
-		"ENG_PREMIERE_LEAGUE": "soccer/eng.1",
-		"IRL_PREM": "soccer/irl.1",
-		"NIR_PREM": "soccer/nir.1",
-		"SCO_CIS": "soccer/sco.cis",
-		"SCO_CHAMPIONSHIP": "soccer/sco.2",
-		"SCO_LEAGUE_1": "soccer/sco.3",
-		"SCO_LEAGUE_2": "soccer/sco.4",
-		"SCO_PREM": "soccer/sco.1",
-		"WAL_PREM": "soccer/wal.1",
-
-		//European Soccer
-		"AUT_BUNDESLIGA": "soccer/aut.1",
-		"BEL_DIV_A": "soccer/bel.1",
-		"DEN_SAS_LIGAEN": "soccer/den.1",
-		"ESP_LALIGA": "soccer/esp.1",
-		"ESP_SEGUNDA_DIV": "soccer/esp.2",
-		"FRA_LIGUE_1": "soccer/fra.1",
-		"FRA_LIGUE_2": "soccer/fra.2",
-		"GER_2_BUNDESLIGA": "soccer/ger.2",
-		"GER_BUNDESLIGA": "soccer/ger.1",
-		"GRE_SUPER_LEAGUE": "soccer/gre.1",
-		"ISR_PREMIER_LEAGUE": "soccer/isr.1",
-		"ITA_SERIE_A": "soccer/ita.1",
-		"ITA_SERIE_B": "soccer/ita.2",
-		"MLT_PREMIER_LEAGUE": "soccer/mlt.1",
-		"NED_EERSTE_DIVISIE": "soccer/ned.2",
-		"NED_EREDIVISIE": "soccer/ned.1",
-		"NOR_ELITESERIEN": "soccer/nor.1",
-		"POR_LIGA": "soccer/por.1",
-		"ROU_FIRST_DIV": "soccer/rou.1",
-		"RUS_PREMIER_LEAGUE": "soccer/rus.1",
-		"SUI_SUPER_LEAGUE": "soccer/sui.1",
-		"SWE_ALLSVENSKANLIGA": "soccer/swe.1",
-		"TUR_SUPER_LIG": "soccer/tur.1",
-
-		//South American Soccer
-		"ARG_COPA": "soccer/arg.copa",
-		"ARG_NACIONAL_B": "soccer/arg.2",
-		"ARG_PRIMERA_DIV_B": "soccer/arg.3",
-		"ARG_PRIMERA_DIV_C": "soccer/arg.4",
-		"ARG_PRIMERA_DIV_D": "soccer/arg.5",
-		"ARG_SUPERLIGA": "soccer/arg.1",
-		"BOL_LIGA_PRO": "soccer/bol.1",
-		"BRA_CAMP_CARIOCA": "soccer/bra.camp.carioca",
-		"BRA_CAMP_GAUCHO": "soccer/bra.camp.gaucho",
-		"BRA_CAMP_MINEIRO": "soccer/bra.camp.mineiro",
-		"BRA_CAMP_PAULISTA": "soccer/bra.camp.paulista",
-		"BRA_SERIE_A": "soccer/bra.1",
-		"BRA_SERIE_B": "soccer/bra.2",
-		"BRA_SERIE_C": "soccer/bra.3",
-		"CHI_PRIMERA_DIV": "soccer/chi.1",
-		"COL_PRIMERA_A": "soccer/col.1",
-		"COL_PRIMERA_B": "soccer/col.2",
-		"CONMEBOL_COPA_LIBERTADORES": "soccer/conmebol.libertadores",
-		"CONMEBOL_COPA_SUDAMERICANA": "soccer/conmebol.sudamericana",
-		"ECU_PRIMERA_A": "soccer/ecu.1",
-		"PAR_PRIMERA_DIV": "soccer/par.1",
-		"PER_PRIMERA_PRO": "soccer/per.1",
-		"URU_PRIMERA_DIV": "soccer/uru.1",
-		"VEN_PRIMERA_PRO": "soccer/ven.1",
-
-		//North American Soccer
-		"CONCACAF_GOLD_CUP": "soccer/concacaf.gold",
-		"CONCACAF_NATIONS_LEAGUE": "soccer/concacaf.nations.league",
-		"CONCACAF_NATIONS_Q": "soccer/concacaf.nations.league_qual",
-		"CONCACAF_WOMENS_CHAMPIONSHIP": "soccer/concacaf.womens.championship",
-		"CRC_PRIMERA_DIV": "soccer/crc.1",
-		"GUA_LIGA_NACIONAL": "soccer/gua.1",
-		"HON_PRIMERA_DIV": "soccer/hon.1",
-		"JAM_PREMIER_LEAGUE": "soccer/jam.1",
-		"MEX_ASCENSO_MX": "soccer/mex.2",
-		"MEX_COPA_MX": "soccer/mex.copa_mx",
-		"MEX_LIGA_BANCOMER": "soccer/mex.1",
-		"SLV_PRIMERA_DIV": "soccer/slv.1",
-		"USA_MLS": "soccer/usa.1",
-		"USA_NCAA_SL_M": "soccer/usa.ncaa.m.1",
-		"USA_NCAA_SL_W": "soccer/usa.ncaa.w.1",
-		"USA_NASL": "soccer/usa.nasl",
-		"USA_NWSL": "soccer/usa.nwsl",
-		"USA_OPEN": "soccer/usa.open",
-		"USA_USL": "soccer/usa.usl.1",
-
-		//Asian Soccer
-		"AFC_CHAMPIONS": "soccer/afc.champions",
-		"AUS_A_LEAGUE": "soccer/aus.1",
-		"CHN_SUPER_LEAGUE": "soccer/chn.1",
-		"IDN_SUPER_LEAGUE": "soccer/idn.1",
-		"IND_I_LEAGUE": "soccer/ind.2",
-		"IND_SUPER_LEAGUE": "soccer/ind.1",
-		"JPN_J_LEAGUE": "soccer/jpn.1",
-		"MYS_SUPER_LEAGUE": "soccer/mys.1",
-		"SGP_PREMIER_LEAGUE": "soccer/sgp.1",
-		"THA_PREMIER_LEAGUE": "soccer/tha.1",
-
-		//African Soccer
-		"CAF_CHAMPIONS": "soccer/caf.champions",
-		"CAF_CONFED_CUP": "soccer/caf.confed",
-		"GHA_PREMIERE_LEAGUE": "soccer/gha.1",
-		"KEN_PREMIERE_LEAGUE": "soccer/ken.1",
-		"NGA_PRO_LEAGUE": "soccer/nga.1",
-		"RSA_FIRST_DIV": "soccer/rsa.2",
-		"RSA_PREMIERSHIP": "soccer/rsa.1",
-		"UGA_SUPER_LEAGUE": "soccer/uga.1",
-		"ZAM_SUPER_LEAGUE": "soccer/zam.1",
-		"ZIM_PREMIER_LEAGUE": "soccer/zim.1",
-
-		//Rugby
-		"Premiership Rugby": "rugby/267979",
-		"Rugby World Cup": "rugby/164205",
-		"Six Nations Rugby": "rugby/180659",
-		"The Rugby Championship": "rugby/244293",
-		"European Rugby Champions Cup": "rugby/271937",
-		"United Rugby Championship": "rugby/270557",
-		"Super Rugby Pacific": "rugby/242041",
-		"Olympic Men's 7s Rugby": "rugby/282",
-		"Olympic Women's Rugby Sevens": "rugby/283",
-		"International Test Match Rugby": "rugby/289234",
-		"URBA Top 12 Rugby": "rugby/289279",
-		"Mitre 10 Cup Rugby": "rugby/270563"
+		'AFC Champions League Two': 'soccer/afc.cup', 'AFC Asian Cup Qualifiers': 'soccer/afc.cupq', 'ASEAN Championship': 'soccer/aff.championship', 'Africa Cup of Nations': 'soccer/caf.nations', 'Africa Cup of Nations Qualifying': 'soccer/caf.nations_qual', 'African Nations Championship': 'soccer/caf.championship', 'Copa América': 'soccer/conmebol.america', 'FIFA Club World Cup': 'soccer/fifa.cwc', 'FIFA Confederations Cup': 'soccer/fifa.confederations', "Men's Olympic Soccer Tournament": 'soccer/fifa.olympics', "Women's Olympic Soccer Tournament": 'soccer/fifa.w.olympics', "FIFA Women's World Cup": 'soccer/fifa.wwc', 'FIFA World Cup': 'soccer/fifa.world', 'FIFA World Cup Qualifying - AFC': 'soccer/fifa.worldq.afc', 'FIFA World Cup Qualifying - CAF': 'soccer/fifa.worldq.caf', 'FIFA World Cup Qualifying - Concacaf': 'soccer/fifa.worldq.concacaf', 'FIFA World Cup Qualifying - CONMEBOL': 'soccer/fifa.worldq.conmebol', 'FIFA World Cup Qualifying - OFC': 'soccer/fifa.worldq.ofc', 'FIFA World Cup Qualifying - UEFA': 'soccer/fifa.worldq.uefa', 'FIFA Under-17 World Cup': 'soccer/fifa.world.u17', 'FIFA Under-20 World Cup': 'soccer/fifa.world.u20', 'UEFA Champions League': 'soccer/uefa.champions', 'UEFA Conference League': 'soccer/uefa.europa.conf', 'UEFA Europa League': 'soccer/uefa.europa', 'UEFA European Championship': 'soccer/uefa.euro', 'UEFA European Championship Qualifying': 'soccer/uefa.euroq', 'UEFA European Under-19 Championship': 'soccer/uefa.euro.u19', 'UEFA European Under-21 Championship': 'soccer/uefa.euro_u21', 'UEFA Nations League': 'soccer/uefa.nations', 'SAFF Championship': 'soccer/afc.saff.championship', "UEFA Women's European Championship": 'soccer/uefa.weuro', 'English League Championship': 'soccer/eng.2', 'English EFL Trophy': 'soccer/eng.trophy', 'English League One': 'soccer/eng.3', 'English League Two': 'soccer/eng.4', 'English National League': 'soccer/eng.5', 'English Premier League': 'soccer/eng.1', 'Irish Premier Division': 'soccer/irl.1', 'Northern Irish Premiership': 'soccer/nir.1', 'Scottish League Cup': 'soccer/sco.cis', 'Scottish Championship': 'soccer/sco.2', 'Scottish League One': 'soccer/sco.3', 'Scottish League Two': 'soccer/sco.4', 'Scottish Premiership': 'soccer/sco.1', 'Welsh Premier League': 'soccer/wal.1', 'Austrian Bundesliga': 'soccer/aut.1', 'Belgian Pro League': 'soccer/bel.1', 'Danish Superliga': 'soccer/den.1', 'Spanish LALIGA': 'soccer/esp.1', 'Spanish LALIGA 2': 'soccer/esp.2', 'French Ligue 1': 'soccer/fra.1', 'French Ligue 2': 'soccer/fra.2', 'German 2. Bundesliga': 'soccer/ger.2', 'German Bundesliga': 'soccer/ger.1', 'Greek Super League': 'soccer/gre.1', 'Israeli Premier League': 'soccer/isr.1', 'Italian Serie A': 'soccer/ita.1', 'Italian Serie B': 'soccer/ita.2', 'Maltese Premier League': 'soccer/mlt.1', 'Dutch Keuken Kampioen Divisie': 'soccer/ned.2', 'Dutch Eredivisie': 'soccer/ned.1', 'Norwegian Eliteserien': 'soccer/nor.1', 'Portuguese Primeira Liga': 'soccer/por.1', 'Romanian Liga 1': 'soccer/rou.1', 'Russian Premier League': 'soccer/rus.1', 'Swiss Super League': 'soccer/sui.1', 'Swedish Allsvenskan': 'soccer/swe.1', 'Turkish Super Lig': 'soccer/tur.1', 'Copa Argentina': 'soccer/arg.copa', 'Argentine Nacional B': 'soccer/arg.2', 'Argentine Primera B': 'soccer/arg.3', 'Argentine Primera C': 'soccer/arg.4', 'Argentine Primera D': 'soccer/arg.5', 'Argentine Liga Profesional de Fútbol': 'soccer/arg.1', 'Bolivian Liga Profesional': 'soccer/bol.1', 'Brazilian Campeonato Carioca': 'soccer/bra.camp.carioca', 'Brazilian Campeonato Gaucho': 'soccer/bra.camp.gaucho', 'Brazilian Campeonato Mineiro': 'soccer/bra.camp.mineiro', 'Brazilian Campeonato Paulista': 'soccer/bra.camp.paulista', 'Brazilian Serie A': 'soccer/bra.1', 'Brazilian Serie B': 'soccer/bra.2', 'Brazilian Serie C': 'soccer/bra.3', 'Chilean Primera División': 'soccer/chi.1', 'Colombian Primera A': 'soccer/col.1', 'Colombian Primera B': 'soccer/col.2', 'CONMEBOL Libertadores': 'soccer/conmebol.libertadores', 'CONMEBOL Sudamericana': 'soccer/conmebol.sudamericana', 'LigaPro Ecuador': 'soccer/ecu.1', 'Paraguayan Primera División': 'soccer/par.1', 'Peruvian Liga 1': 'soccer/per.1', 'Liga UAF Uruguaya': 'soccer/uru.1', 'Venezuelan Primera División': 'soccer/ven.1', 'Concacaf Gold Cup': 'soccer/concacaf.gold', 'Concacaf Nations League': 'soccer/concacaf.nations.league', 'Concacaf Nations League Qualifying': 'soccer/concacaf.nations.league_qual', 'Concacaf W Championship': 'soccer/concacaf.womens.championship', 'Costa Rican Primera Division': 'soccer/crc.1', 'Guatemalan Liga Nacional': 'soccer/gua.1', 'Honduran Liga Nacional': 'soccer/hon.1', 'Jamaican Premier League': 'soccer/jam.1', 'Mexican Liga de Expansión MX': 'soccer/mex.2', 'Mexican Copa MX': 'soccer/mex.copa_mx', 'Mexican Liga BBVA MX': 'soccer/mex.1', 'Salvadoran Primera Division': 'soccer/slv.1', 'MLS': 'soccer/usa.1', "NCAA Men's Soccer": 'soccer/usa.ncaa.m.1', "NCAA Women's Soccer": 'soccer/usa.ncaa.w.1', 'North American Soccer League': 'soccer/usa.nasl', 'NWSL': 'soccer/usa.nwsl', 'U.S. Open Cup': 'soccer/usa.open', 'USL Championship': 'soccer/usa.usl.1', 'AFC Champions League Elite': 'soccer/afc.champions', 'Australian A-League Men': 'soccer/aus.1', 'Chinese Super League': 'soccer/chn.1', 'Indonesian Liga 1': 'soccer/idn.1', 'Indian I-League': 'soccer/ind.2', 'Indian Super League': 'soccer/ind.1', 'Japanese J.League': 'soccer/jpn.1', 'Malaysian Super League': 'soccer/mys.1', 'Singaporean Premier League': 'soccer/sgp.1', 'Thai League 1': 'soccer/tha.1', 'CAF Champions League': 'soccer/caf.champions', 'CAF Confederation Cup': 'soccer/caf.confed', 'Ghanaian Premier League': 'soccer/gha.1', 'Kenyan Premier League': 'soccer/ken.1', 'Nigerian Professional League': 'soccer/nga.1', 'South African First Division': 'soccer/rsa.2', 'South African Premier Division': 'soccer/rsa.1', 'Ugandan Premier League': 'soccer/uga.1', 'Zambian Super League': 'soccer/zam.1', 'Zimbabwean Premier Soccer League': 'soccer/zim.1', 'Premiership Rugby': 'rugby/267979', 'Rugby World Cup': 'rugby/164205', 'Six Nations': 'rugby/180659', 'The Rugby Championship': 'rugby/244293', 'European Rugby Champions Cup': 'rugby/271937', 'United Rugby Championship': 'rugby/270557', 'Super Rugby Pacific': 'rugby/242041', "Olympic Men's 7s": 'rugby/282', "Olympic Women's Rugby Sevens": 'rugby/283', 'International Test Match': 'rugby/289234', 'URBA Top 12': 'rugby/289279', 'Mitre 10 Cup': 'rugby/270563',
+		//Legacy
+		'AFC_ASIAN_CUP': 'soccer/afc.cup', 'AFC_ASIAN_CUP_Q': 'soccer/afc.cupq', 'AFF_CUP': 'soccer/aff.championship', 'AFR_NATIONS_CUP': 'soccer/caf.nations', 'AFR_NATIONS_CUP_Q': 'soccer/caf.nations_qual', 'AFR_NATIONS_CHAMPIONSHIP': 'soccer/caf.championship', 'CONMEBOL_COPA_AMERICA': 'soccer/conmebol.america', 'FIFA_CLUB_WORLD_CUP': 'soccer/fifa.cwc', 'FIFA_CONFEDERATIONS_CUP': 'soccer/fifa.confederations', 'FIFA_MENS_OLYMPICS': 'soccer/fifa.olympics', 'FIFA_WOMENS_OLYMPICS': 'soccer/fifa.w.olympics', 'FIFA_WOMENS_WORLD_CUP': 'soccer/fifa.wwc', 'FIFA_WORLD_CUP': 'soccer/fifa.world', 'FIFA_WORLD_CUP_Q_AFC': 'soccer/fifa.worldq.afc', 'FIFA_WORLD_CUP_Q_CAF': 'soccer/fifa.worldq.caf', 'FIFA_WORLD_CUP_Q_CONCACAF': 'soccer/fifa.worldq.concacaf', 'FIFA_WORLD_CUP_Q_CONMEBOL': 'soccer/fifa.worldq.conmebol', 'FIFA_WORLD_CUP_Q_OFC': 'soccer/fifa.worldq.ofc', 'FIFA_WORLD_CUP_Q_UEFA': 'soccer/fifa.worldq.uefa', 'FIFA_WORLD_U17': 'soccer/fifa.world.u17', 'FIFA_WORLD_U20': 'soccer/fifa.world.u20', 'UEFA_CHAMPIONS': 'soccer/uefa.champions', 'UEFA_CONFERENCE_LEAGUE': 'soccer/uefa.europa.conf', 'UEFA_EUROPA': 'soccer/uefa.europa', 'UEFA_EUROPEAN_CHAMPIONSHIP': 'soccer/uefa.euro', 'UEFA_EUROPEAN_CHAMPIONSHIP_Q': 'soccer/uefa.euroq', 'UEFA_EUROPEAN_CHAMPIONSHIP_U19': 'soccer/uefa.euro.u19', 'UEFA_EUROPEAN_CHAMPIONSHIP_U21': 'soccer/uefa.euro_u21', 'UEFA_NATIONS': 'soccer/uefa.nations', 'SAFF_CHAMPIONSHIP': 'soccer/afc.saff.championship', 'WOMENS_EUROPEAN_CHAMPIONSHIP': 'soccer/uefa.weuro', 'ENG_CHAMPIONSHIP': 'soccer/eng.2', 'ENG_EFL': 'soccer/eng.trophy', 'ENG_LEAGUE_1': 'soccer/eng.3', 'ENG_LEAGUE_2': 'soccer/eng.4', 'ENG_NATIONAL': 'soccer/eng.5', 'ENG_PREMIERE_LEAGUE': 'soccer/eng.1', 'IRL_PREM': 'soccer/irl.1', 'NIR_PREM': 'soccer/nir.1', 'SCO_CIS': 'soccer/sco.cis', 'SCO_CHAMPIONSHIP': 'soccer/sco.2', 'SCO_LEAGUE_1': 'soccer/sco.3', 'SCO_LEAGUE_2': 'soccer/sco.4', 'SCO_PREM': 'soccer/sco.1', 'WAL_PREM': 'soccer/wal.1', 'AUT_BUNDESLIGA': 'soccer/aut.1', 'BEL_DIV_A': 'soccer/bel.1', 'DEN_SAS_LIGAEN': 'soccer/den.1', 'ESP_LALIGA': 'soccer/esp.1', 'ESP_SEGUNDA_DIV': 'soccer/esp.2', 'FRA_LIGUE_1': 'soccer/fra.1', 'FRA_LIGUE_2': 'soccer/fra.2', 'GER_2_BUNDESLIGA': 'soccer/ger.2', 'GER_BUNDESLIGA': 'soccer/ger.1', 'GRE_SUPER_LEAGUE': 'soccer/gre.1', 'ISR_PREMIER_LEAGUE': 'soccer/isr.1', 'ITA_SERIE_A': 'soccer/ita.1', 'ITA_SERIE_B': 'soccer/ita.2', 'MLT_PREMIER_LEAGUE': 'soccer/mlt.1', 'NED_EERSTE_DIVISIE': 'soccer/ned.2', 'NED_EREDIVISIE': 'soccer/ned.1', 'NOR_ELITESERIEN': 'soccer/nor.1', 'POR_LIGA': 'soccer/por.1', 'ROU_FIRST_DIV': 'soccer/rou.1', 'RUS_PREMIER_LEAGUE': 'soccer/rus.1', 'SUI_SUPER_LEAGUE': 'soccer/sui.1', 'SWE_ALLSVENSKANLIGA': 'soccer/swe.1', 'TUR_SUPER_LIG': 'soccer/tur.1', 'ARG_COPA': 'soccer/arg.copa', 'ARG_NACIONAL_B': 'soccer/arg.2', 'ARG_PRIMERA_DIV_B': 'soccer/arg.3', 'ARG_PRIMERA_DIV_C': 'soccer/arg.4', 'ARG_PRIMERA_DIV_D': 'soccer/arg.5', 'ARG_SUPERLIGA': 'soccer/arg.1', 'BOL_LIGA_PRO': 'soccer/bol.1', 'BRA_CAMP_CARIOCA': 'soccer/bra.camp.carioca', 'BRA_CAMP_GAUCHO': 'soccer/bra.camp.gaucho', 'BRA_CAMP_MINEIRO': 'soccer/bra.camp.mineiro', 'BRA_CAMP_PAULISTA': 'soccer/bra.camp.paulista', 'BRA_SERIE_A': 'soccer/bra.1', 'BRA_SERIE_B': 'soccer/bra.2', 'BRA_SERIE_C': 'soccer/bra.3', 'CHI_PRIMERA_DIV': 'soccer/chi.1', 'COL_PRIMERA_A': 'soccer/col.1', 'COL_PRIMERA_B': 'soccer/col.2', 'CONMEBOL_COPA_LIBERTADORES': 'soccer/conmebol.libertadores', 'CONMEBOL_COPA_SUDAMERICANA': 'soccer/conmebol.sudamericana', 'ECU_PRIMERA_A': 'soccer/ecu.1', 'PAR_PRIMERA_DIV': 'soccer/par.1', 'PER_PRIMERA_PRO': 'soccer/per.1', 'URU_PRIMERA_DIV': 'soccer/uru.1', 'VEN_PRIMERA_PRO': 'soccer/ven.1', 'CONCACAF_GOLD_CUP': 'soccer/concacaf.gold', 'CONCACAF_NATIONS_LEAGUE': 'soccer/concacaf.nations.league', 'CONCACAF_NATIONS_Q': 'soccer/concacaf.nations.league_qual', 'CONCACAF_WOMENS_CHAMPIONSHIP': 'soccer/concacaf.womens.championship', 'CRC_PRIMERA_DIV': 'soccer/crc.1', 'GUA_LIGA_NACIONAL': 'soccer/gua.1', 'HON_PRIMERA_DIV': 'soccer/hon.1', 'JAM_PREMIER_LEAGUE': 'soccer/jam.1', 'MEX_ASCENSO_MX': 'soccer/mex.2', 'MEX_COPA_MX': 'soccer/mex.copa_mx', 'MEX_LIGA_BANCOMER': 'soccer/mex.1', 'SLV_PRIMERA_DIV': 'soccer/slv.1', 'USA_MLS': 'soccer/usa.1', 'USA_NCAA_SL_M': 'soccer/usa.ncaa.m.1', 'USA_NCAA_SL_W': 'soccer/usa.ncaa.w.1', 'USA_NASL': 'soccer/usa.nasl', 'USA_NWSL': 'soccer/usa.nwsl', 'USA_OPEN': 'soccer/usa.open', 'USA_USL': 'soccer/usa.usl.1', 'AFC_CHAMPIONS': 'soccer/afc.champions', 'AUS_A_LEAGUE': 'soccer/aus.1', 'CHN_SUPER_LEAGUE': 'soccer/chn.1', 'IDN_SUPER_LEAGUE': 'soccer/idn.1', 'IND_I_LEAGUE': 'soccer/ind.2', 'IND_SUPER_LEAGUE': 'soccer/ind.1', 'JPN_J_LEAGUE': 'soccer/jpn.1', 'MYS_SUPER_LEAGUE': 'soccer/mys.1', 'SGP_PREMIER_LEAGUE': 'soccer/sgp.1', 'THA_PREMIER_LEAGUE': 'soccer/tha.1', 'CAF_CHAMPIONS': 'soccer/caf.champions', 'CAF_CONFED_CUP': 'soccer/caf.confed', 'GHA_PREMIERE_LEAGUE': 'soccer/gha.1', 'KEN_PREMIERE_LEAGUE': 'soccer/ken.1', 'NGA_PRO_LEAGUE': 'soccer/nga.1', 'RSA_FIRST_DIV': 'soccer/rsa.2', 'RSA_PREMIERSHIP': 'soccer/rsa.1', 'UGA_SUPER_LEAGUE': 'soccer/uga.1', 'ZAM_SUPER_LEAGUE': 'soccer/zam.1', 'ZIM_PREMIER_LEAGUE': 'soccer/zim.1', 'Premiership Rugby': 'rugby/267979', 'Rugby World Cup': 'rugby/164205', 'Six Nations Rugby': 'rugby/180659', 'The Rugby Championship': 'rugby/244293', 'European Rugby Champions Cup': 'rugby/271937', 'United Rugby Championship': 'rugby/270557', 'Super Rugby Pacific': 'rugby/242041', "Olympic Men's 7s Rugby": 'rugby/282', "Olympic Women's Rugby Sevens": 'rugby/283', 'International Test Match Rugby': 'rugby/289234', 'URBA Top 12 Rugby': 'rugby/289279', 'Mitre 10 Cup Rugby': 'rugby/270563'
 	},
 
 	// Module properties.
@@ -242,6 +88,7 @@ Module.register("MMM-MyStandings",{
 		this.config.playoffFieldSize["NHL_WILDCARD"] = 2;
 		this.config.playoffFieldSize["NHL_PLAYOFFS"] = 8;
 		this.config.playoffFieldSize["MLS"] = 9;
+		this.config.playoffFieldSize["NWSL"] = 8;
 		
 		//Set Short Name dictionary
 		this.config.shortNameLookup = {};
@@ -578,7 +425,7 @@ Module.register("MMM-MyStandings",{
 				} else if (formattedStandingsObject[h].shortName === undefined) {
 					formattedStandingsObject[h].shortName = formattedStandingsObject[h].name
 				}
-				if (!formattedStandingsObject[h].shortName.startsWith(sport)) {
+				if (!formattedStandingsObject[h].shortName.startsWith(sport) && this.config.addLeagueToTitle) {
 					formattedStandingsObject[h].shortName = sport.replace(" Rankings","").replace("_PLAYOFFS","").replace("_WILDCARD","") + " " + formattedStandingsObject[h].shortName
 				}
 			}
