@@ -1,0 +1,58 @@
+# Changelog
+
+Notable changes to this project will be documented in this file.
+
+This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [2.4.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.3.0...v2.4.0) - 2025-03-28
+
+- NEW FEATURE: Added Rugby league standings
+- NEW FEATURE: Added alternative standings for NBA (league, conferences), MBL (all MLB, leagues, wild card, playoffs), NFL (league, conferences, playoffs), NHL (league, conferences, wild card, playoffs)
+- NEW FEATURE: Added rankings badges for certain standings
+- NEW FEATURE: Added league name before the displayed standings (e.g., "FIFA World Cup Group A" instead of previous "Group A")
+- Improved handling of standings rotation; going forward, will rotate through divisions that have received information, ignoring any improperly formatting `groups`.
+- Fixed bug involving uniqueID
+- Some css formatting tweaks
+- Some README clarifications
+- Bumped axios dependency to v1.8.4 for security
+
+## [2.3.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.2.0...v2.3.0) - 2025-03-26
+
+- NEW FEATURE: Added `colored` option to allow display of module in grayscale
+- NEW FEATURE: Added NCAAW rankings
+- Simplified default config to display a more limited subset of available standings
+- Updated some available soccer leagues
+- Some css formatting changes
+- Corrected NCAAF ASUN Conference name
+- Some README changes for clarity
+- Some new logos
+
+## [2.2.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.1.0...v2.2.0) - 2025-03-25
+
+- NEW FEATURE: Added NCAAF and NCAAM rankings with ranking badges
+- Improved handling of leagues where groups left undefined; this fixes a bug that would display all soccer Groups together even if `showByDivision` was set to `true`.  Going forward, if a league has any divisions, all will be rotated through if `groups` is left `undefined`.
+- Added `rankingLength` option for displaying partial (<25) NCAA ranking standings
+- Cleaned up README
+- Lots of new logos
+
+## [2.1.0](https://github.com/dathbe/MMM-MyStandings/compare/2.0.0...v2.1.0) - 2025-03-24
+
+- NEW FEATURE: Improved logo handling so that module will fall back to ESPN urls if local file not available - no more missing logos!
+- NEW FEATURE: Adds sport name before standings of NCAA conferences ("NCAAM Big Ten" instead of ambiguous "Big Ten")
+- Placeholder improvement allowing multiple api urls for each sport for planned implementation of alternative (not just division) standings
+- Some initial work toward adding NCAA rankings lists (non-functional)
+- Moved all NCAA logos to `NCAA` subfolder to avoid duplication
+- Lots of new logos
+
+## [2.0.0](https://github.com/dathbe/MMM-MyStandings/compare/tag/2.0.0) - 2025-03-23 - First fork version
+
+Forked from [vincep5](https://github.com/vincep5/MMM-MyStandings/compare/master...dathbe:2.0.0).
+- NEW FEATURE: Allows multiple instances of module in same config file
+- Updated css formatting
+- Corrected some stat names
+- Conformed install instructions to best practices
+- Added updating instructions
+- Lots of logo additions
+- Migrated from `request` dependency to `axios`
+- Cleaned up `package.json` and added information
+
