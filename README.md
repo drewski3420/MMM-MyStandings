@@ -14,8 +14,6 @@ The module will rotate through different sports.  If you only want to show one s
 ```bash
 cd ~/MagicMirror/modules
 git clone https://github.com/dathbe/MMM-MyStandings
-cd MMM-MyStandings
-npm install
 ```
 
 ## Updating the module
@@ -23,7 +21,6 @@ npm install
 ```bash
 cd ~/MagicMirror/modules/MMM-MyStandings
 git pull
-npm install
 ```
 
 ## Config
