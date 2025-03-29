@@ -2,8 +2,7 @@
  * Module: Standings
  *
  */
-var NodeHelper = require('node_helper');
-const axios = require("axios");
+const NodeHelper = require('node_helper');
 const dirTree = require("directory-tree");
 
 module.exports = NodeHelper.create({
@@ -26,19 +25,20 @@ module.exports = NodeHelper.create({
 
 	},
 
-	getData: function (notification, payload) {
-		var self = this;
-		axios
-			.get(payload.url)
-			.then((response) => {
-				self.sendSocketNotification(notification, {
-					result: response.data,
-					uniqueID: payload.uniqueID
-				});
-			})
-			.catch( function(r_err) {
-				console.log( "MMM-MyStandings : Could not load data." );      
+	async getData (notification, payload) {
+		try {
+			const response = await fetch(payload.url);
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+			const data = await response.json();
+			this.sendSocketNotification(notification, {
+				result: data,
+				uniqueID: payload.uniqueID
 			});
+		} catch (error) {
+			console.error("[MMM-MyStandings] Could not load data.", error);
+		}
 	},
 
 	//Subclass socketNotificationReceived received.
