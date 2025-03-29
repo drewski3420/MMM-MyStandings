@@ -4,6 +4,18 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [unreleased]
+
+- Replacing external dependencies - with this `npm install` is no longer needed.
+  - Replace `axios` by fetch
+  - Replace `directory-tree` by internal method
+- Fix name, version, contributors and description in `package.json`
+- Switch LICENSE file to markdown for better readability
+- Format README and add Contributing section
+- Add `.gitignore` to ignore `node_modules` directory
+- Replace console by Log
+- Add ESLint and handle linting issues
+
 ## [2.5.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.4.0...v2.5.0) - 2025-03-28
 
 - NEW FEATURE: New option `addLeagueToTitle` to give users the option to switch off the previously added feature of adding the league name to the table title (it takes up space, and doesn't play nice with some soccer leagues, so I've given the option to remove it)
@@ -13,7 +25,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Added CODE_OF_CONDUCT.md
 - Added LICENSE
 - Update package.json
-- New screenshot (PNG instead of JPG to hopefully get picked up by https://kristjanesperanto.github.io/MagicMirror-3rd-Party-Modules/)
+- New screenshot (PNG instead of JPG to hopefully get picked up by <https://kristjanesperanto.github.io/MagicMirror-3rd-Party-Modules/>)
 - Some new logos
 
 ## [2.4.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.3.0...v2.4.0) - 2025-03-28
@@ -59,6 +71,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## [2.0.0](https://github.com/dathbe/MMM-MyStandings/compare/tag/2.0.0) - 2025-03-23 - First fork version
 
 Forked from [vincep5](https://github.com/vincep5/MMM-MyStandings/compare/master...dathbe:2.0.0).
+
 - NEW FEATURE: Allows multiple instances of module in same config file
 - Updated css formatting
 - Corrected some stat names
@@ -67,4 +80,3 @@ Forked from [vincep5](https://github.com/vincep5/MMM-MyStandings/compare/master.
 - Lots of logo additions
 - Migrated from `request` dependency to `axios`
 - Cleaned up `package.json` and added information
-
