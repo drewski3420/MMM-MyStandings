@@ -2,12 +2,13 @@
  * Module: Standings
  *
  */
+const Log = require("logger");
 const NodeHelper = require('node_helper');
 const dirTree = require("directory-tree");
 
 module.exports = NodeHelper.create({
 	start: function () {
-		console.log('MMM-MyStandings helper started ...');
+		Log.log('MMM-MyStandings helper started ...');
 		
 		this.localLogos = {};
 		const fsTree = dirTree("./modules/MMM-MyStandings/logos", {
@@ -37,7 +38,7 @@ module.exports = NodeHelper.create({
 				uniqueID: payload.uniqueID
 			});
 		} catch (error) {
-			console.error("[MMM-MyStandings] Could not load data.", error);
+			Log.error("[MMM-MyStandings] Could not load data.", error);
 		}
 	},
 
