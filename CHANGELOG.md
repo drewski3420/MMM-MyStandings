@@ -4,6 +4,18 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.4.0...v2.5.0) - 2025-03-28
+
+- NEW FEATURE: New option `addLeagueToTitle` to give users the option to switch off the previously added feature of adding the league name to the table title (it takes up space, and doesn't play nice with some soccer leagues, so I've given the option to remove it)
+- NEW FEATURE:  Added ranking badges to NWSL standings for playoff spots
+- CHANGED BEHAVIOR: I've changed all of the names of the soccer leagues to be used in the config file from "XXX_XXX" to "Xxx Xxx".  The old names will continue to work, but will no longer be listed in the README and may be removed at a future date.  *Please update your config files*.  The new styling plays nicer with adding the league name to table titles.
+- Added CHANGELOG.md
+- Added CODE_OF_CONDUCT.md
+- Added LICENSE
+- Update package.json
+- New screenshot (PNG instead of JPG to hopefully get picked up by https://kristjanesperanto.github.io/MagicMirror-3rd-Party-Modules/)
+- Some new logos
+
 ## [2.4.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.3.0...v2.4.0) - 2025-03-28
 
 - NEW FEATURE: Added Rugby league standings
