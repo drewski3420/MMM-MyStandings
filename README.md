@@ -327,6 +327,25 @@ If your soccer competition has groups and you want to see groups rotate, conside
 
 Rugby leagues work similarly to soccer leagues.
 
+## Contributing
+
+If you find any problems, bugs or have questions, please [open a GitHub issue](https://github.com/dathbe/MMM-MyStandings/issues) in this repository.
+
+Pull requests are of course also very welcome 🙂
+
+### Code of Conduct
+
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+### Developer commands
+
+- `npm run lint` - Run linting checks.
+- `npm run lint:fix` - Fix automatically fixable linting errors.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+
 ## Thank You
 
 Special thank you to [vincep5](https://github.com/vincep5/), who created the original version of this module and did most of the work.
