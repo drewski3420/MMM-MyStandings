@@ -5,21 +5,17 @@ const path = require('node:path')
 
 module.exports = NodeHelper.create({
   start: function () {
-    Log.log('MMM-MyStandings helper started ...')
+    //Log.log('MMM-MyStandings helper started ...');
+    console.log('MMM-MyStandings helper started ...')
 
     this.localLogos = {}
     const fsTree = this.getDirectoryTree('./modules/MMM-MyStandings/logos')
-    if (fsTree.children && Array.isArray(fsTree.children)) {
-      fsTree.children.forEach((league) => {
-        if (league.children) {
-          var logoFiles = []
-          league.children.forEach((logo) => {
-            logoFiles.push(logo.name)
-          })
-          this.localLogos[league.name] = logoFiles
-        }
-      })
-    }
+    fsTree.forEach((league) => {
+      if (league.children) {
+        this.localLogos[league.name] = league.children
+      }
+    })
+
   },
 
   getDirectoryTree(dirPath) {
@@ -55,7 +51,8 @@ module.exports = NodeHelper.create({
       })
     }
     catch (error) {
-      Log.error('[MMM-MyStandings] Could not load data.', error)
+      //Log.error('[MMM-MyStandings] Could not load data.', error)
+      console.error('[MMM-MyStandings] Could not load data.', error)
     }
   },
 
@@ -65,7 +62,7 @@ module.exports = NodeHelper.create({
       this.getData(notification, payload)
     }
     else if (notification == 'MMM-MYSTANDINGS-GET-LOCAL-LOGOS') {
-      this.sendSocketNotification('MMM-MYSTANDINGS-LOCAL-LOGO-LIST', { instanceId: payload.instanceId, index: payload.index, logos: this.localLogos })
+      this.sendSocketNotification('MMM-MYSTANDINGS-LOCAL-LOGO-LIST', { uniqueID: payload.uniqueID, index: payload.index, logos: this.localLogos })
     }
   },
 })
