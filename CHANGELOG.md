@@ -4,6 +4,20 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.2](https://github.com/dathbe/MMM-MyStandings/compare/v2.5.1...v2.5.2) - 2025-03-31
+
+- Replacing last dependency - **with this `npm install` is no longer needed!**
+  - Replace `directory-tree` by internal method
+- BUG FIX: Check incoming logos notifications for matching uniqueID
+- Fix name, version, contributors and description in `package.json`
+- Switch LICENSE file to markdown for better readability
+- Format README and add Contributing section
+- Add `.gitignore` to ignore `node_modules` directory
+- Add ESLint and handle linting issues
+- Small logging tweaks
+
+Special thankyou to @KristjanESPERANTO for most of the work on this release
+
 ## [2.5.1](https://github.com/dathbe/MMM-MyStandings/compare/v2.5.0...v2.5.1) - 2025-03-30
 
 - Replace axios dependency with built-in fetch
@@ -17,7 +31,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Added CODE_OF_CONDUCT.md
 - Added LICENSE
 - Update package.json
-- New screenshot (PNG instead of JPG to hopefully get picked up by https://kristjanesperanto.github.io/MagicMirror-3rd-Party-Modules/)
+- New screenshot (PNG instead of JPG to hopefully get picked up by <https://kristjanesperanto.github.io/MagicMirror-3rd-Party-Modules/>)
 - Some new logos
 
 ## [2.4.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.3.0...v2.4.0) - 2025-03-28
@@ -63,6 +77,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## [2.0.0](https://github.com/dathbe/MMM-MyStandings/compare/tag/2.0.0) - 2025-03-23 - First fork version
 
 Forked from [vincep5](https://github.com/vincep5/MMM-MyStandings/compare/master...dathbe:2.0.0).
+
 - NEW FEATURE: Allows multiple instances of module in same config file
 - Updated css formatting
 - Corrected some stat names
@@ -71,4 +86,3 @@ Forked from [vincep5](https://github.com/vincep5/MMM-MyStandings/compare/master.
 - Lots of logo additions
 - Migrated from `request` dependency to `axios`
 - Cleaned up `package.json` and added information
-
