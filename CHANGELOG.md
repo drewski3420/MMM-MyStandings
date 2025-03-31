@@ -4,6 +4,10 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.1](https://github.com/dathbe/MMM-MyStandings/compare/v2.5.0...v2.5.1) - 2025-03-30
+
+- Replace axios dependency with built-in fetch
+
 ## [2.5.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.4.0...v2.5.0) - 2025-03-28
 
 - NEW FEATURE: New option `addLeagueToTitle` to give users the option to switch off the previously added feature of adding the league name to the table title (it takes up space, and doesn't play nice with some soccer leagues, so I've given the option to remove it)
