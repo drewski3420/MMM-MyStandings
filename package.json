@@ -1,7 +1,7 @@
 {
-  "name": "MMM-MyStandings",
-  "version": "2.5.1",
-  "description": "MagicMirror² module to get ESPN standings for the major sports",
+  "name": "mmm-mystandings",
+  "version": "2.5.0",
+  "description": "MagicMirror² module to get ESPN standings for the major sports.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dathbe/MMM-MyStandings.git"
@@ -14,9 +14,19 @@
     "Standings"
   ],
   "author": "vincep5",
-  "contributors": "dathbe",
+  "contributors": [
+    "dathbe"
+  ],
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "test": "npm run lint"
+  },
   "license": "MIT",
-  "dependencies": {
-    "directory-tree": "^3.5.2"
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "eslint": "^9.23.0",
+    "globals": "^16.0.0"
   }
 }
