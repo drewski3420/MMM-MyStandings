@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [2.5.2](https://github.com/dathbe/MMM-MyStandings/compare/v2.5.1...v2.5.2) - 2025-03-31
 
+- Add `uniqueID` check for logo list notifications
 - Bump directory-tree version
 - Small logging tweaks
 
