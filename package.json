@@ -1,7 +1,7 @@
 {
   "name": "mmm-mystandings",
   "version": "2.5.0",
-  "description": "MagicMirror² module to get ESPN standings for the major sports.",
+  "description": "A MagicMirror² module to display standings for many major sports.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dathbe/MMM-MyStandings.git"
@@ -15,7 +15,8 @@
   ],
   "author": "vincep5",
   "contributors": [
-    "dathbe"
+    "dathbe",
+    "KristjanESPERANTO"
   ],
   "scripts": {
     "lint": "eslint",
