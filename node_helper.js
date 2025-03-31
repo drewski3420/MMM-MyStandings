@@ -7,7 +7,7 @@ const dirTree = require("directory-tree");
 
 module.exports = NodeHelper.create({
 	start: function () {
-		console.log('Starting node_helper for module [MMM-MyStandings]');
+		console.log("Starting node_helper for:" + this.name);
 		
 		this.localLogos = {};
 		const fsTree = dirTree("./modules/MMM-MyStandings/logos", {
@@ -41,7 +41,7 @@ module.exports = NodeHelper.create({
 		if (notification.startsWith("STANDINGS_RESULT")) {
 			this.getData(notification, payload);
 		} else if (notification == "MMM-MYSTANDINGS-GET-LOCAL-LOGOS") {
-			this.sendSocketNotification("MMM-MYSTANDINGS-LOCAL-LOGO-LIST", {instanceId: payload.instanceId, index: payload.index, logos: this.localLogos});
+			this.sendSocketNotification("MMM-MYSTANDINGS-LOCAL-LOGO-LIST", {uniqueID: payload.uniqueID, index: payload.index, logos: this.localLogos});
 	}
 	}
 });
