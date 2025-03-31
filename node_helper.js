@@ -12,7 +12,11 @@ module.exports = NodeHelper.create({
     const fsTree = this.getDirectoryTree('./modules/MMM-MyStandings/logos')
     fsTree.forEach((league) => {
       if (league.children) {
-        this.localLogos[league.name] = league.children
+        logoFiles = []
+        league.children.forEach((file) => {
+          logoFiles.push(file.name)
+        })
+    this.localLogos[league.name] = logoFiles 
       }
     })
 
@@ -62,7 +66,7 @@ module.exports = NodeHelper.create({
       this.getData(notification, payload)
     }
     else if (notification == 'MMM-MYSTANDINGS-GET-LOCAL-LOGOS') {
-      this.sendSocketNotification('MMM-MYSTANDINGS-LOCAL-LOGO-LIST', { uniqueID: payload.uniqueID, index: payload.index, logos: this.localLogos })
+      this.sendSocketNotification('MMM-MYSTANDINGS-LOCAL-LOGO-LIST', { uniqueID: payload.uniqueID, logos: this.localLogos })
     }
   },
 })
