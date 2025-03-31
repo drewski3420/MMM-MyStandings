@@ -5,8 +5,8 @@ const path = require('node:path')
 
 module.exports = NodeHelper.create({
   start: function () {
-    //Log.log('MMM-MyStandings helper started ...');
-    console.log('MMM-MyStandings helper started ...')
+    //Log.log("Starting node_helper for: " + this.name);
+    console.log("Starting node_helper for: " + this.name)
 
     this.localLogos = {}
     const fsTree = this.getDirectoryTree('./modules/MMM-MyStandings/logos')
