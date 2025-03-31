@@ -106,7 +106,7 @@ Module.register('MMM-MyStandings', {
     // Schedule the first UI load
     var self = this
 
-    self.sendSocketNotification('MMM-MYSTANDINGS-GET-LOCAL-LOGOS', { instanceId: self.identifier })
+    self.sendSocketNotification('MMM-MYSTANDINGS-GET-LOCAL-LOGOS', { uniqueID: this.defaults.uniqueID })
 
     setTimeout(function () {
       self.rotateStandings()
@@ -300,7 +300,7 @@ Module.register('MMM-MyStandings', {
         this.standingsSportInfo.push(receivedLeague)
       }
     }
-    else if (notification === 'MMM-MYSTANDINGS-LOCAL-LOGO-LIST') {
+    else if (notification === 'MMM-MYSTANDINGS-LOCAL-LOGO-LIST' && payload.uniqueID == this.defaults.uniqueID) {
       this.localLogos = payload.logos
     }
   },
