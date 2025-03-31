@@ -7,7 +7,7 @@ const dirTree = require("directory-tree");
 
 module.exports = NodeHelper.create({
 	start: function () {
-		console.log("Starting node_helper for:" + this.name);
+		console.log("Starting node_helper for: " + this.name);
 		
 		this.localLogos = {};
 		const fsTree = dirTree("./modules/MMM-MyStandings/logos", {
