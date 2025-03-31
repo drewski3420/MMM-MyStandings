@@ -4,6 +4,11 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.2](https://github.com/dathbe/MMM-MyStandings/compare/v2.5.1...v2.5.2) - 2025-03-31
+
+- Bump directory-tree version
+- Small logging tweaks
+
 ## [2.5.1](https://github.com/dathbe/MMM-MyStandings/compare/v2.5.0...v2.5.1) - 2025-03-30
 
 - Replace axios dependency with built-in fetch
