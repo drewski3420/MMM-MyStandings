@@ -3,7 +3,6 @@
  *
  */
 var NodeHelper = require('node_helper');
-const axios = require("axios");
 const dirTree = require("directory-tree");
 
 module.exports = NodeHelper.create({
@@ -26,19 +25,15 @@ module.exports = NodeHelper.create({
 
 	},
 
-	getData: function (notification, payload) {
+	async getData (notification, payload) {
 		var self = this;
-		axios
-			.get(payload.url)
-			.then((response) => {
-				self.sendSocketNotification(notification, {
-					result: response.data,
-					uniqueID: payload.uniqueID
-				});
-			})
-			.catch( function(r_err) {
-				console.log( "MMM-MyStandings : Could not load data." );      
-			});
+		const url = payload.url;
+		const response = await fetch(url)
+		const body = await response.json();
+		self.sendSocketNotification(notification, {
+			result: body,
+			uniqueID: payload.uniqueID
+		});
 	},
 
 	//Subclass socketNotificationReceived received.
