@@ -298,7 +298,7 @@ Module.register("MMM-MyStandings",{
 			} else {
 				this.standingsSportInfo.push(receivedLeague);
 			}
-		} else if (notification === "MMM-MYSTANDINGS-LOCAL-LOGO-LIST") {
+		} else if (notification === "MMM-MYSTANDINGS-LOCAL-LOGO-LIST" && payload.uniqueID == this.defaults.uniqueID) {
 			this.localLogos = payload.logos;
 		}
 	},
