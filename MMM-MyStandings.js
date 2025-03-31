@@ -263,7 +263,7 @@ Module.register('MMM-MyStandings', {
     let receivedLeague
     if (notification.startsWith('STANDINGS_RESULT') && payload.uniqueID == this.defaults.uniqueID) {
       receivedLeague = notification.split('-')[1]
-      Log.log('MyStandings notification received for ' + receivedLeague)
+      //Log.log('MyStandings notification received for ' + receivedLeague)
       for (var leagueIdx in this.config.sports) {
         if (this.config.sports[leagueIdx].league === receivedLeague && this.config.sports[leagueIdx].groups === undefined && payload.result.children.length > 1) {
           this.config.sports[leagueIdx].groups = []
