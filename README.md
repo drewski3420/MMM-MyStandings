@@ -15,6 +15,8 @@ cd MMM-MyStandings
 npm install
 ```
 
+Note: the last dependency of this module is `directory-tree` to check which local logos are available.  If anyone has a better method of checking for local logos and falling back to online logos that doesn't require a dependency, we can get rid of `npm install` entirely!
+
 ## Updating the module
 ```bash
 cd ~/MagicMirror/modules/MMM-MyStandings
