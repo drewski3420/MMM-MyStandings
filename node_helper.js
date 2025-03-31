@@ -28,7 +28,7 @@ module.exports = NodeHelper.create({
 	async getData (notification, payload) {
 		var self = this;
 		const url = payload.url;
-		const response = await fetch(url)
+		const response = await fetch(url);
 		const body = await response.json();
 		self.sendSocketNotification(notification, {
 			result: body,
