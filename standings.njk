@@ -47,7 +47,7 @@
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">OTL</td><td class="dataCell bold">PTS</td>
 			{% elseif currentSport === "MLB" or currentSport === "MLB_PLAYOFFS" or currentSport === "MLB_WILDCARD" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
-			{% elseif currentSport === "NBA" %}
+			{% elseif currentSport === "NBA" or currentSport === "WNBA" or currentSport === "NBAG" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
 			{% elseif currentSport === "NFL" or currentSport === "NFL_PLAYOFFS" or currentSport === "NHL_WILDCARD" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">T</td>
@@ -59,6 +59,10 @@
 				<td class="dataCell">Conf</td><td class="dataCell">Overall</td>
 			{% elseif "Rugby" in currentSport %}
 				<td class="dataCell">W</td><td class="dataCell">D</td><td class="dataCell">L</td><td class="dataCell bold">PTS</td>
+			{% elseif currentSport === "AFL" %}
+				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">D</td><td class="dataCell bold">PTS</td>
+			{% elseif currentSport === "PLL" or currentSport === "NLL" %}
+				<td class="dataCell">W</td><td class="dataCell">L</td>
 			{% elseif currentSport === "F1" %}
 				<td class="dataCell">Rank</td><td class="dataCell bold">Points</td>
 			{% else %}
