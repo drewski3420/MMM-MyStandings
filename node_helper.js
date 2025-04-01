@@ -1,4 +1,4 @@
-//const Log = require('logger') // Can't get log.log to work, so using console.log for the time being
+// const Log = require('logger') // Can't get log.log to work, so using console.log for the time being
 const NodeHelper = require('node_helper')
 const fs = require('node:fs')
 const path = require('node:path')
