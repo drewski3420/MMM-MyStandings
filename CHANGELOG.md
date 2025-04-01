@@ -14,7 +14,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [2.5.2](https://github.com/dathbe/MMM-MyStandings/compare/v2.5.1...v2.5.2) - 2025-03-31
 
-- Replacing last dependency - **with this `npm install` is no longer needed!**
+- Replacing last dependency - **with this, `npm install` is no longer needed!**
   - Replace `directory-tree` by internal method
 - BUG FIX: Check incoming logos notifications for matching uniqueID
 - Fix name, version, contributors and description in `package.json`
