@@ -1,25 +1,24 @@
-const Log = require('logger')
+//const Log = require('logger') // Can't get log.log to work, so using console.log for the time being
 const NodeHelper = require('node_helper')
 const fs = require('node:fs')
 const path = require('node:path')
 
 module.exports = NodeHelper.create({
   start: function () {
-    //Log.log("Starting node_helper for: " + this.name);
-    console.log("Starting node_helper for: " + this.name)
+    // Log.log('Starting node_helper for: ' + this.name);
+    console.log('Starting node_helper for: ' + this.name)
 
     this.localLogos = {}
     const fsTree = this.getDirectoryTree('./modules/MMM-MyStandings/logos')
     fsTree.forEach((league) => {
       if (league.children) {
-        logoFiles = []
+        var logoFiles = []
         league.children.forEach((file) => {
           logoFiles.push(file.name)
         })
-    this.localLogos[league.name] = logoFiles 
+        this.localLogos[league.name] = logoFiles
       }
     })
-
   },
 
   getDirectoryTree(dirPath) {
@@ -55,7 +54,7 @@ module.exports = NodeHelper.create({
       })
     }
     catch (error) {
-      //Log.error('[MMM-MyStandings] Could not load data.', error)
+      // Log.error('[MMM-MyStandings] Could not load data.', error)
       console.error('[MMM-MyStandings] Could not load data.', error)
     }
   },
