@@ -4,6 +4,14 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.5.2...v2.6.0) - 2025-03-31
+
+- NEW FEATURE: WNBA standings now available
+- NEW FEATURE: NBA G League (NBA Development League) standings now available
+- NEW FEATURE: AFL (Australian Football League) standings now available
+- NEW FEATURE: PLL (Premier Lacrosse League) standings now available
+- NEW FEATURE: NLL (National Lacrosse League) standings now available
+
 ## [2.5.2](https://github.com/dathbe/MMM-MyStandings/compare/v2.5.1...v2.5.2) - 2025-03-31
 
 - Replacing last dependency - **with this `npm install` is no longer needed!**

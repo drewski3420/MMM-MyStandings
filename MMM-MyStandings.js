@@ -67,6 +67,8 @@ Module.register('MMM-MyStandings', {
   nhl_l2: ['Western Conference', 'Eastern Conference'],
   nhl_wc: ['West Wild Card', 'East Wild Card'],
   nhl_po: ['West Playoffs', 'East Playoffs'],
+  wnba_l1: ['Women\'s National Basketball Assoc.'],
+  nbag_l1: ['NBA Development League'],
 
   playoffFieldSize: {},
   shortNameLookup: {},
@@ -235,6 +237,27 @@ Module.register('MMM-MyStandings', {
         case 'NCAAW Rankings':
           sportUrls.push(this.urlRanking + 'basketball/womens-college-basketball/rankings')
           break
+        case 'WNBA':
+          if (this.config.sports[i].groups && this.wnba_l1.some(item => this.config.sports[i].groups.includes(item))) {
+            sportUrls.push(this.url + 'basketball/wnba/standings?level=1&sort=gamesbehind:asc,winpercent:desc')
+          }
+          sportUrls.push(this.url + 'basketball/wnba/standings?level=2&sort=gamesbehind:asc,winpercent:desc,playoffseed:asc')
+          break
+        case 'NBAG':
+          if (this.config.sports[i].groups && this.nbag_l1.some(item => this.config.sports[i].groups.includes(item))) {
+            sportUrls.push(this.url + 'basketball/nba-development/standings?level=1&sort=gamesbehind:asc,winpercent:desc')
+          }
+          sportUrls.push(this.url + 'basketball/nba-development/standings?level=2&sort=gamesbehind:asc,winpercent:desc,playoffseed:asc')
+          break
+        case 'AFL':
+          sportUrls.push(this.url + 'australian-football/afl/standings?&sort=rank:asc')
+          break
+        case 'PLL':
+          sportUrls.push(this.url + 'lacrosse/pll/standings?sort=winPercentage:desc')
+          break
+        case 'NLL':
+          sportUrls.push(this.url + 'lacrosse/nll/standings?sort=winPercentage:desc')
+          break
         default: // soccer & rugby
           sportUrls.push(this.url + this.SOCCER_LEAGUE_PATHS[this.config.sports[i].league] + '/standings?sort=rank:asc')
           break
@@ -264,6 +287,7 @@ Module.register('MMM-MyStandings', {
     if (notification.startsWith('STANDINGS_RESULT') && payload.uniqueID == this.defaults.uniqueID) {
       receivedLeague = notification.split('-')[1]
       //Log.log('MyStandings notification received for ' + receivedLeague)
+      //console.log('MyStandings notification received for ' + receivedLeague)
       for (var leagueIdx in this.config.sports) {
         if (this.config.sports[leagueIdx].league === receivedLeague && this.config.sports[leagueIdx].groups === undefined && payload.result.children.length > 1) {
           this.config.sports[leagueIdx].groups = []
@@ -619,7 +643,7 @@ Module.register('MMM-MyStandings', {
                 break
             }
           }
-          else if (sport === 'NBA') {
+          else if (sport === 'NBA' || sport === 'WNBA' || sport === 'NBAG') {
             if (newStats.length === 3) {
               break
             }
@@ -835,6 +859,68 @@ Module.register('MMM-MyStandings', {
                 newEntry.value = entry.value
                 newStats.push({
                   key: 4,
+                  value: newEntry,
+                })
+              break
+            }
+          }
+          else if (sport === 'AFL') {
+            if (newStats.length === 4) {
+              break
+            }
+            switch (entry.name) {
+              case 'wins':
+                newEntry.name = entry.name
+                newEntry.value = entry.value
+                newStats.push({
+                  key: 1,
+                  value: newEntry,
+                })
+                break
+              case 'losses':
+                newEntry.name = entry.name
+                newEntry.value = entry.value
+                newStats.push({
+                  key: 2,
+                  value: newEntry,
+                })
+                break
+              case 'ties':
+                newEntry.name = entry.name
+                newEntry.value = entry.value
+                newStats.push({
+                  key: 3,
+                  value: newEntry,
+                })
+                break
+              case 'points':
+                newEntry.name = entry.name
+                newEntry.value = entry.value
+                newStats.push({
+                  key: 4,
+                  value: newEntry,
+                })
+              break
+            }
+          }
+          else if (sport === 'PLL' || sport === 'NLL') {
+            if (newStats.length === 3) {
+              break
+            }
+            switch (entry.name) {
+              case 'wins':
+                newEntry.name = entry.name
+                newEntry.value = entry.value
+                newStats.push({
+                  key: 1,
+                  value: newEntry,
+                })
+                break
+              case 'losses':
+                newEntry.name = entry.name
+                newEntry.value = entry.value
+                newStats.push({
+                  key: 2,
                   value: newEntry,
                 })
                 break

@@ -38,6 +38,11 @@ The following example config shows all available configuration options except so
                     "Atlantic", "Central", "Southeast", "Northwest", "Pacific",
                     "Southwest", "Western Conference", "Eastern Conference",
                     "National Basketball Association"] },
+                { league: "WNBA", groups: [
+                    "Eastern Conference", "Western Conference", 
+                    "Women's National Basketball Assoc."] },
+                { league: "NBAG", groups: ["Eastern Conference", "Western Conference", 
+                    "NBA Development League"] },
                 { league: "MLB", groups: [
                     "American League East", "American League Central",
                     "American League West", "National League East",
@@ -99,6 +104,9 @@ The following example config shows all available configuration options except so
                     "AFCA Division II Coaches Poll", "AFCA Division III Coaches Poll"] },
                 { league: "NCAAM Rankings", groups: ["AP Top 25", "Coaches Poll"] },
                 { league: "NCAAW Rankings", groups: ["AP Top 25", "Coaches Poll"] }
+                { league: "AFL" }, // Australian Football League
+                { league: "PLL" }, // Premier Lacross League
+                { league: "NLL" }, // National Lacrosse League
             ]
         }
     },
