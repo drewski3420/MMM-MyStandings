@@ -303,7 +303,7 @@ Select the groups you want to rotate through or no groups to rotate through all 
 
 </details>
 
-If your soccer competition has groups and you want to see groups rotate, consider this as your config:
+If your soccer competition has groups and you want to see groups rotate, consider something like these in your config:
 
 ```javascript
 { league: "FIFA World Cup", groups: ["Group A"] }, //only show group A
