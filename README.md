@@ -168,14 +168,14 @@ For any league, select the groups you want to rotate through or no groups to rot
 </details>
 
 <details>
-  <summary><b>Available NBA G League (`NBAG`) Groups</b> (click to expand)</summary>
+  <summary><b>Available NBA G League ("NBAG") Groups</b> (click to expand)</summary>
 
 ### Conferences
 - `Eastern Conference`
 - `Western Conference`
 
 ### Overall
-- "NBA Development League"
+- `NBA Development League`
     
 </details>
 
@@ -183,25 +183,25 @@ For any league, select the groups you want to rotate through or no groups to rot
   <summary><b>Available MLB Groups</b> (click to expand)</summary>
 
 ### Divisions
-- "American League East"
-- "American League Central"
-- "American League West"
-- "National League East"
-- "National League Central"
-- "National League West"
+- `American League East`
+- `American League Central`
+- `American League West`
+- `National League East`
+- `National League Central`
+- `National League West`
 
 ### Leagues                    
-- "American League"
-- "National League"
+- `American League`
+- `National League`
 
 ### Overall
-- "Major League Baseball"
+- `Major League Baseball`
 
 ### Playoffs
-- "AL Playoffs" - will remove teams from standings when eliminated
-- "NL Playoffs" - will remove teams from standings when eliminated
-- "AL Wild Card" - will remove teams from standings when eliminated
-- "NL Wild Card" - will remove teams from standings when eliminated
+- `AL Playoffs` - will remove teams from standings when eliminated
+- `NL Playoffs` - will remove teams from standings when eliminated
+- `AL Wild Card` - will remove teams from standings when eliminated
+- `NL Wild Card` - will remove teams from standings when eliminated
     
 </details>
 
@@ -209,25 +209,25 @@ For any league, select the groups you want to rotate through or no groups to rot
   <summary><b>Available NFL Groups</b> (click to expand)</summary>
 
 ### Divisions
-- "AFC East"
-- "AFC North"
-- "AFC South"
-- "AFC West"
-- "NFC East"
-- "NFC North"
-- "NFC South"
-- "NFC West"
+- `AFC East`
+- `AFC North`
+- `AFC South`
+- `AFC West`
+- `NFC East`
+- `NFC North`
+- `NFC South`
+- `NFC West`
 
 ### Conferences
-- "American Football Conference"
-- "National Football Conference"
+- `American Football Conference`
+- `National Football Conference`
 
 ### Overall
-- "National Football League"
+- `National Football League`
 
 ### Playoffs
-- "AFC Playoffs" - will remove teams from standings when eliminated 
-- "NFC Playoffs" - will remove teams from standings when eliminated
+- `AFC Playoffs` - will remove teams from standings when eliminated 
+- `NFC Playoffs` - will remove teams from standings when eliminated
     
 </details>
 
@@ -235,23 +235,23 @@ For any league, select the groups you want to rotate through or no groups to rot
   <summary><b>Available NHL Groups</b> (click to expand)</summary>
 
 ### Divisions
-- "Atlantic Division"
-- "Metropolitan Division"
-- "Central Division"
-- "Pacific Division"
+- `Atlantic Division`
+- `Metropolitan Division`
+- `Central Division`
+- `Pacific Division`
 
 ### Conferences
-- "Western Conference"
-- "Eastern Conference"
+- `Western Conference`
+- `Eastern Conference`
 
 ### Overall
-"National Hockey League"
+`National Hockey League`
 
 ### Playoffs
-- "West Playoffs" - will remove teams from standings when eliminated
-- "East Playoffs" - will remove teams from standings when eliminated
-- "West Wild Card" - will remove teams from standings when eliminated
-- "East Wild Card" - will remove teams from standings when eliminated
+- `West Playoffs` - will remove teams from standings when eliminated
+- `East Playoffs` - will remove teams from standings when eliminated
+- `West Wild Card` - will remove teams from standings when eliminated
+- `East Wild Card` - will remove teams from standings when eliminated
     
 </details>
 
@@ -259,8 +259,8 @@ For any league, select the groups you want to rotate through or no groups to rot
   <summary><b>Available MLS Groups</b> (click to expand)</summary>
 
 ### Conferences
-- "Eastern Conference"
-- "Western Conference"
+- `Eastern Conference`
+- `Western Conference`
     
 </details>
 
@@ -268,26 +268,26 @@ For any league, select the groups you want to rotate through or no groups to rot
   <summary><b>Available NCAA Football ("NCAAF") Groups</b> (click to expand)</summary>
 
 ### Conferences
-- "American Athletic Conference"
-- "Atlantic Coast Conference"
-- "Big 12 Conference"
-- "Big Ten Conference"
-- "Conference USA"
-- "FBS Independents"
-- "Mid-American Conference"
-- "Mountain West Conference"
-- "Pac-12 Conference"
-- "Southeastern Conference"
-- "Sun Belt - East"
-- "Sun Belt - West"
+- `American Athletic Conference`
+- `Atlantic Coast Conference`
+- `Big 12 Conference`
+- `Big Ten Conference`
+- `Conference USA`
+- `FBS Independents`
+- `Mid-American Conference`
+- `Mountain West Conference`
+- `Pac-12 Conference`
+- `Southeastern Conference`
+- `Sun Belt - East`
+- `Sun Belt - West`
 
 ### Rankings
 **Use the league `NCAAF Rankings`**
-- "AP Top 25"
-- "AFCA Coaches Poll"
-- "FCS Coaches Poll"
-- "AFCA Division II Coaches Poll"
-- "AFCA Division III Coaches Poll"
+- `AP Top 25`
+- `AFCA Coaches Poll`
+- `FCS Coaches Poll`
+- `AFCA Division II Coaches Poll`
+- `AFCA Division III Coaches Poll`
     
 </details>
 
@@ -295,42 +295,42 @@ For any league, select the groups you want to rotate through or no groups to rot
   <summary><b>Available NCAA Men's Basketball ("NCAAM") Groups</b> (click to expand)</summary>
 
 ### Conferences
-- "America East Conference"
-- "American Athletic Conference"
-- "Atlantic 10 Conference"
-- "Atlantic Coast Conference"
-- "ASUN Conference"
-- "Big 12 Conference"
-- "Big East Conference"
-- "Big Sky Conference"
-- "Big South Conference"
-- "Big Ten Conference"
-- "Big West Conference"
-- "Colonial Athletic Association"
-- "Conference USA"
-- "Horizon League"
-- "Ivy League"
-- "Metro Atlantic Athletic Conference"
-- "Mid-American Conference"
-- "Mid-Eastern Athletic Conference"
-- "Missouri Valley Conference"
-- "Mountain West Conference"
-- "Northeast Conference"
-- "Ohio Valley Conference"
-- "Patriot League"
-- "Southeastern Conference"
-- "Southern Conference"
-- "Southland Conference"
-- "Southwestern Athletic Conference"
-- "Summit League"
-- "Sun Belt Conference"
-- "West Coast Conference"
-- "Western Athletic Conference"
+- `America East Conference`
+- `American Athletic Conference`
+- `Atlantic 10 Conference`
+- `Atlantic Coast Conference`
+- `ASUN Conference`
+- `Big 12 Conference`
+- `Big East Conference`
+- `Big Sky Conference`
+- `Big South Conference`
+- `Big Ten Conference`
+- `Big West Conference`
+- `Colonial Athletic Association`
+- `Conference USA`
+- `Horizon League`
+- `Ivy League`
+- `Metro Atlantic Athletic Conference`
+- `Mid-American Conference`
+- `Mid-Eastern Athletic Conference`
+- `Missouri Valley Conference`
+- `Mountain West Conference`
+- `Northeast Conference`
+- `Ohio Valley Conference`
+- `Patriot League`
+- `Southeastern Conference`
+- `Southern Conference`
+- `Southland Conference`
+- `Southwestern Athletic Conference`
+- `Summit League`
+- `Sun Belt Conference`
+- `West Coast Conference`
+- `Western Athletic Conference`
 
 ### Rankings
 **Use the league `NCAAM Rankings`**
-- "AP Top 25"
-- "Coaches Poll"
+- `AP Top 25`
+- `Coaches Poll`
     
 </details>
 
@@ -338,42 +338,42 @@ For any league, select the groups you want to rotate through or no groups to rot
   <summary><b>Available NCAA Women's Basketball ("NCAAW") Groups</b> (click to expand)</summary>
 
 ### Conferences
-- "ASUN Conference"
-- "America East Conference"
-- "American Athletic Conference"
-- "Atlantic 10 Conference"
-- "Atlantic Coast Conference"
-- "Big 12 Conference"
-- "Big East Conference"
-- "Big Sky Conference"
-- "Big South Conference"
-- "Big Ten Conference"
-- "Big West Conference"
-- "Colonial Athletic Association"
-- "Conference USA"
-- "Horizon League"
-- "Ivy League"
-- "Metro Atlantic Athletic Conference"
-- "Mid-American Conference"
-- "Mid-Eastern Athletic Conference"
-- "Missouri Valley Conference"
-- "Mountain West Conference"
-- "Northeast Conference"
-- "Ohio Valley Conference"
-- "Patriot League"
-- "Southeastern Conference"
-- "Southern Conference"
-- "Southland Conference"
-- "Southwestern Athletic Conference"
-- "Summit League"
-- "Sun Belt Conference"
-- "West Coast Conference"
-- "Western Athletic Conference"
+- `ASUN Conference`
+- `America East Conference`
+- `American Athletic Conference`
+- `Atlantic 10 Conference`
+- `Atlantic Coast Conference`
+- `Big 12 Conference`
+- `Big East Conference`
+- `Big Sky Conference`
+- `Big South Conference`
+- `Big Ten Conference`
+- `Big West Conference`
+- `Colonial Athletic Association`
+- `Conference USA`
+- `Horizon League`
+- `Ivy League`
+- `Metro Atlantic Athletic Conference`
+- `Mid-American Conference`
+- `Mid-Eastern Athletic Conference`
+- `Missouri Valley Conference`
+- `Mountain West Conference`
+- `Northeast Conference`
+- `Ohio Valley Conference`
+- `Patriot League`
+- `Southeastern Conference`
+- `Southern Conference`
+- `Southland Conference`
+- `Southwestern Athletic Conference`
+- `Summit League`
+- `Sun Belt Conference`
+- `West Coast Conference`
+- `Western Athletic Conference`
 
 ### Rankings
 **Use the league `NCAAW Rankings`**
-- "AP Top 25"
-- "Coaches Poll"
+- `AP Top 25`
+- `Coaches Poll`
     
 </details>
 
