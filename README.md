@@ -33,6 +33,7 @@ The following example config shows all available configuration options except so
   module: "MMM-MyStandings",
   position: "top_right",
   config: {
+    rotateInterval: 2 * 60 * 1000 // every 2 minutes
     sports: [
       // See below in the README for different league and group options 
       { league: "WNBA", groups: ["Women's National Basketball Assoc."] },
