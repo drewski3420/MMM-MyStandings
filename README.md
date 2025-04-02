@@ -139,19 +139,19 @@ For any league, select the groups you want to rotate through or no groups to rot
   <summary><b>Available NBA Groups</b> (click to expand)</summary>
 
 ### Divisions
-- "Atlantic"
-- "Central"
-- "Southeast"
-- "Northwest"
-- "Pacific"
-- "Southwest"
+- `Atlantic`
+- `Central`
+- `Southeast`
+- `Northwest`
+- `Pacific`
+- `Southwest`
 
 ### Conferences
-- "Western Conference"
-- "Eastern Conference"
+- `Western Conference`
+- `Eastern Conference`
 
 ### Overall
-- "National Basketball Association"
+- `National Basketball Association`
     
 </details>
 
@@ -159,20 +159,20 @@ For any league, select the groups you want to rotate through or no groups to rot
   <summary><b>Available WNBA Groups</b> (click to expand)</summary>
 
 ### Conferences
-- "Eastern Conference"
-- "Western Conference"
+- `Eastern Conference`
+- `Western Conference`
 
 ### Overall
-- "Women's National Basketball Assoc."
+- `Women's National Basketball Assoc.`
     
 </details>
 
 <details>
-  <summary><b>Available NBA G League ("NBAG") Groups</b> (click to expand)</summary>
+  <summary><b>Available NBA G League (`NBAG`) Groups</b> (click to expand)</summary>
 
 ### Conferences
-- "Eastern Conference"
-- "Western Conference"
+- `Eastern Conference`
+- `Western Conference`
 
 ### Overall
 - "NBA Development League"
@@ -295,37 +295,37 @@ For any league, select the groups you want to rotate through or no groups to rot
   <summary><b>Available NCAA Men's Basketball ("NCAAM") Groups</b> (click to expand)</summary>
 
 ### Conferences
-"America East Conference"
-"American Athletic Conference"
-"Atlantic 10 Conference"
-"Atlantic Coast Conference"
-"ASUN Conference"
-"Big 12 Conference"
-"Big East Conference"
-"Big Sky Conference"
-"Big South Conference"
-"Big Ten Conference"
-"Big West Conference"
-"Colonial Athletic Association"
-"Conference USA"
-"Horizon League"
-"Ivy League"
-"Metro Atlantic Athletic Conference"
-"Mid-American Conference"
-"Mid-Eastern Athletic Conference"
-"Missouri Valley Conference"
-"Mountain West Conference"
-"Northeast Conference"
-"Ohio Valley Conference"
-"Patriot League"
-"Southeastern Conference"
-"Southern Conference"
-"Southland Conference"
-"Southwestern Athletic Conference"
-"Summit League"
-"Sun Belt Conference"
-"West Coast Conference"
-"Western Athletic Conference"
+- "America East Conference"
+- "American Athletic Conference"
+- "Atlantic 10 Conference"
+- "Atlantic Coast Conference"
+- "ASUN Conference"
+- "Big 12 Conference"
+- "Big East Conference"
+- "Big Sky Conference"
+- "Big South Conference"
+- "Big Ten Conference"
+- "Big West Conference"
+- "Colonial Athletic Association"
+- "Conference USA"
+- "Horizon League"
+- "Ivy League"
+- "Metro Atlantic Athletic Conference"
+- "Mid-American Conference"
+- "Mid-Eastern Athletic Conference"
+- "Missouri Valley Conference"
+- "Mountain West Conference"
+- "Northeast Conference"
+- "Ohio Valley Conference"
+- "Patriot League"
+- "Southeastern Conference"
+- "Southern Conference"
+- "Southland Conference"
+- "Southwestern Athletic Conference"
+- "Summit League"
+- "Sun Belt Conference"
+- "West Coast Conference"
+- "Western Athletic Conference"
 
 ### Rankings
 **Use the league `NCAAM Rankings`**
@@ -338,37 +338,37 @@ For any league, select the groups you want to rotate through or no groups to rot
   <summary><b>Available NCAA Women's Basketball ("NCAAW") Groups</b> (click to expand)</summary>
 
 ### Conferences
-"ASUN Conference"
-"America East Conference"
-"American Athletic Conference"
-"Atlantic 10 Conference"
-"Atlantic Coast Conference"
-"Big 12 Conference"
-"Big East Conference"
-"Big Sky Conference"
-"Big South Conference"
-"Big Ten Conference"
-"Big West Conference"
-"Colonial Athletic Association"
-"Conference USA"
-"Horizon League"
-"Ivy League"
-"Metro Atlantic Athletic Conference"
-"Mid-American Conference"
-"Mid-Eastern Athletic Conference"
-"Missouri Valley Conference"
-"Mountain West Conference"
-"Northeast Conference"
-"Ohio Valley Conference"
-"Patriot League"
-"Southeastern Conference"
-"Southern Conference"
-"Southland Conference"
-"Southwestern Athletic Conference"
-"Summit League"
-"Sun Belt Conference"
-"West Coast Conference"
-"Western Athletic Conference"
+- "ASUN Conference"
+- "America East Conference"
+- "American Athletic Conference"
+- "Atlantic 10 Conference"
+- "Atlantic Coast Conference"
+- "Big 12 Conference"
+- "Big East Conference"
+- "Big Sky Conference"
+- "Big South Conference"
+- "Big Ten Conference"
+- "Big West Conference"
+- "Colonial Athletic Association"
+- "Conference USA"
+- "Horizon League"
+- "Ivy League"
+- "Metro Atlantic Athletic Conference"
+- "Mid-American Conference"
+- "Mid-Eastern Athletic Conference"
+- "Missouri Valley Conference"
+- "Mountain West Conference"
+- "Northeast Conference"
+- "Ohio Valley Conference"
+- "Patriot League"
+- "Southeastern Conference"
+- "Southern Conference"
+- "Southland Conference"
+- "Southwestern Athletic Conference"
+- "Summit League"
+- "Sun Belt Conference"
+- "West Coast Conference"
+- "Western Athletic Conference"
 
 ### Rankings
 **Use the league `NCAAW Rankings`**
@@ -387,193 +387,181 @@ For any soccer league that does not have any groups, you should list only the le
 - `AFC Champions League Two`
 - `AFC Asian Cup Qualifiers`
 - `ASEAN Championship`
-- Africa Cup of Nations
-- Africa Cup of Nations Qualifying
-- African Nations Championship
-- Copa América
-- FIFA Club World Cup
-- FIFA Confederations Cup
-- Men's Olympic Soccer Tournament
-- Women's Olympic Soccer Tournament
-- FIFA Women's World Cup
-- FIFA World Cup
-- FIFA World Cup Qualifying - AFC
-- FIFA World Cup Qualifying - CAF
-- FIFA World Cup Qualifying - Concacaf
-- FIFA World Cup Qualifying - CONMEBOL
-- FIFA World Cup Qualifying - OFC
-- FIFA World Cup Qualifying - UEFA
-- FIFA Under-17 World Cup
-- FIFA Under-20 World Cup
-- UEFA Champions League
-- UEFA Conference League
-- UEFA Europa League
-- UEFA European Championship
-- UEFA European Championship Qualifying
-- UEFA European Under-19 Championship
-- UEFA European Under-21 Championship
-- UEFA Nations League
-- SAFF Championship
-- UEFA Women's European Championship
+- `Africa Cup of Nations`
+- `Africa Cup of Nations Qualifying`
+- `African Nations Championship`
+- `Copa América`
+- `FIFA Club World Cup`
+- `FIFA Confederations Cup`
+- `Men's Olympic Soccer Tournament`
+- `Women's Olympic Soccer Tournament`
+- `FIFA Women's World Cup`
+- `FIFA World Cup`
+- `FIFA World Cup Qualifying - AFC`
+- `FIFA World Cup Qualifying - CAF`
+- `FIFA World Cup Qualifying - Concacaf`
+- `FIFA World Cup Qualifying - CONMEBOL`
+- `FIFA World Cup Qualifying - OFC`
+- `FIFA World Cup Qualifying - UEFA`
+- `FIFA Under-17 World Cup`
+- `FIFA Under-20 World Cup`
+- `UEFA Champions League`
+- `UEFA Conference League`
+- `UEFA Europa League`
+- `UEFA European Championship`
+- `UEFA European Championship Qualifying`
+- `UEFA European Under-19 Championship`
+- `UEFA European Under-21 Championship`
+- `UEFA Nations League`
+- `SAFF Championship`
+- `UEFA Women's European Championship`
 
 ### UK/Ireland Soccer
 
-- English League Championship
-- English EFL Trophy
-- English League One
-- English League Two
-- English National League
-- English Premier League
-- Irish Premier Division
-- Northern Irish Premiership
-- Scottish League Cup
-- Scottish Championship
-- Scottish League One
-- Scottish League Two
-- Scottish Premiership
-- Welsh Premier League
+- `English League Championship`
+- `English EFL Trophy`
+- `English League One`
+- `English League Two`
+- `English National League`
+- `English Premier League`
+- `Irish Premier Division`
+- `Northern Irish Premiership`
+- `Scottish League Cup`
+- `Scottish Championship`
+- `Scottish League One`
+- `Scottish League Two`
+- `Scottish Premiership`
+- `Welsh Premier League`
 
 ### European Soccer
 
-- Austrian Bundesliga
-- Belgian Pro League
-- Danish Superliga
-- Spanish LALIGA
-- Spanish LALIGA 2
-- French Ligue 1
-- French Ligue 2
-- German 2. Bundesliga
-- German Bundesliga
-- Greek Super League
-- Israeli Premier League
-- Italian Serie A
-- Italian Serie B
-- Maltese Premier League
-- Dutch Keuken Kampioen Divisie
-- Dutch Eredivisie
-- Norwegian Eliteserien
-- Portuguese Primeira Liga
-- Romanian Liga 1
-- Russian Premier League
-- Swiss Super League
-- Swedish Allsvenskan
-- Turkish Super Lig
+- `Austrian Bundesliga`
+- `Belgian Pro League`
+- `Danish Superliga`
+- `Spanish LALIGA`
+- `Spanish LALIGA 2`
+- `French Ligue 1`
+- `French Ligue 2`
+- `German 2. Bundesliga`
+- `German Bundesliga`
+- `Greek Super League`
+- `Israeli Premier League`
+- `Italian Serie A`
+- `Italian Serie B`
+- `Maltese Premier League`
+- `Dutch Keuken Kampioen Divisie`
+- `Dutch Eredivisie`
+- `Norwegian Eliteserien`
+- `Portuguese Primeira Liga`
+- `Romanian Liga 1`
+- `Russian Premier League`
+- `Swiss Super League`
+- `Swedish Allsvenskan`
+- `Turkish Super Lig`
 
 ### South American Soccer
 
-- Copa Argentina
-- Argentine Nacional B
-- Argentine Primera B
-- Argentine Primera C
-- Argentine Primera D
-- Argentine Liga Profesional de Fútbol
-- Bolivian Liga Profesional
-- Brazilian Campeonato Carioca
-- Brazilian Campeonato Gaucho
-- Brazilian Campeonato Mineiro
-- Brazilian Campeonato Paulista
-- Brazilian Serie A
-- Brazilian Serie B
-- Brazilian Serie C
-- Chilean Primera División
-- Colombian Primera A
-- Colombian Primera B
-- CONMEBOL Libertadores
-- CONMEBOL Sudamericana
-- LigaPro Ecuador
-- Paraguayan Primera División
-- Peruvian Liga 1
-- Liga UAF Uruguaya
-- Venezuelan Primera División
+- `Copa Argentina`
+- `Argentine Nacional B`
+- `Argentine Primera B`
+- `Argentine Primera C`
+- `Argentine Primera D`
+- `Argentine Liga Profesional de Fútbol`
+- `Bolivian Liga Profesional`
+- `Brazilian Campeonato Carioca`
+- `Brazilian Campeonato Gaucho`
+- `Brazilian Campeonato Mineiro`
+- `Brazilian Campeonato Paulista`
+- `Brazilian Serie A`
+- `Brazilian Serie B`
+- `Brazilian Serie C`
+- `Chilean Primera División`
+- `Colombian Primera A`
+- `Colombian Primera B`
+- `CONMEBOL Libertadores`
+- `CONMEBOL Sudamericana`
+- `LigaPro Ecuador`
+- `Paraguayan Primera División`
+- `Peruvian Liga 1`
+- `Liga UAF Uruguaya`
+- `Venezuelan Primera División`
 
 ### North American Soccer
 
-- Concacaf Gold Cup
-- Concacaf Nations League
-- Concacaf Nations League Qualifying
-- Concacaf W Championship
-- Costa Rican Primera Division
-- Guatemalan Liga Nacional
-- Honduran Liga Nacional
-- Jamaican Premier League
-- Mexican Liga de Expansión MX
-- Mexican Copa MX
-- Mexican Liga BBVA MX
-- Salvadoran Primera Division
-- NCAA Men's Soccer
-- NCAA Women's Soccer
-- MLS
-- North American Soccer League
-- NWSL
-- U.S. Open Cup
-- USL Championship
+- `Concacaf Gold Cup`
+- `Concacaf Nations League`
+- `Concacaf Nations League Qualifying`
+- `Concacaf W Championship`
+- `Costa Rican Primera Division`
+- `Guatemalan Liga Nacional`
+- `Honduran Liga Nacional`
+- `Jamaican Premier League`
+- `Mexican Liga de Expansión MX`
+- `Mexican Copa MX`
+- `Mexican Liga BBVA MX`
+- `Salvadoran Primera Division`
+- `NCAA Men's Soccer`
+- `NCAA Women's Soccer`
+- `MLS`
+- `North American Soccer League`
+- `NWSL`
+- `U.S. Open Cup`
+- `USL Championship`
 
 ### Asian Soccer
 
-- AFC Champions League Elite
-- Australian A-League Men
-- Chinese Super League
-- Indonesian Liga 1
-- Indian I-League
-- Indian Super League
-- Japanese J.League
-- Malaysian Super League
-- Singaporean Premier League
-- Thai League 1
+- `AFC Champions League Elite`
+- `Australian A-League Men`
+- `Chinese Super League`
+- `Indonesian Liga 1`
+- `Indian I-League`
+- `Indian Super League`
+- `Japanese J.League`
+- `Malaysian Super League`
+- `Singaporean Premier League`
+- `Thai League 1`
 
 ### African Soccer
 
-- CAF Champions League
-- CAF Confederation Cup
-- Ghanaian Premier League
-- Kenyan Premier League
-- Nigerian Professional League
-- South African First Division
-- South African Premier Division
-- Ugandan Premier League
-- Zambian Super League
-- Zimbabwean Premier Soccer League
-- Premiership Rugby
-- Rugby World Cup
-- Six Nations
-- The Rugby Championship
-- European Rugby Champions Cup
-- United Rugby Championship
-- Super Rugby Pacific
-- Olympic Men's 7s
-- Olympic Women's Rugby Sevens
-- International Test Match
-- URBA Top 12
-- Mitre 10 Cup
+- `CAF Champions League`
+- `CAF Confederation Cup`
+- `Ghanaian Premier League`
+- `Kenyan Premier League`
+- `Nigerian Professional League`
+- `South African First Division`
+- `South African Premier Division`
+- `Ugandan Premier League`
+- `Zambian Super League`
+- `Zimbabwean Premier Soccer League`
 
 </details>
 
 
 <details>
   <summary><b>Available Aussie Football, Lacrosse, & Rugby Groups</b> (click to expand)</summary>
+
+### Australian Rules Football
+- `AFL` - Australian Football League
+
+### Lacrosse
+- 'PLL' - Premier Lacrosse League
+- 'NLL' - National Lacrosse League
+
+### Rugby
+- `Premiership Rugby`
+- `Rugby World Cup`
+- `Six Nations Rugby`
+- `The Rugby Championship`
+- `European Rugby Champions Cup`
+- `United Rugby Championship`
+- `Super Rugby Pacific`
+- `Olympic Men's 7s Rugby`
+- `Olympic Women's Rugby Sevens`
+- `International Test Match Rugby`
+- `URBA Top 12 Rugby`
+- `Mitre 10 Cup Rugby`
+    
 </details>
-
-## Rugby Leagues
-
-<details>
-  <summary><b>Available Rugby Leagues</b> (click to expand)</summary>
-
-- Premiership Rugby
-- Rugby World Cup
-- Six Nations Rugby
-- The Rugby Championship
-- European Rugby Champions Cup
-- United Rugby Championship"
-- Super Rugby Pacific
-- Olympic Men's 7s Rugby
-- Olympic Women's Rugby Sevens
-- International Test Match Rugby
-- URBA Top 12 Rugby
-- Mitre 10 Cup Rugby
-
-</details>
-
-Rugby leagues work similarly to soccer leagues.
 
 ## Contributing
 
