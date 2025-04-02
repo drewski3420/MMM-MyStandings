@@ -312,7 +312,7 @@ For any league, select the groups you want to rotate through or no groups to rot
 <details>
   <summary><b>Available Soccer Leagues</b> (click to expand)</summary>
 
-**These are LEAGUES, not GROUP**
+**These are LEAGUES, not GROUPS**
 
 For any soccer league that does not have any groups, you should list only the league (e.g., `{ league: "English Premier League" }`).  If the soccer league does have groups, listing just the league will rotate through all groups (e.g., `{ league: "FIFA World Cup" }`).  Or you can list the groups you would like to display.
 
@@ -473,7 +473,7 @@ For any soccer league that does not have any groups, you should list only the le
 <details>
   <summary><b>Available Aussie Football, Lacrosse, & Rugby Leagues</b> (click to expand)</summary>
 
-**These are LEAGUES, not GROUP**
+**These are LEAGUES, not GROUPS**
 
 ### Australian Rules Football
 - `AFL` - Australian Football League
