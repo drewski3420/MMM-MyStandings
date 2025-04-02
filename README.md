@@ -29,20 +29,21 @@ Add `MMM-MyStandings` module to the `modules` array in the `config/config.js` fi
 The following example config shows all available configuration options except soccer and rugby leagues, which are listed further below.  if you paste this full example config into your config.js file, you will be making MANY api calls, so pick just the standings you actually want to see.
 
 ```javascript
-    {
-        module: "MMM-MyStandings",
-        position: "top_right",
-        config: {
-            sports: [
-                // See below in the README for different league and group options 
-                { league: "NBA", groups: ["Western Conference", "Eastern Conference"] },
-                { league: "WNBA", groups: ["Women's National Basketball Assoc."] },
-                { league: "MLB", groups: ["NL Wild Card"] },
-                { league: "NCAAF", groups: ["Big Ten Conference", "Conference USA"] },
-                { league: "NCAAF Rankings", groups: ["AFCA Coaches Poll"] }
-            ]
-        }
-    },
+{
+  module: "MMM-MyStandings",
+  position: "top_right",
+  config: {
+    sports: [
+      // See below in the README for different league and group options 
+      { league: "WNBA", groups: ["Women's National Basketball Assoc."] },
+      { league: "MLB", groups: ["NL Wild Card"] },
+      { league: "NCAAF", groups: ["Big Ten Conference", "Conference USA"] },
+      { league: "NCAAF Rankings", groups: ["AFCA Coaches Poll"] },
+      { league: "English Premier League" },
+      { league: "FIFA World Cup", groups: ["Group C", "Group E"] }
+    ]
+  }
+},
 ```
 
 | Option | Description
