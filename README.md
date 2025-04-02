@@ -34,6 +34,7 @@ The following example config shows all available configuration options except so
         position: "top_right",
         config: {
             sports: [
+                // See below in the README for different league and group options 
                 { league: "NBA", groups: [
                     "Atlantic", "Central", "Southeast", "Northwest", "Pacific",
                     "Southwest", "Western Conference", "Eastern Conference",
@@ -112,13 +113,6 @@ The following example config shows all available configuration options except so
     },
 ```
 
-Select the groups you want to rotate through or no groups to rotate through all groups in the league:
-
-- `{ league: "English Premier League" },` will display English Premier League overall standings (because there are no divisions/groups)
-- `{ league: "MLB" }` will rotate through all MLB divisions
-- `{ league: "NFL", groups: ["AFC East", "AFC North"] },` will rotate between AFC East and AFC North
-- `{ league: "NBA", groups: ["Atlantic"] },` will display only the Atlantic Division
-
 | Option | Description
 | ------- |  -------
 | updateInterval | Time in milliseconds to update data from ESPN<br><br>**Type:** `int` <br> **Default value:** `4 * 60 * 60 * 1000` (every 4 hours)
@@ -132,10 +126,82 @@ Select the groups you want to rotate through or no groups to rotate through all 
 | rankingLength | The number of teams to display when using `NCAAF Rankings` or `NCAAM Rankings`<br><br>**Type:** `int` <br> **Default value:** `25` (all rankings)
 | addLeagueToTitle | Adds the league name to the displayed table title<br><br>**Type:** `boolean` <br> **Default value:** `true`
 
-## Soccer Leagues
+## Available Leagues and Groups
+
+For any league, select the groups you want to rotate through or no groups to rotate through all groups in the league:
+
+- `{ league: "MLB" }` will rotate through all MLB divisions
+- `{ league: "English Premier League" }` will display English Premier League overall standings (because there are no divisions/groups)
+- `{ league: "NFL", groups: ["AFC East", "AFC North"] }` will rotate between AFC East and AFC North
+- `{ league: "NBA", groups: ["Atlantic"] }` will display only the Atlantic Division
+
+<details>
+  <summary><b>Available NBA Groups</b> (click to expand)</summary>
+
+### Divisions
+- "Atlantic"
+- "Central"
+- "Southeast"
+- "Northwest"
+- "Pacific"
+- "Southwest"
+
+### Conferences
+- "Western Conference"
+- "Eastern Conference"
+
+### Overall
+- "National Basketball Association"
+    
+</details>
+
+<details>
+  <summary><b>Available WNBA Groups</b> (click to expand)</summary>
+</details>
+
+
+<details>
+  <summary><b>Available NBA G League ("NBAG") Groups</b> (click to expand)</summary>
+</details>
+
+
+<details>
+  <summary><b>Available MLB Groups</b> (click to expand)</summary>
+</details>
+
+
+<details>
+  <summary><b>Available NFL Groups</b> (click to expand)</summary>
+</details>
+
+
+<details>
+  <summary><b>Available NHL Groups</b> (click to expand)</summary>
+</details>
+
+
+<details>
+  <summary><b>Available MLS Groups</b> (click to expand)</summary>
+</details>
+
+
+<details>
+  <summary><b>Available NCAA Football ("NCAAF") Groups</b> (click to expand)</summary>
+</details>
+
+<details>
+  <summary><b>Available NCAA Men's Basketball ("NCAAM") Groups</b> (click to expand)</summary>
+</details>
+
+
+<details>
+  <summary><b>Available NCAA Women's Basketball ("NCAAW") Groups</b> (click to expand)</summary>
+</details>
 
 <details>
   <summary><b>Available Soccer Leagues</b> (click to expand)</summary>
+
+For any soccer league that does not have any groups, you should list only the league (e.g., `{ league: "English Premier League" }`).  If the soccer league does have groups, listing just the league will rotate through all groups (e.g., `{ league: "FIFA World Cup" }`).  Or you can list the groups you would like to display.
 
 ### International Soccer
 
@@ -303,13 +369,10 @@ Select the groups you want to rotate through or no groups to rotate through all 
 
 </details>
 
-If your soccer competition has groups and you want to see groups rotate, consider something like these in your config:
 
-```javascript
-{ league: "FIFA World Cup", groups: ["Group A"] }, //only show group A
-{ league: "FIFA World Cup", groups: ["Group A", "Group B", "Group C", "Group D", "Group E", "Group G", "Group H"] }, //rotates through selected groups
-{ league: "FIFA World Cup" }, //rotates through all groups or displays overall standings if there are no groups
-```
+<details>
+  <summary><b>Available Aussie Football & Rugby Groups</b> (click to expand)</summary>
+</details>
 
 ## Rugby Leagues
 
