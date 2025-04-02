@@ -157,36 +157,138 @@ For any league, select the groups you want to rotate through or no groups to rot
 
 <details>
   <summary><b>Available WNBA Groups</b> (click to expand)</summary>
-</details>
 
+### Conferences
+- "Eastern Conference"
+- "Western Conference"
+
+### Overall
+- "Women's National Basketball Assoc."
+    
+</details>
 
 <details>
   <summary><b>Available NBA G League ("NBAG") Groups</b> (click to expand)</summary>
-</details>
 
+### Conferences
+- "Eastern Conference"
+- "Western Conference"
+
+### Overall
+- "NBA Development League"
+    
+</details>
 
 <details>
   <summary><b>Available MLB Groups</b> (click to expand)</summary>
-</details>
 
+### Divisions
+- "American League East"
+- "American League Central"
+- "American League West"
+- "National League East"
+- "National League Central"
+- "National League West"
+
+### Leagues                    
+- "American League"
+- "National League"
+
+### Overall
+- "Major League Baseball"
+
+### Playoffs
+- "AL Playoffs" - will remove teams from standings when eliminated
+- "NL Playoffs" - will remove teams from standings when eliminated
+- "AL Wild Card" - will remove teams from standings when eliminated
+- "NL Wild Card" - will remove teams from standings when eliminated
+    
+</details>
 
 <details>
   <summary><b>Available NFL Groups</b> (click to expand)</summary>
-</details>
 
+### Divisions
+- "AFC East"
+- "AFC North"
+- "AFC South"
+- "AFC West"
+- "NFC East"
+- "NFC North"
+- "NFC South"
+- "NFC West"
+
+### Conferences
+- "American Football Conference"
+- "National Football Conference",
+
+### Overall
+- "National Football League"
+
+### Playoffs
+- "AFC Playoffs" - will remove teams from standings when eliminated 
+- "NFC Playoffs" - will remove teams from standings when eliminated
+    
+</details>
 
 <details>
   <summary><b>Available NHL Groups</b> (click to expand)</summary>
-</details>
 
+### Divisions
+- "Atlantic Division"
+- "Metropolitan Division"
+- "Central Division"
+- "Pacific Division"
+
+### Conferences
+- "Western Conference"
+- "Eastern Conference"
+
+### Overall
+"National Hockey League"
+
+### Playoffs
+- "West Playoffs"
+- "East Playoffs"
+- "West Wild Card"
+- "East Wild Card"
+    
+</details>
 
 <details>
   <summary><b>Available MLS Groups</b> (click to expand)</summary>
-</details>
 
+### Conferences
+- "Eastern Conference"
+- "Western Conference"
+    
+</details>
 
 <details>
   <summary><b>Available NCAA Football ("NCAAF") Groups</b> (click to expand)</summary>
+
+### Conferences
+- "American Athletic Conference"
+- "Atlantic Coast Conference"
+- "Big 12 Conference"
+- "Big Ten Conference"
+- "Conference USA"
+- "FBS Independents"
+- "Mid-American Conference"
+- "Mountain West Conference"
+- "Pac-12 Conference"
+- "Southeastern Conference"
+- "Sun Belt - East"
+- "Sun Belt - West"
+
+### Rankings
+**Use the league `NCAAF Rankings`**
+- "AP Top 25"
+- "AFCA Coaches Poll"
+- "FCS Coaches Poll"
+- "AFCA Division II Coaches Poll"
+- "AFCA Division III Coaches Poll"
+    
 </details>
 
 <details>
@@ -371,7 +473,7 @@ For any soccer league that does not have any groups, you should list only the le
 
 
 <details>
-  <summary><b>Available Aussie Football & Rugby Groups</b> (click to expand)</summary>
+  <summary><b>Available Aussie Football, Lacrosse, & Rugby Groups</b> (click to expand)</summary>
 </details>
 
 ## Rugby Leagues
