@@ -1,7 +1,7 @@
 {
   "name": "mmm-mystandings",
   "version": "2.5.0",
-  "description": "A MagicMirror² module to display standings for many major sports.",
+  "description": "A MagicMirror² module to display standings for your favorite leagues and divisions from many major sports.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dathbe/MMM-MyStandings.git"
