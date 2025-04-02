@@ -114,7 +114,9 @@ Module.register('MMM-MyStandings', {
     // Schedule the first UI load
     var self = this
 
-    self.sendSocketNotification('MMM-MYSTANDINGS-GET-LOCAL-LOGOS', { uniqueID: this.defaults.uniqueID })
+    if (this.config.useLocalLogos) {
+      self.sendSocketNotification('MMM-MYSTANDINGS-GET-LOCAL-LOGOS', { uniqueID: this.defaults.uniqueID })
+    }
 
     setTimeout(function () {
       self.rotateStandings()
