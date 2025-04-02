@@ -62,7 +62,7 @@ The following example config shows all available configuration options except so
 
 ## Available Leagues and Groups
 
-For any league, select the groups you want to rotate through or no groups to rotate through all groups in the league:
+For any league, select the groups you want to rotate through or no groups to rotate through all divisions (smallest level groups) in the league:
 
 - `{ league: "MLB" }` will rotate through all MLB divisions
 - `{ league: "English Premier League" }` will display English Premier League overall standings (because there are no divisions/groups)
