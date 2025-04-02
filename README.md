@@ -220,7 +220,7 @@ For any league, select the groups you want to rotate through or no groups to rot
 
 ### Conferences
 - "American Football Conference"
-- "National Football Conference",
+- "National Football Conference"
 
 ### Overall
 - "National Football League"
@@ -248,10 +248,10 @@ For any league, select the groups you want to rotate through or no groups to rot
 "National Hockey League"
 
 ### Playoffs
-- "West Playoffs"
-- "East Playoffs"
-- "West Wild Card"
-- "East Wild Card"
+- "West Playoffs" - will remove teams from standings when eliminated
+- "East Playoffs" - will remove teams from standings when eliminated
+- "West Wild Card" - will remove teams from standings when eliminated
+- "East Wild Card" - will remove teams from standings when eliminated
     
 </details>
 
@@ -293,11 +293,88 @@ For any league, select the groups you want to rotate through or no groups to rot
 
 <details>
   <summary><b>Available NCAA Men's Basketball ("NCAAM") Groups</b> (click to expand)</summary>
-</details>
 
+### Conferences
+"America East Conference"
+"American Athletic Conference"
+"Atlantic 10 Conference"
+"Atlantic Coast Conference"
+"ASUN Conference"
+"Big 12 Conference"
+"Big East Conference"
+"Big Sky Conference"
+"Big South Conference"
+"Big Ten Conference"
+"Big West Conference"
+"Colonial Athletic Association"
+"Conference USA"
+"Horizon League"
+"Ivy League"
+"Metro Atlantic Athletic Conference"
+"Mid-American Conference"
+"Mid-Eastern Athletic Conference"
+"Missouri Valley Conference"
+"Mountain West Conference"
+"Northeast Conference"
+"Ohio Valley Conference"
+"Patriot League"
+"Southeastern Conference"
+"Southern Conference"
+"Southland Conference"
+"Southwestern Athletic Conference"
+"Summit League"
+"Sun Belt Conference"
+"West Coast Conference"
+"Western Athletic Conference"
+
+### Rankings
+**Use the league `NCAAM Rankings`**
+- "AP Top 25"
+- "Coaches Poll"
+    
+</details>
 
 <details>
   <summary><b>Available NCAA Women's Basketball ("NCAAW") Groups</b> (click to expand)</summary>
+
+### Conferences
+"ASUN Conference"
+"America East Conference"
+"American Athletic Conference"
+"Atlantic 10 Conference"
+"Atlantic Coast Conference"
+"Big 12 Conference"
+"Big East Conference"
+"Big Sky Conference"
+"Big South Conference"
+"Big Ten Conference"
+"Big West Conference"
+"Colonial Athletic Association"
+"Conference USA"
+"Horizon League"
+"Ivy League"
+"Metro Atlantic Athletic Conference"
+"Mid-American Conference"
+"Mid-Eastern Athletic Conference"
+"Missouri Valley Conference"
+"Mountain West Conference"
+"Northeast Conference"
+"Ohio Valley Conference"
+"Patriot League"
+"Southeastern Conference"
+"Southern Conference"
+"Southland Conference"
+"Southwestern Athletic Conference"
+"Summit League"
+"Sun Belt Conference"
+"West Coast Conference"
+"Western Athletic Conference"
+
+### Rankings
+**Use the league `NCAAW Rankings`**
+- "AP Top 25"
+- "Coaches Poll"
+    
 </details>
 
 <details>
@@ -307,9 +384,9 @@ For any soccer league that does not have any groups, you should list only the le
 
 ### International Soccer
 
-- AFC Champions League Two
-- AFC Asian Cup Qualifiers
-- ASEAN Championship
+- `AFC Champions League Two`
+- `AFC Asian Cup Qualifiers`
+- `ASEAN Championship`
 - Africa Cup of Nations
 - Africa Cup of Nations Qualifying
 - African Nations Championship
