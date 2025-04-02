@@ -31,7 +31,7 @@ Module.register('MMM-MyStandings', {
     addLeagueToTitle: true,
   },
 
-  url: 'http://site.web.api.espn.com/apis/v2/sports/',
+  url: 'https://site.api.espn.com/apis/v2/sports/',
   urlRanking: 'https://site.api.espn.com/apis/site/v2/sports/',
 
   SOCCER_LEAGUE_PATHS: {
@@ -56,19 +56,25 @@ Module.register('MMM-MyStandings', {
   // Options for different sports
   nba_l1: ['National Basketball Association'],
   nba_l2: ['Western Conference', 'Eastern Conference'],
+  nba_l3: ['Atlantic', 'Central', 'Southeast', 'Northwest', 'Pacific', 'Southwest'],
   mlb_l1: ['Major League Baseball'],
   mlb_l2: ['American League', 'National League'],
+  mlb_l3: ['American League East', 'American League Central', 'American League West', 'National League East', 'National League Central', 'National League West'],
   mlb_wc: ['AL Wild Card', 'NL Wild Card'],
   mlb_po: ['AL Playoffs', 'NL Playoffs'],
   nfl_l1: ['National Football League'],
   nfl_l2: ['American Football Conference', 'National Football Conference'],
+  nfl_l3: ['AFC East', 'AFC North', 'AFC South', 'AFC West', 'NFC East', 'NFC North', 'NFC South', 'NFC West'],
   nfl_po: ['AFC Playoffs', 'NFC Playoffs'],
   nhl_l1: ['National Hockey League'],
   nhl_l2: ['Western Conference', 'Eastern Conference'],
+  nhl_l3: ['Atlantic Division', 'Metropolitan Division', 'Central Division', 'Pacific Division'],
   nhl_wc: ['West Wild Card', 'East Wild Card'],
   nhl_po: ['West Playoffs', 'East Playoffs'],
   wnba_l1: ['Women\'s National Basketball Assoc.'],
+  wnba_l2: ['Eastern Conference', 'Western Conference'],
   nbag_l1: ['NBA Development League'],
+  nbag_l2: ['Eastern Conference', 'Western Conference'],
 
   playoffFieldSize: {},
   shortNameLookup: {},
@@ -177,7 +183,9 @@ Module.register('MMM-MyStandings', {
           if (this.config.sports[i].groups && this.mlb_po.some(item => this.config.sports[i].groups.includes(item))) {
             sportUrls.push(this.url + 'baseball/mlb/standings?view=playoff&level=2&sort=playoffseed:asc')
           }
-          sportUrls.push(this.url + 'baseball/mlb/standings?level=3&sort=gamesbehind:asc,winpercent:desc')
+          if (this.config.sports[i].groups && this.mlb_l3.some(item => this.config.sports[i].groups.includes(item))) {
+            sportUrls.push(this.url + 'baseball/mlb/standings?level=3&sort=gamesbehind:asc,winpercent:desc')
+          }
           break
         case 'NBA':
           if (this.config.sports[i].groups && this.nba_l1.some(item => this.config.sports[i].groups.includes(item))) {
@@ -186,7 +194,9 @@ Module.register('MMM-MyStandings', {
           if (this.config.sports[i].groups && this.nba_l2.some(item => this.config.sports[i].groups.includes(item))) {
             sportUrls.push(this.url + 'basketball/nba/standings?level=2&sort=gamesbehind:asc,winpercent:desc,playoffseed:asc')
           }
-          sportUrls.push(this.url + 'basketball/nba/standings?level=3&sort=gamesbehind:asc,winpercent:desc')
+          if (this.config.sports[i].groups && this.nba_l3.some(item => this.config.sports[i].groups.includes(item))) {
+            sportUrls.push(this.url + 'basketball/nba/standings?level=3&sort=gamesbehind:asc,winpercent:desc')
+          }
           break
         case 'NFL':
           if (this.config.sports[i].groups && this.nfl_l1.some(item => this.config.sports[i].groups.includes(item))) {
@@ -198,7 +208,9 @@ Module.register('MMM-MyStandings', {
           if (this.config.sports[i].groups && this.nfl_po.some(item => this.config.sports[i].groups.includes(item))) {
             sportUrls.push(this.url + 'football/nfl/standings?view=playoff&sort=playoffseed:asc')
           }
-          sportUrls.push(this.url + 'football/nfl/standings?level=3&sort=winpercent:desc,playoffseed:asc')
+          if (this.config.sports[i].groups && this.nfl_l3.some(item => this.config.sports[i].groups.includes(item))) {
+            sportUrls.push(this.url + 'football/nfl/standings?level=3&sort=winpercent:desc,playoffseed:asc')
+          }
           break
         case 'NHL':
           if (this.config.sports[i].groups && this.nhl_l1.some(item => this.config.sports[i].groups.includes(item))) {
@@ -213,8 +225,9 @@ Module.register('MMM-MyStandings', {
           if (this.config.sports[i].groups && this.nhl_po.some(item => this.config.sports[i].groups.includes(item))) {
             sportUrls.push(this.url + 'hockey/nhl/standings?view=playoff&level=2&sort=playoffseed:asc')
           }
-          // wild card http://site.web.api.espn.com/apis/v2/sports/hockey/nhl/standings?view=wild-card
-          sportUrls.push(this.url + 'hockey/nhl/standings?level=3&sort=points:desc,winpercent:desc,playoffseed:asc')
+          if (this.config.sports[i].groups && this.nhl_l3.some(item => this.config.sports[i].groups.includes(item))) {
+            sportUrls.push(this.url + 'hockey/nhl/standings?level=3&sort=points:desc,winpercent:desc,playoffseed:asc')
+          }
           break
         case 'MLS':
           sportUrls.push(this.url + 'soccer/usa.1/standings?sort=rank:asc')
@@ -241,13 +254,17 @@ Module.register('MMM-MyStandings', {
           if (this.config.sports[i].groups && this.wnba_l1.some(item => this.config.sports[i].groups.includes(item))) {
             sportUrls.push(this.url + 'basketball/wnba/standings?level=1&sort=gamesbehind:asc,winpercent:desc')
           }
-          sportUrls.push(this.url + 'basketball/wnba/standings?level=2&sort=gamesbehind:asc,winpercent:desc,playoffseed:asc')
+          if (this.config.sports[i].groups && this.wnba_l2.some(item => this.config.sports[i].groups.includes(item))) {
+            sportUrls.push(this.url + 'basketball/wnba/standings?level=2&sort=gamesbehind:asc,winpercent:desc,playoffseed:asc')
+          }
           break
         case 'NBAG':
           if (this.config.sports[i].groups && this.nbag_l1.some(item => this.config.sports[i].groups.includes(item))) {
             sportUrls.push(this.url + 'basketball/nba-development/standings?level=1&sort=gamesbehind:asc,winpercent:desc')
           }
-          sportUrls.push(this.url + 'basketball/nba-development/standings?level=2&sort=gamesbehind:asc,winpercent:desc,playoffseed:asc')
+          if (this.config.sports[i].groups && this.nbag_l2.some(item => this.config.sports[i].groups.includes(item))) {
+            sportUrls.push(this.url + 'basketball/nba-development/standings?level=2&sort=gamesbehind:asc,winpercent:desc,playoffseed:asc')
+          }
           break
         case 'AFL':
           sportUrls.push(this.url + 'australian-football/afl/standings?&sort=rank:asc')
