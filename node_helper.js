@@ -8,17 +8,6 @@ module.exports = NodeHelper.create({
     // Log.log('Starting node_helper for: ' + this.name);
     console.log('Starting node_helper for: ' + this.name)
 
-    this.localLogos = {}
-    const fsTree = this.getDirectoryTree('./modules/MMM-MyStandings/logos')
-    fsTree.forEach((league) => {
-      if (league.children) {
-        var logoFiles = []
-        league.children.forEach((file) => {
-          logoFiles.push(file.name)
-        })
-        this.localLogos[league.name] = logoFiles
-      }
-    })
   },
 
   getDirectoryTree(dirPath) {
@@ -65,6 +54,18 @@ module.exports = NodeHelper.create({
       this.getData(notification, payload)
     }
     else if (notification == 'MMM-MYSTANDINGS-GET-LOCAL-LOGOS') {
+      this.localLogos = {}
+      const fsTree = this.getDirectoryTree('./modules/MMM-MyStandings/logos')
+      fsTree.forEach((league) => {
+        if (league.children) {
+          var logoFiles = []
+          league.children.forEach((file) => {
+            logoFiles.push(file.name)
+          })
+          this.localLogos[league.name] = logoFiles
+        }
+      })
+      
       this.sendSocketNotification('MMM-MYSTANDINGS-LOCAL-LOGO-LIST', { uniqueID: payload.uniqueID, logos: this.localLogos })
     }
   },
