@@ -202,6 +202,7 @@ For any league, select the groups you want to rotate through or no groups to rot
   <summary><b>Available NCAA Football ("NCAAF" or "NCAAF Rankings") Groups</b> (click to expand)</summary>
 
 ### Conferences
+**Use the league `NCAAF`**
 - `American Athletic Conference`
 - `Atlantic Coast Conference`
 - `Big 12 Conference`
@@ -229,6 +230,7 @@ For any league, select the groups you want to rotate through or no groups to rot
   <summary><b>Available NCAA Men's Basketball ("NCAAM" or "NCAAM Rankings") Groups</b> (click to expand)</summary>
 
 ### Conferences
+**Use the league `NCAAM`**
 - `America East Conference`
 - `American Athletic Conference`
 - `Atlantic 10 Conference`
@@ -272,6 +274,7 @@ For any league, select the groups you want to rotate through or no groups to rot
   <summary><b>Available NCAA Women's Basketball ("NCAAW" or "NCAAW Rankings") Groups</b> (click to expand)</summary>
 
 ### Conferences
+**Use the league `NCAAW`**
 - `ASUN Conference`
 - `America East Conference`
 - `American Athletic Conference`
