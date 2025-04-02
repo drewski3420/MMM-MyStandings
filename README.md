@@ -35,79 +35,11 @@ The following example config shows all available configuration options except so
         config: {
             sports: [
                 // See below in the README for different league and group options 
-                { league: "NBA", groups: [
-                    "Atlantic", "Central", "Southeast", "Northwest", "Pacific",
-                    "Southwest", "Western Conference", "Eastern Conference",
-                    "National Basketball Association"] },
-                { league: "WNBA", groups: [
-                    "Eastern Conference", "Western Conference", 
-                    "Women's National Basketball Assoc."] },
-                { league: "NBAG", groups: ["Eastern Conference", "Western Conference", 
-                    "NBA Development League"] },
-                { league: "MLB", groups: [
-                    "American League East", "American League Central",
-                    "American League West", "National League East",
-                    "National League Central", "National League West",
-                    "American League", "National League",
-                    "Major League Baseball", "AL Playoffs", "NL Playoffs",
-                    "AL Wild Card", "NL Wild Card"] },
-                { league: "NFL", groups: [
-                    "AFC East", "AFC North", "AFC South", "AFC West", "NFC East",
-                    "NFC North", "NFC South", "NFC West",
-                    "American Football Conference", "National Football Conference",
-                    "National Football League", "AFC Playoffs", "NFC Playoffs"] },
-                { league: "NHL", groups: [
-                    "Atlantic Division", "Metropolitan Division", "Central Division",
-                    "Pacific Division", "Western Conference", "Eastern Conference",
-                    "National Hockey League", "West Playoffs", "East Playoffs",
-                    "West Wild Card", "East Wild Card"] },
-                { league: "MLS", groups: ["Eastern Conference", "Western Conference"] },
-                { league: "NCAAF", groups: [
-                    "American Athletic Conference", "Atlantic Coast Conference",
-                    "Big 12 Conference", "Big Ten Conference", "Conference USA",
-                    "FBS Independents", "Mid-American Conference",
-                    "Mountain West Conference", "Pac-12 Conference",
-                    "Southeastern Conference", "Sun Belt - East",
-                    "Sun Belt - West"] },
-                { league: "NCAAM", groups: [
-                    "America East Conference", "American Athletic Conference",
-                    "Atlantic 10 Conference", "Atlantic Coast Conference",
-                    "ASUN Conference", "Big 12 Conference", "Big East Conference",
-                    "Big Sky Conference", "Big South Conference",
-                    "Big Ten Conference", "Big West Conference",
-                    "Colonial Athletic Association", "Conference USA",
-                    "Horizon League", "Ivy League",
-                    "Metro Atlantic Athletic Conference", "Mid-American Conference",
-                    "Mid-Eastern Athletic Conference",
-                    "Missouri Valley Conference", "Mountain West Conference",
-                    "Northeast Conference", "Ohio Valley Conference", "Patriot League",
-                    "Southeastern Conference", "Southern Conference",
-                    "Southland Conference", "Southwestern Athletic Conference",
-                    "Summit League", "Sun Belt Conference", "West Coast Conference",
-                    "Western Athletic Conference"] },
-                { league: "NCAAW", groups: [
-                    "ASUN Conference", "America East Conference",
-                    "American Athletic Conference", "Atlantic 10 Conference",
-                    "Atlantic Coast Conference", "Big 12 Conference",
-                    "Big East Conference", "Big Sky Conference", "Big South Conference",
-                    "Big Ten Conference", "Big West Conference",
-                    "Colonial Athletic Association", "Conference USA", "Horizon League",
-                    "Ivy League", "Metro Atlantic Athletic Conference",
-                    "Mid-American Conference", "Mid-Eastern Athletic Conference",
-                    "Missouri Valley Conference", "Mountain West Conference",
-                    "Northeast Conference", "Ohio Valley Conference", "Patriot League",
-                    "Southeastern Conference", "Southern Conference",
-                    "Southland Conference", "Southwestern Athletic Conference",
-                    "Summit League", "Sun Belt Conference", "West Coast Conference",
-                    "Western Athletic Conference"] },
-                { league: "NCAAF Rankings", groups: [
-                    "AP Top 25", "AFCA Coaches Poll", "FCS Coaches Poll",
-                    "AFCA Division II Coaches Poll", "AFCA Division III Coaches Poll"] },
-                { league: "NCAAM Rankings", groups: ["AP Top 25", "Coaches Poll"] },
-                { league: "NCAAW Rankings", groups: ["AP Top 25", "Coaches Poll"] }
-                { league: "AFL" }, // Australian Football League
-                { league: "PLL" }, // Premier Lacross League
-                { league: "NLL" }, // National Lacrosse League
+                { league: "NBA", groups: ["Western Conference", "Eastern Conference"] },
+                { league: "WNBA", groups: ["Women's National Basketball Assoc."] },
+                { league: "MLB", groups: ["NL Wild Card"] },
+                { league: "NCAAF", groups: ["Big Ten Conference", "Conference USA"] },
+                { league: "NCAAF Rankings", groups: ["AFCA Coaches Poll"] }
             ]
         }
     },
@@ -536,7 +468,6 @@ For any soccer league that does not have any groups, you should list only the le
 
 </details>
 
-
 <details>
   <summary><b>Available Aussie Football, Lacrosse, & Rugby Groups</b> (click to expand)</summary>
 
@@ -544,8 +475,8 @@ For any soccer league that does not have any groups, you should list only the le
 - `AFL` - Australian Football League
 
 ### Lacrosse
-- 'PLL' - Premier Lacrosse League
-- 'NLL' - National Lacrosse League
+- `PLL` - Premier Lacrosse League
+- `NLL` - National Lacrosse League
 
 ### Rugby
 - `Premiership Rugby`
