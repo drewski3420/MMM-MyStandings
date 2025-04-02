@@ -10,6 +10,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Updated api url
 - Updated url logic
 - Revised README
+- Some new logos
 
 ## [2.6.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.5.2...v2.6.0) - 2025-03-31
 
