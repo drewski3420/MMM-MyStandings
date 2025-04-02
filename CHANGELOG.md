@@ -4,6 +4,9 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.X.X](https://github.com/dathbe/MMM-MyStandings/compare/v2.6.1...v2.6.2) - 2025-04-XX
+
+- New CIN (NCAA) logo
 
 ## [2.6.1](https://github.com/dathbe/MMM-MyStandings/compare/v2.6.0...v2.6.1) - 2025-04-02
 
@@ -12,7 +15,6 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Revised README
 - Some new logos
 - `MMM-MYSTANDINGS-GET-LOCAL-LOGOS` will now only send when `useLocalLogos` is `true`
-- New CIN (NCAA) logo
 
 ## [2.6.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.5.2...v2.6.0) - 2025-03-31
 
