@@ -91,9 +91,9 @@ Special thankyou to @KristjanESPERANTO for most of the work on this release
 - Moved all NCAA logos to `NCAA` subfolder to avoid duplication
 - Lots of new logos
 
-## [2.0.0](https://github.com/dathbe/MMM-MyStandings/compare/tag/2.0.0) - 2025-03-23 - First fork version
+## [2.0.0](https://github.com/vincep5/MMM-MyStandings/compare/master...dathbe:2.0.0) - 2025-03-23 - First fork version
 
-Forked from [vincep5](https://github.com/vincep5/MMM-MyStandings/compare/master...dathbe:2.0.0).
+Forked from [vincep5](https://github.com/vincep5/MMM-MyStandings).
 
 - NEW FEATURE: Allows multiple instances of module in same config file
 - Updated css formatting
