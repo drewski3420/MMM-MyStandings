@@ -315,6 +315,17 @@ For any league, select the groups you want to rotate through or no groups to rot
 </details>
 
 <details>
+  <summary><b>Available Olympics groups</b> (click to expand)</summary>
+
+### Sort Order
+- `Total` - overall medal count
+- `Gold`
+- `Silver`
+- `Bronze`
+    
+</details>
+
+<details>
   <summary><b>Available Soccer Leagues</b> (click to expand)</summary>
 
 **These are LEAGUES, not GROUPS**
