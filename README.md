@@ -326,7 +326,7 @@ For any league, select the groups you want to rotate through or no groups to rot
 </details>
 
 <details>
-  <summary><b>Available Soccer <ins>Leagues</ins>ins></b> (click to expand)</summary>
+  <summary><b>Available Soccer <ins>Leagues</ins></b> (click to expand)</summary>
 
 **These are LEAGUES, not GROUPS**
 
@@ -487,7 +487,7 @@ For any soccer league that does not have any groups, you should list only the le
 </details>
 
 <details>
-  <summary><b>Available Aussie Football, Lacrosse, & Rugby <ins>Leagues</ins>ins></b> (click to expand)</summary>
+  <summary><b>Available Aussie Football, Lacrosse, & Rugby <ins>Leagues</ins></b> (click to expand)</summary>
 
 **These are LEAGUES, not GROUPS**
 
