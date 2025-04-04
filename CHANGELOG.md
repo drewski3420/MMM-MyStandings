@@ -4,7 +4,6 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-
 ## [2.6.1](https://github.com/dathbe/MMM-MyStandings/compare/v2.6.0...v2.6.1) - 2025-04-02
 
 - Updated api url
