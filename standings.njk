@@ -63,8 +63,8 @@
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">D</td><td class="dataCell bold">PTS</td>
 			{% elseif currentSport === "PLL" or currentSport === "NLL" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td>
-			{% elseif currentSport === "F1" %}
-				<td class="dataCell">Rank</td><td class="dataCell bold">Points</td>
+			{% elseif "Olympics" in currentSport %}
+				<td class="dataCell"><img src="https://a.espncdn.com/i/oly/medals/gold.svg" width="20px"/></td><td class="dataCell"><img src="https://a.espncdn.com/i/oly/medals/silver.svg" width="20px"/></td><td class="dataCell"><img src="https://a.espncdn.com/i/oly/medals/bronze.svg" width="20px"/></td><td class="dataCell">Tot</td>
 			{% else %}
 				<td class="dataCell">W</td><td class="dataCell">T</td><td class="dataCell">L</td><td class="dataCell bold">PTS</td>
 			{% endif %}
@@ -72,7 +72,7 @@
 			{% for tm in division.standings.entries %}
 				<tr>
 					{% if config.showLogos === true %}
-						<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}" {% if config.colored === false %}class="grayscale"{% endif %}/></td>
+						<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}"/></td>
 						<td class="nameCell">
 					{% else %}
 						<td></td>

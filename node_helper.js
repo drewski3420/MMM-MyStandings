@@ -47,9 +47,41 @@ module.exports = NodeHelper.create({
     }
   },
 
+  async getOlympicMedals(notification, payload) {
+    var olyYear = new Date().getFullYear()
+    if ((olyYear % 2) === 1) {
+      olyYear = olyYear - 1
+    }
+    var standings = []
+    while (standings.length === 0 && olyYear > 2020) {
+      try {
+        const response = await fetch(`${payload.url}${olyYear}`)
+        // console.log(`${payload.url}${olyYear}`)
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        const data = await response.json()
+        standings = data['data']['teams']
+        if (standings.length === 0) {
+          olyYear = olyYear - 2
+        }
+      }
+      catch (error) {
+        console.error('[MMM-MyStandings] Could not load data.', error)
+      }
+    }
+    this.sendSocketNotification(`STANDINGS_RESULT-${olyYear} Olympics`, {
+      result: standings,
+      uniqueID: payload.uniqueID,
+    })
+  },
+
   // Subclass socketNotificationReceived received.
   socketNotificationReceived: function (notification, payload) {
-    if (notification.startsWith('STANDINGS_RESULT')) {
+    if (notification.includes('Olympics')) {
+      this.getOlympicMedals(notification, payload)
+    }
+    else if (notification.startsWith('STANDINGS_RESULT')) {
       this.getData(notification, payload)
     }
     else if (notification == 'MMM-MYSTANDINGS-GET-LOCAL-LOGOS') {

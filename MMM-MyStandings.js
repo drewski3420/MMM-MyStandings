@@ -278,9 +278,8 @@ Module.register('MMM-MyStandings', {
           sportUrls.push(this.url + 'lacrosse/nll/standings?sort=winPercentage:desc')
           break
         case 'Olympics':
-          var olyYear = new Date().getFullYear()
-          console.log(olyYear)
-          sportsUrls.push(`https://stats-api.sportsnet.ca/web_standings?league=oly&season_year=2024`)
+          sportUrls.push(`https://stats-api.sportsnet.ca/web_standings?league=oly&season_year=`)
+          break
         default: // soccer & rugby
           sportUrls.push(this.url + this.SOCCER_LEAGUE_PATHS[this.config.sports[i].league] + '/standings?sort=rank:asc')
           break
@@ -306,9 +305,8 @@ Module.register('MMM-MyStandings', {
   },
 
   socketNotificationReceived: function (notification, payload) {
-    let receivedLeague
+    var receivedLeague = notification.split('-')[1]
     if (notification.startsWith('STANDINGS_RESULT') && payload.uniqueID == this.defaults.uniqueID) {
-      receivedLeague = notification.split('-')[1]
       // Log.log('MyStandings notification received for ' + receivedLeague)
       // console.log('MyStandings notification received for ' + receivedLeague)
       for (var leagueIdx in this.config.sports) {
@@ -326,15 +324,19 @@ Module.register('MMM-MyStandings', {
           }
         }
       }
+      if (this.config.sports[leagueIdx].league === 'Olympics' && this.config.sports[leagueIdx].groups === undefined) {
+        this.config.sports[leagueIdx].groups = ['Total', 'Gold', 'Silver', 'Bronze']
+      }
     }
     if (notification.includes('Rankings') && payload.uniqueID == this.defaults.uniqueID) {
-      receivedLeague = notification.split('-')[1]
       this.standingsInfo.push(this.cleanupRankings(payload.result.rankings, receivedLeague))
       this.standingsSportInfo.push(receivedLeague)
     }
     else if (notification.startsWith('STANDINGS_RESULT') && payload.uniqueID == this.defaults.uniqueID) {
-      receivedLeague = notification.split('-')[1]
-      if (payload.result.standings) {
+      if (receivedLeague.includes('Olympics')) {
+        this.standingsInfo.push(this.cleanupOlyData(payload.result, receivedLeague))
+      }
+      else if (payload.result.standings) {
         this.standingsInfo.push(this.cleanupData(payload.result, receivedLeague))
       }
       else {
@@ -345,6 +347,7 @@ Module.register('MMM-MyStandings', {
       }
       else {
         this.standingsSportInfo.push(receivedLeague)
+        console.log(this.standingsInfo) // .at(-1))
       }
     }
     else if (notification === 'MMM-MYSTANDINGS-LOCAL-LOGO-LIST' && payload.uniqueID == this.defaults.uniqueID) {
@@ -1072,6 +1075,67 @@ Module.register('MMM-MyStandings', {
       }
     }
 
+    return formattedStandingsObject.filter(Boolean)
+  },
+
+  // For sake of size of the arrays, let us remove items that we do not particularly care about (Olympics version)
+  cleanupOlyData: function (StandingsObject, sport) {
+    var teamNo
+
+    for (var league in this.config.sports) {
+      if (this.config.sports[league].league === 'Olympics') {
+        var groups = this.config.sports[league].groups
+      }
+    }
+    var formattedStandingsObject = []
+    for (var sort in groups) {
+      formattedStandingsObject.push({})
+      formattedStandingsObject[sort].shortName = `${sport} - ${groups[sort]}`
+      formattedStandingsObject[sort].name = `${sport} - ${groups[sort]}`
+      formattedStandingsObject[sort].standings = {}
+      formattedStandingsObject[sort].standings.entries = []
+
+      // Set data
+      StandingsObject.sort(function (a, b) {
+        return b[groups[sort].toLowerCase()] - a[groups[sort].toLowerCase()]
+      })
+      for (teamNo = 0; teamNo < StandingsObject.length; teamNo++) {
+        formattedStandingsObject[sort].standings.entries[teamNo] = {}
+        formattedStandingsObject[sort].standings.entries[teamNo].team = {}
+        formattedStandingsObject[sort].standings.entries[teamNo].team.displayName = StandingsObject[teamNo].name
+        formattedStandingsObject[sort].standings.entries[teamNo].team.abbreviation = StandingsObject[teamNo].short_name
+        formattedStandingsObject[sort].standings.entries[teamNo].team.shortDisplayName = StandingsObject[teamNo].short_name
+        formattedStandingsObject[sort].standings.entries[teamNo].team.logos = []
+        formattedStandingsObject[sort].standings.entries[teamNo].team.logos[0] = {}
+        formattedStandingsObject[sort].standings.entries[teamNo].stats = []
+        formattedStandingsObject[sort].standings.entries[teamNo].stats[0] = []
+        formattedStandingsObject[sort].standings.entries[teamNo].stats[0].name = 'gold'
+        formattedStandingsObject[sort].standings.entries[teamNo].stats[0].value = StandingsObject[teamNo].gold
+        formattedStandingsObject[sort].standings.entries[teamNo].stats[1] = []
+        formattedStandingsObject[sort].standings.entries[teamNo].stats[1].name = 'silver'
+        formattedStandingsObject[sort].standings.entries[teamNo].stats[1].value = StandingsObject[teamNo].silver
+        formattedStandingsObject[sort].standings.entries[teamNo].stats[2] = []
+        formattedStandingsObject[sort].standings.entries[teamNo].stats[2].name = 'bronze'
+        formattedStandingsObject[sort].standings.entries[teamNo].stats[2].value = StandingsObject[teamNo].bronze
+        formattedStandingsObject[sort].standings.entries[teamNo].stats[3] = []
+        formattedStandingsObject[sort].standings.entries[teamNo].stats[3].name = 'total'
+        formattedStandingsObject[sort].standings.entries[teamNo].stats[3].value = StandingsObject[teamNo].total
+
+        if (this.config.useLocalLogos === true) {
+          var leagueForLogoPath = 'Olympics'
+          if (this.localLogos[leagueForLogoPath] && this.localLogos[leagueForLogoPath].indexOf(formattedStandingsObject[sort].standings.entries[teamNo].team.abbreviation + '.svg') !== -1) {
+            formattedStandingsObject[sort].standings.entries[teamNo].team.logos[0].href = this.file('logos/' + leagueForLogoPath + '/' + formattedStandingsObject[sort].standings.entries[teamNo].team.abbreviation + '.svg')
+          }
+          else if (this.localLogos[leagueForLogoPath] && this.localLogos[leagueForLogoPath].indexOf(formattedStandingsObject[sort].standings.entries[teamNo].team.abbreviation + '.png') !== -1) {
+            formattedStandingsObject[sort].standings.entries[teamNo].team.logos[0].href = this.file('logos/' + leagueForLogoPath + '/' + formattedStandingsObject[sort].standings.entries[teamNo].team.abbreviation + '.png')
+          }
+          else {
+            formattedStandingsObject[sort].standings.entries[teamNo].team.logos[0].href = StandingsObject[teamNo].flag_url
+          }
+        }
+      }
+      formattedStandingsObject[sort].standings.entries = formattedStandingsObject[sort].standings.entries.slice(0, this.config.rankingLength)
+    }
     return formattedStandingsObject.filter(Boolean)
   },
 
