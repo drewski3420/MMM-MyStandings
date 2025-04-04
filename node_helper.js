@@ -7,7 +7,6 @@ module.exports = NodeHelper.create({
   start: function () {
     // Log.log('Starting node_helper for: ' + this.name);
     console.log('Starting node_helper for: ' + this.name)
-
   },
 
   getDirectoryTree(dirPath) {
@@ -65,7 +64,7 @@ module.exports = NodeHelper.create({
           this.localLogos[league.name] = logoFiles
         }
       })
-      
+
       this.sendSocketNotification('MMM-MYSTANDINGS-LOCAL-LOGO-LIST', { uniqueID: payload.uniqueID, logos: this.localLogos })
     }
   },

@@ -4,8 +4,10 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.X.X](https://github.com/dathbe/MMM-MyStandings/compare/v2.6.1...v2.6.2) - 2025-04-XX
+## [2.6.2](https://github.com/dathbe/MMM-MyStandings/compare/v2.6.1...v2.6.2) - 2025-04-03
 
+- Some logic fixes
+- Clarify README
 - New CIN (NCAA) logo
 
 ## [2.6.1](https://github.com/dathbe/MMM-MyStandings/compare/v2.6.0...v2.6.1) - 2025-04-02
@@ -94,9 +96,9 @@ Special thankyou to @KristjanESPERANTO for most of the work on this release
 - Moved all NCAA logos to `NCAA` subfolder to avoid duplication
 - Lots of new logos
 
-## [2.0.0](https://github.com/dathbe/MMM-MyStandings/compare/tag/2.0.0) - 2025-03-23 - First fork version
+## [2.0.0](https://github.com/vincep5/MMM-MyStandings/compare/master...dathbe:2.0.0) - 2025-03-23 - First fork version
 
-Forked from [vincep5](https://github.com/vincep5/MMM-MyStandings/compare/master...dathbe:2.0.0).
+Forked from [vincep5](https://github.com/vincep5/MMM-MyStandings).
 
 - NEW FEATURE: Allows multiple instances of module in same config file
 - Updated css formatting

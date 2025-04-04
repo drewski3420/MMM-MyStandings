@@ -57,7 +57,7 @@ The following example config shows all available configuration options except so
 | colored | Chooses whether to display the module in full color (`true`) or grayscale (`false`)<br><br>**Type:** `boolean` <br> **Default value:** `true`
 | showByDivision | Rotate through each division/group separately (`true`) or show all divisions/groups at once stacked on top of one another (`false`).  Note that `false` only combines divisions of the same type.  For example, in MLB, divisions will be grouped together, NL/AL leagues will be grouped together, playoffs will be grouped together, and wild cards will be grouped together.<br><br>**Type:** `boolean` <br> **Default value:** `true`
 | fadeSpeed | Time in milliseconds to display the module<br><br>**Type:** `int` <br> **Default value:** `2000` (2 seconds)
-| rankingLength | The number of teams to display when using `NCAAF Rankings` or `NCAAM Rankings`<br><br>**Type:** `int` <br> **Default value:** `25` (all rankings)
+| rankingLength | The number of teams to display when using `NCAAF Rankings`, `NCAAM Rankings`, or `NCAAW Rankings`<br><br>**Type:** `int` <br> **Default value:** `25` (all rankings)
 | addLeagueToTitle | Adds the league name to the displayed table title<br><br>**Type:** `boolean` <br> **Default value:** `true`
 
 ## Available Leagues and Groups
@@ -199,9 +199,10 @@ For any league, select the groups you want to rotate through or no groups to rot
 </details>
 
 <details>
-  <summary><b>Available NCAA Football ("NCAAF") Groups</b> (click to expand)</summary>
+  <summary><b>Available NCAA Football ("NCAAF" or "NCAAF Rankings") Groups</b> (click to expand)</summary>
 
 ### Conferences
+**Use the league `NCAAF`**
 - `American Athletic Conference`
 - `Atlantic Coast Conference`
 - `Big 12 Conference`
@@ -226,9 +227,10 @@ For any league, select the groups you want to rotate through or no groups to rot
 </details>
 
 <details>
-  <summary><b>Available NCAA Men's Basketball ("NCAAM") Groups</b> (click to expand)</summary>
+  <summary><b>Available NCAA Men's Basketball ("NCAAM" or "NCAAM Rankings") Groups</b> (click to expand)</summary>
 
 ### Conferences
+**Use the league `NCAAM`**
 - `America East Conference`
 - `American Athletic Conference`
 - `Atlantic 10 Conference`
@@ -269,9 +271,10 @@ For any league, select the groups you want to rotate through or no groups to rot
 </details>
 
 <details>
-  <summary><b>Available NCAA Women's Basketball ("NCAAW") Groups</b> (click to expand)</summary>
+  <summary><b>Available NCAA Women's Basketball ("NCAAW" or "NCAAW Rankings") Groups</b> (click to expand)</summary>
 
 ### Conferences
+**Use the league `NCAAW`**
 - `ASUN Conference`
 - `America East Conference`
 - `American Athletic Conference`
