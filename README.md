@@ -179,7 +179,7 @@ For any league, select the groups you want to rotate through or no groups to rot
 - `Eastern Conference`
 
 ### Overall
-`National Hockey League`
+- `National Hockey League`
 
 ### Playoffs
 - `West Playoffs` - will remove teams from standings when eliminated
