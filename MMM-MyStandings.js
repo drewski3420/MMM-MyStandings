@@ -277,6 +277,10 @@ Module.register('MMM-MyStandings', {
         case 'NLL':
           sportUrls.push(this.url + 'lacrosse/nll/standings?sort=winPercentage:desc')
           break
+        case 'Olympics':
+          var olyYear = new Date().getFullYear()
+          console.log(olyYear)
+          sportsUrls.push(`https://stats-api.sportsnet.ca/web_standings?league=oly&season_year=2024`)
         default: // soccer & rugby
           sportUrls.push(this.url + this.SOCCER_LEAGUE_PATHS[this.config.sports[i].league] + '/standings?sort=rank:asc')
           break
