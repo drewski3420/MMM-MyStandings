@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## [2.7.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.6.2...v2.7.0) - 2025-04-XX
 
 - NEW FEATURE: Olympics medal count standings now available
+- Replace `console.log` with 'Log.log`
 
 ## [2.6.2](https://github.com/dathbe/MMM-MyStandings/compare/v2.6.1...v2.6.2) - 2025-04-03
 
