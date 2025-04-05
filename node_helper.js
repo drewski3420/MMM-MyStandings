@@ -5,7 +5,7 @@ const path = require('node:path')
 
 module.exports = NodeHelper.create({
   start: function () {
-    Log.log('Starting node_helper for: ' + this.name);
+    Log.log('Starting node_helper for: ' + this.name)
   },
 
   getDirectoryTree(dirPath) {
