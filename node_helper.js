@@ -1,12 +1,11 @@
-// const Log = require('logger') // Can't get log.log to work, so using console.log for the time being
+const Log = require('logger')
 const NodeHelper = require('node_helper')
 const fs = require('node:fs')
 const path = require('node:path')
 
 module.exports = NodeHelper.create({
   start: function () {
-    // Log.log('Starting node_helper for: ' + this.name);
-    console.log('Starting node_helper for: ' + this.name)
+    Log.log('Starting node_helper for: ' + this.name);
   },
 
   getDirectoryTree(dirPath) {
@@ -42,8 +41,7 @@ module.exports = NodeHelper.create({
       })
     }
     catch (error) {
-      // Log.error('[MMM-MyStandings] Could not load data.', error)
-      console.error('[MMM-MyStandings] Could not load data.', error)
+      Log.error('[MMM-MyStandings] Could not load data.', error)
     }
   },
 
@@ -56,7 +54,6 @@ module.exports = NodeHelper.create({
     while (standings.length === 0 && olyYear > 2020) {
       try {
         const response = await fetch(`${payload.url}${olyYear}`)
-        // console.log(`${payload.url}${olyYear}`)
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
@@ -67,7 +64,7 @@ module.exports = NodeHelper.create({
         }
       }
       catch (error) {
-        console.error('[MMM-MyStandings] Could not load data.', error)
+        Log.error('[MMM-MyStandings] Could not load data.', error)
       }
     }
     this.sendSocketNotification(`STANDINGS_RESULT-${olyYear} Olympics`, {
