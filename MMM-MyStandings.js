@@ -349,6 +349,7 @@ Module.register('MMM-MyStandings', {
       }
       else {
         this.standingsSportInfo.push(receivedLeague)
+        Log.info(this.standingsInfo)
       }
     }
     else if (notification === 'MMM-MYSTANDINGS-LOCAL-LOGO-LIST' && payload.uniqueID == this.defaults.uniqueID) {

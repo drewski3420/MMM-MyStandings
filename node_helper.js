@@ -45,29 +45,26 @@ module.exports = NodeHelper.create({
     }
   },
 
-  async getOlympicMedals(notification, payload) {
-    var olyYear = new Date().getFullYear()
-    if ((olyYear % 2) === 1) {
-      olyYear = olyYear - 1
-    }
+  async getSNETData(notification, payload) {
+    var queryYear = new Date().getFullYear()
     var standings = []
-    while (standings.length === 0 && olyYear > 2020) {
+    while (standings.length === 0 && queryYear > 2020) {
       try {
-        const response = await fetch(`${payload.url}${olyYear}`)
+        const response = await fetch(`${payload.url}${queryYear}`)
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
         const data = await response.json()
         standings = data['data']['teams']
         if (standings.length === 0) {
-          olyYear = olyYear - 2
+          queryYear = queryYear - 1
         }
       }
       catch (error) {
         Log.error('[MMM-MyStandings] Could not load data.', error)
       }
     }
-    this.sendSocketNotification(`STANDINGS_RESULT-${olyYear} Olympics`, {
+    this.sendSocketNotification(`STANDINGS_RESULT-${queryYear} Olympics`, {
       result: standings,
       uniqueID: payload.uniqueID,
     })
@@ -75,13 +72,7 @@ module.exports = NodeHelper.create({
 
   // Subclass socketNotificationReceived received.
   socketNotificationReceived: function (notification, payload) {
-    if (notification.includes('Olympics')) {
-      this.getOlympicMedals(notification, payload)
-    }
-    else if (notification.startsWith('STANDINGS_RESULT')) {
-      this.getData(notification, payload)
-    }
-    else if (notification == 'MMM-MYSTANDINGS-GET-LOCAL-LOGOS') {
+    if (notification == 'MMM-MYSTANDINGS-GET-LOCAL-LOGOS') {
       this.localLogos = {}
       const fsTree = this.getDirectoryTree('./modules/MMM-MyStandings/logos')
       fsTree.forEach((league) => {
@@ -95,6 +86,12 @@ module.exports = NodeHelper.create({
       })
 
       this.sendSocketNotification('MMM-MYSTANDINGS-LOCAL-LOGO-LIST', { uniqueID: payload.uniqueID, logos: this.localLogos })
+    }
+    else if (payload.url.includes('stats-api.sportsnet.ca/web_standings')) {
+      this.getSNETData(notification, payload)
+    }
+    else if (notification.startsWith('STANDINGS_RESULT')) {
+      this.getData(notification, payload)
     }
   },
 })
