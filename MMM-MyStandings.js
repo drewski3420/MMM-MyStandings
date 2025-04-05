@@ -307,8 +307,7 @@ Module.register('MMM-MyStandings', {
   socketNotificationReceived: function (notification, payload) {
     var receivedLeague = notification.split('-')[1]
     if (notification.startsWith('STANDINGS_RESULT') && payload.uniqueID == this.defaults.uniqueID) {
-      // Log.log('MyStandings notification received for ' + receivedLeague)
-      // console.log('MyStandings notification received for ' + receivedLeague)
+      Log.debug('MyStandings notification received for ' + receivedLeague)
       for (var leagueIdx in this.config.sports) {
         if (this.config.sports[leagueIdx].league === receivedLeague && this.config.sports[leagueIdx].groups === undefined && payload.result.children.length > 1) {
           this.config.sports[leagueIdx].groups = []
