@@ -280,6 +280,9 @@ Module.register('MMM-MyStandings', {
         case 'Olympics':
           sportUrls.push(`https://stats-api.sportsnet.ca/web_standings?league=oly&season_year=`)
           break
+        case 'CFL':
+          sportUrls.push(`https://stats-api.sportsnet.ca/web_standings?league=cfl&season_year=`)
+          break
         default: // soccer & rugby
           sportUrls.push(this.url + this.SOCCER_LEAGUE_PATHS[this.config.sports[i].league] + '/standings?sort=rank:asc')
           break
