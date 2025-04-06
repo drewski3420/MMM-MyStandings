@@ -382,6 +382,7 @@ For any soccer league that does not have any groups, you should list only the le
 - `Scottish League Two`
 - `Scottish Premiership`
 - `Welsh Premier League`
+- `English Women's Super League`
 
 ### European Soccer
 
