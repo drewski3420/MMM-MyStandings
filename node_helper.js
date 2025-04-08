@@ -51,7 +51,7 @@ module.exports = NodeHelper.create({
     while (standings.length === 0 && queryYear > 2020) {
       try {
         const response = await fetch(payload.url + queryYear)
-        Log.debug(payload.url + queryYear)
+        // Log.debug(payload.url + queryYear)
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
@@ -67,8 +67,8 @@ module.exports = NodeHelper.create({
         Log.error('[MMM-MyStandings] Could not load data.', error)
       }
     }
-    Log.debug(notification.split('-')[1])
-  this.sendSocketNotification(`STANDINGS_RESULT_SNET-${queryYear}_$(notification.split('-')[1]}`, {
+    // Log.debug(notification.split('-')[1])
+    this.sendSocketNotification(`STANDINGS_RESULT_SNET-${queryYear}_${notification.split('-')[1]}`, {
       result: standings,
       uniqueID: payload.uniqueID,
     })

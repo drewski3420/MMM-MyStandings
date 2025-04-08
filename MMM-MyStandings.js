@@ -76,6 +76,11 @@ Module.register('MMM-MyStandings', {
   nbag_l1: ['NBA Development League'],
   nbag_l2: ['Eastern Conference', 'Western Conference'],
 
+  defaultSNETGroups: {
+    Olympics: ['Total', 'Gold', 'Silver', 'Bronze'],
+    CFL: ['West Division', 'East Division'],
+  },
+
   playoffFieldSize: {},
   shortNameLookup: {},
 
@@ -325,8 +330,11 @@ Module.register('MMM-MyStandings', {
             }
           }
         }
-        else if (this.config.sports[leagueIdx].league === 'Olympics' && this.config.sports[leagueIdx].groups === undefined) {
+        /* else if (this.config.sports[leagueIdx].league === 'Olympics' && this.config.sports[leagueIdx].groups === undefined) {
           this.config.sports[leagueIdx].groups = ['Total', 'Gold', 'Silver', 'Bronze']
+        } */
+        else if (this.defaultSNETGroups[this.config.sports[leagueIdx].league] && this.config.sports[leagueIdx].groups === undefined) {
+          this.config.sports[leagueIdx].groups = this.defaultSNETGroups[this.config.sports[leagueIdx].league]
         }
       }
     }
@@ -335,8 +343,8 @@ Module.register('MMM-MyStandings', {
       this.standingsSportInfo.push(receivedLeague)
     }
     else if (notification.startsWith('STANDINGS_RESULT') && payload.uniqueID == this.defaults.uniqueID) {
-      if (receivedLeague.includes('Olympics')) {
-        this.standingsInfo.push(this.cleanupOlyData(payload.result, receivedLeague))
+      if (notification.startsWith('STANDINGS_RESULT_SNET')) {
+        this.standingsInfo.push(this.cleanupSNETData(payload.result, receivedLeague))
       }
       else if (payload.result.standings) {
         this.standingsInfo.push(this.cleanupData(payload.result, receivedLeague))
@@ -349,7 +357,7 @@ Module.register('MMM-MyStandings', {
       }
       else {
         this.standingsSportInfo.push(receivedLeague)
-        Log.info(this.standingsInfo)
+        // Log.info(this.standingsInfo)
       }
     }
     else if (notification === 'MMM-MYSTANDINGS-LOCAL-LOGO-LIST' && payload.uniqueID == this.defaults.uniqueID) {
@@ -480,7 +488,7 @@ Module.register('MMM-MyStandings', {
         }
       }
       if (formattedStandingsObject[h] !== null) {
-        Log.debug(formattedStandingsObject[h].name)
+        // Log.debug(formattedStandingsObject[h].name)
         if (this.config.shortNameLookup[formattedStandingsObject[h].name] !== undefined) {
           formattedStandingsObject[h].shortName = this.config.shortNameLookup[formattedStandingsObject[h].name]
         }
@@ -1082,62 +1090,100 @@ Module.register('MMM-MyStandings', {
   },
 
   // For sake of size of the arrays, let us remove items that we do not particularly care about (Olympics version)
-  cleanupOlyData: function (StandingsObject, sport) {
+  cleanupSNETData: function (StandingsObject, sport) {
     var teamNo
 
     for (var league in this.config.sports) {
-      if (this.config.sports[league].league === 'Olympics') {
+      if (this.config.sports[league].league === sport.split('_')[1]) {
         var groups = this.config.sports[league].groups
       }
     }
     var formattedStandingsObject = []
-    for (var sort in groups) {
+    for (var groupNo in groups) {
       formattedStandingsObject.push({})
-      formattedStandingsObject[sort].shortName = `${sport} - ${groups[sort]}`
-      formattedStandingsObject[sort].name = `${sport} - ${groups[sort]}`
-      formattedStandingsObject[sort].standings = {}
-      formattedStandingsObject[sort].standings.entries = []
+      formattedStandingsObject[groupNo].shortName = `${sport.replace('_', ' ')} - ${groups[groupNo]}`
+      formattedStandingsObject[groupNo].name = `${sport.replace('_', ' ')} - ${groups[groupNo]}`
+      formattedStandingsObject[groupNo].standings = {}
+      formattedStandingsObject[groupNo].standings.entries = []
+
+      // Sort data
+      if (sport.split('_')[1] == 'Olympics') {
+        StandingsObject.sort(function (a, b) {
+          return b[groups[groupNo].toLowerCase()] - a[groups[groupNo].toLowerCase()]
+        })
+      }
+      else {
+        StandingsObject.sort(function (a, b) {
+          return a.division.rank - b.division.rank
+        })
+      }
 
       // Set data
-      StandingsObject.sort(function (a, b) {
-        return b[groups[sort].toLowerCase()] - a[groups[sort].toLowerCase()]
-      })
       for (teamNo = 0; teamNo < StandingsObject.length; teamNo++) {
-        formattedStandingsObject[sort].standings.entries[teamNo] = {}
-        formattedStandingsObject[sort].standings.entries[teamNo].team = {}
-        formattedStandingsObject[sort].standings.entries[teamNo].team.displayName = StandingsObject[teamNo].name
-        formattedStandingsObject[sort].standings.entries[teamNo].team.abbreviation = StandingsObject[teamNo].short_name
-        formattedStandingsObject[sort].standings.entries[teamNo].team.shortDisplayName = StandingsObject[teamNo].short_name
-        formattedStandingsObject[sort].standings.entries[teamNo].team.logos = []
-        formattedStandingsObject[sort].standings.entries[teamNo].team.logos[0] = {}
-        formattedStandingsObject[sort].standings.entries[teamNo].stats = []
-        formattedStandingsObject[sort].standings.entries[teamNo].stats[0] = []
-        formattedStandingsObject[sort].standings.entries[teamNo].stats[0].name = 'gold'
-        formattedStandingsObject[sort].standings.entries[teamNo].stats[0].value = StandingsObject[teamNo].gold
-        formattedStandingsObject[sort].standings.entries[teamNo].stats[1] = []
-        formattedStandingsObject[sort].standings.entries[teamNo].stats[1].name = 'silver'
-        formattedStandingsObject[sort].standings.entries[teamNo].stats[1].value = StandingsObject[teamNo].silver
-        formattedStandingsObject[sort].standings.entries[teamNo].stats[2] = []
-        formattedStandingsObject[sort].standings.entries[teamNo].stats[2].name = 'bronze'
-        formattedStandingsObject[sort].standings.entries[teamNo].stats[2].value = StandingsObject[teamNo].bronze
-        formattedStandingsObject[sort].standings.entries[teamNo].stats[3] = []
-        formattedStandingsObject[sort].standings.entries[teamNo].stats[3].name = 'total'
-        formattedStandingsObject[sort].standings.entries[teamNo].stats[3].value = StandingsObject[teamNo].total
+        formattedStandingsObject[groupNo].standings.entries[teamNo] = {}
+        formattedStandingsObject[groupNo].standings.entries[teamNo].team = {}
+        formattedStandingsObject[groupNo].standings.entries[teamNo].team.abbreviation = StandingsObject[teamNo].short_name
+        if (StandingsObject[teamNo].city !== undefined) {
+          formattedStandingsObject[groupNo].standings.entries[teamNo].team.displayName = `${StandingsObject[teamNo].city} ${StandingsObject[teamNo].name}`
+        }
+        else {
+          formattedStandingsObject[groupNo].standings.entries[teamNo].team.displayName = StandingsObject[teamNo].name
+        }
+
+        formattedStandingsObject[groupNo].standings.entries[teamNo].team.shortDisplayName = StandingsObject[teamNo].short_name
+        formattedStandingsObject[groupNo].standings.entries[teamNo].team.logos = []
+        formattedStandingsObject[groupNo].standings.entries[teamNo].team.logos[0] = {}
+        formattedStandingsObject[groupNo].standings.entries[teamNo].stats = []
+
+        switch (sport.split('_')[1]) {
+          case 'CFL':
+            if (StandingsObject[teamNo].division.name === groups[groupNo]) {
+              formattedStandingsObject[groupNo].standings.entries[teamNo].stats[0] = []
+              formattedStandingsObject[groupNo].standings.entries[teamNo].stats[0].name = 'wins'
+              formattedStandingsObject[groupNo].standings.entries[teamNo].stats[0].value = StandingsObject[teamNo].stats.wins
+              formattedStandingsObject[groupNo].standings.entries[teamNo].stats[1] = []
+              formattedStandingsObject[groupNo].standings.entries[teamNo].stats[1].name = 'losses'
+              formattedStandingsObject[groupNo].standings.entries[teamNo].stats[1].value = StandingsObject[teamNo].stats.losses
+              formattedStandingsObject[groupNo].standings.entries[teamNo].stats[2] = []
+              formattedStandingsObject[groupNo].standings.entries[teamNo].stats[2].name = 'ties'
+              formattedStandingsObject[groupNo].standings.entries[teamNo].stats[2].value = StandingsObject[teamNo].stats.ties
+              formattedStandingsObject[groupNo].standings.entries[teamNo].stats[3] = []
+              formattedStandingsObject[groupNo].standings.entries[teamNo].stats[3].name = 'points'
+              formattedStandingsObject[groupNo].standings.entries[teamNo].stats[3].value = StandingsObject[teamNo].stats.points
+              formattedStandingsObject[groupNo].standings.entries[teamNo].team.logos[0].href = StandingsObject[teamNo].image_url_25
+            }
+            else {
+              formattedStandingsObject[groupNo].standings.entries.pop()
+            }
+            break
+          case 'Olympics':
+            formattedStandingsObject[groupNo].standings.entries[teamNo].stats[0] = []
+            formattedStandingsObject[groupNo].standings.entries[teamNo].stats[0].name = 'gold'
+            formattedStandingsObject[groupNo].standings.entries[teamNo].stats[0].value = StandingsObject[teamNo].gold
+            formattedStandingsObject[groupNo].standings.entries[teamNo].stats[1] = []
+            formattedStandingsObject[groupNo].standings.entries[teamNo].stats[1].name = 'silver'
+            formattedStandingsObject[groupNo].standings.entries[teamNo].stats[1].value = StandingsObject[teamNo].silver
+            formattedStandingsObject[groupNo].standings.entries[teamNo].stats[2] = []
+            formattedStandingsObject[groupNo].standings.entries[teamNo].stats[2].name = 'bronze'
+            formattedStandingsObject[groupNo].standings.entries[teamNo].stats[2].value = StandingsObject[teamNo].bronze
+            formattedStandingsObject[groupNo].standings.entries[teamNo].stats[3] = []
+            formattedStandingsObject[groupNo].standings.entries[teamNo].stats[3].name = 'total'
+            formattedStandingsObject[groupNo].standings.entries[teamNo].stats[3].value = StandingsObject[teamNo].total
+            formattedStandingsObject[groupNo].standings.entries[teamNo].team.logos[0].href = StandingsObject[teamNo].flag_url
+        }
 
         if (this.config.useLocalLogos === true) {
-          var leagueForLogoPath = 'Olympics'
-          if (this.localLogos[leagueForLogoPath] && this.localLogos[leagueForLogoPath].indexOf(formattedStandingsObject[sort].standings.entries[teamNo].team.abbreviation + '.svg') !== -1) {
-            formattedStandingsObject[sort].standings.entries[teamNo].team.logos[0].href = this.file('logos/' + leagueForLogoPath + '/' + formattedStandingsObject[sort].standings.entries[teamNo].team.abbreviation + '.svg')
+          var leagueForLogoPath = sport.split('_')[1]
+          if (this.localLogos[leagueForLogoPath] && this.localLogos[leagueForLogoPath].indexOf(formattedStandingsObject[groupNo].standings.entries[teamNo].team.abbreviation + '.svg') !== -1) {
+            formattedStandingsObject[groupNo].standings.entries[teamNo].team.logos[0].href = this.file('logos/' + leagueForLogoPath + '/' + formattedStandingsObject[groupNo].standings.entries[teamNo].team.abbreviation + '.svg')
           }
-          else if (this.localLogos[leagueForLogoPath] && this.localLogos[leagueForLogoPath].indexOf(formattedStandingsObject[sort].standings.entries[teamNo].team.abbreviation + '.png') !== -1) {
-            formattedStandingsObject[sort].standings.entries[teamNo].team.logos[0].href = this.file('logos/' + leagueForLogoPath + '/' + formattedStandingsObject[sort].standings.entries[teamNo].team.abbreviation + '.png')
-          }
-          else {
-            formattedStandingsObject[sort].standings.entries[teamNo].team.logos[0].href = StandingsObject[teamNo].flag_url
+          else if (this.localLogos[leagueForLogoPath] && this.localLogos[leagueForLogoPath].indexOf(formattedStandingsObject[groupNo].standings.entries[teamNo].team.abbreviation + '.png') !== -1) {
+            formattedStandingsObject[groupNo].standings.entries[teamNo].team.logos[0].href = this.file('logos/' + leagueForLogoPath + '/' + formattedStandingsObject[groupNo].standings.entries[teamNo].team.abbreviation + '.png')
           }
         }
       }
-      formattedStandingsObject[sort].standings.entries = formattedStandingsObject[sort].standings.entries.slice(0, this.config.rankingLength)
+      formattedStandingsObject[groupNo].standings.entries = formattedStandingsObject[groupNo].standings.entries.filter(Boolean)
+      formattedStandingsObject[groupNo].standings.entries = formattedStandingsObject[groupNo].standings.entries.slice(0, this.config.rankingLength)
     }
     return formattedStandingsObject.filter(Boolean)
   },
