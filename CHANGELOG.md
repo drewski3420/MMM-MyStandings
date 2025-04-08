@@ -6,8 +6,9 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [2.7.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.6.2...v2.7.0) - 2025-04-XX
 
-- NEW FEATURE: Olympics medal count standings now available
-- NEW FEATURE: English Women's Super League now available
+- **NEW FEATURE**: Olympics medal count standings now available
+- **NEW FEATURE**: English Women's Super League now available
+- **NEW FEATURE**: CFL now available
 - Replace `console.log` with `Log.log`
 
 ## [2.6.2](https://github.com/dathbe/MMM-MyStandings/compare/v2.6.1...v2.6.2) - 2025-04-03
@@ -26,11 +27,11 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [2.6.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.5.2...v2.6.0) - 2025-03-31
 
-- NEW FEATURE: WNBA standings now available
-- NEW FEATURE: NBA G League (NBA Development League) standings now available
-- NEW FEATURE: AFL (Australian Football League) standings now available
-- NEW FEATURE: PLL (Premier Lacrosse League) standings now available
-- NEW FEATURE: NLL (National Lacrosse League) standings now available
+- **NEW FEATURE**: WNBA standings now available
+- **NEW FEATURE**: NBA G League (NBA Development League) standings now available
+- **NEW FEATURE**: AFL (Australian Football League) standings now available
+- **NEW FEATURE**: PLL (Premier Lacrosse League) standings now available
+- **NEW FEATURE**: NLL (National Lacrosse League) standings now available
 
 ## [2.5.2](https://github.com/dathbe/MMM-MyStandings/compare/v2.5.1...v2.5.2) - 2025-03-31
 
@@ -52,9 +53,9 @@ Special thankyou to @KristjanESPERANTO for most of the work on this release
 
 ## [2.5.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.4.0...v2.5.0) - 2025-03-28
 
-- NEW FEATURE: New option `addLeagueToTitle` to give users the option to switch off the previously added feature of adding the league name to the table title (it takes up space, and doesn't play nice with some soccer leagues, so I've given the option to remove it)
-- NEW FEATURE:  Added ranking badges to NWSL standings for playoff spots
-- CHANGED BEHAVIOR: I've changed all of the names of the soccer leagues to be used in the config file from "XXX_XXX" to "Xxx Xxx".  The old names will continue to work, but will no longer be listed in the README and may be removed at a future date.  *Please update your config files*.  The new styling plays nicer with adding the league name to table titles.
+- **NEW FEATURE**: New option `addLeagueToTitle` to give users the option to switch off the previously added feature of adding the league name to the table title (it takes up space, and doesn't play nice with some soccer leagues, so I've given the option to remove it)
+- **NEW FEATURE**:  Added ranking badges to NWSL standings for playoff spots
+- **CHANGED BEHAVIOR**: I've changed all of the names of the soccer leagues to be used in the config file from "XXX_XXX" to "Xxx Xxx".  The old names will continue to work, but will no longer be listed in the README and may be removed at a future date.  *Please update your config files*.  The new styling plays nicer with adding the league name to table titles.
 - Added CHANGELOG.md
 - Added CODE_OF_CONDUCT.md
 - Added LICENSE
@@ -64,10 +65,10 @@ Special thankyou to @KristjanESPERANTO for most of the work on this release
 
 ## [2.4.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.3.0...v2.4.0) - 2025-03-28
 
-- NEW FEATURE: Added Rugby league standings
-- NEW FEATURE: Added alternative standings for NBA (league, conferences), MBL (all MLB, leagues, wild card, playoffs), NFL (league, conferences, playoffs), NHL (league, conferences, wild card, playoffs)
-- NEW FEATURE: Added rankings badges for certain standings
-- NEW FEATURE: Added league name before the displayed standings (e.g., "FIFA World Cup Group A" instead of previous "Group A")
+- **NEW FEATURE**: Added Rugby league standings
+- **NEW FEATURE**: Added alternative standings for NBA (league, conferences), MBL (all MLB, leagues, wild card, playoffs), NFL (league, conferences, playoffs), NHL (league, conferences, wild card, playoffs)
+- **NEW FEATURE**: Added rankings badges for certain standings
+- **NEW FEATURE**: Added league name before the displayed standings (e.g., "FIFA World Cup Group A" instead of previous "Group A")
 - Improved handling of standings rotation; going forward, will rotate through divisions that have received information, ignoring any improperly formatting `groups`.
 - Fixed bug involving uniqueID
 - Some css formatting tweaks
@@ -76,8 +77,8 @@ Special thankyou to @KristjanESPERANTO for most of the work on this release
 
 ## [2.3.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.2.0...v2.3.0) - 2025-03-26
 
-- NEW FEATURE: Added `colored` option to allow display of module in grayscale
-- NEW FEATURE: Added NCAAW rankings
+- **NEW FEATURE**: Added `colored` option to allow display of module in grayscale
+- **NEW FEATURE**: Added NCAAW rankings
 - Simplified default config to display a more limited subset of available standings
 - Updated some available soccer leagues
 - Some css formatting changes
@@ -87,7 +88,7 @@ Special thankyou to @KristjanESPERANTO for most of the work on this release
 
 ## [2.2.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.1.0...v2.2.0) - 2025-03-25
 
-- NEW FEATURE: Added NCAAF and NCAAM rankings with ranking badges
+- **NEW FEATURE**: Added NCAAF and NCAAM rankings with ranking badges
 - Improved handling of leagues where groups left undefined; this fixes a bug that would display all soccer Groups together even if `showByDivision` was set to `true`.  Going forward, if a league has any divisions, all will be rotated through if `groups` is left `undefined`.
 - Added `rankingLength` option for displaying partial (<25) NCAA ranking standings
 - Cleaned up README
@@ -95,8 +96,8 @@ Special thankyou to @KristjanESPERANTO for most of the work on this release
 
 ## [2.1.0](https://github.com/dathbe/MMM-MyStandings/compare/2.0.0...v2.1.0) - 2025-03-24
 
-- NEW FEATURE: Improved logo handling so that module will fall back to ESPN urls if local file not available - no more missing logos!
-- NEW FEATURE: Adds sport name before standings of NCAA conferences ("NCAAM Big Ten" instead of ambiguous "Big Ten")
+- **NEW FEATURE**: Improved logo handling so that module will fall back to ESPN urls if local file not available - no more missing logos!
+- **NEW FEATURE**: Adds sport name before standings of NCAA conferences ("NCAAM Big Ten" instead of ambiguous "Big Ten")
 - Placeholder improvement allowing multiple api urls for each sport for planned implementation of alternative (not just division) standings
 - Some initial work toward adding NCAA rankings lists (non-functional)
 - Moved all NCAA logos to `NCAA` subfolder to avoid duplication
@@ -106,7 +107,7 @@ Special thankyou to @KristjanESPERANTO for most of the work on this release
 
 Forked from [vincep5](https://github.com/vincep5/MMM-MyStandings).
 
-- NEW FEATURE: Allows multiple instances of module in same config file
+- **NEW FEATURE**: Allows multiple instances of module in same config file
 - Updated css formatting
 - Corrected some stat names
 - Conformed install instructions to best practices
