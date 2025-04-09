@@ -1,12 +1,11 @@
-// const Log = require('logger') // Can't get log.log to work, so using console.log for the time being
+const Log = require('logger')
 const NodeHelper = require('node_helper')
 const fs = require('node:fs')
 const path = require('node:path')
 
 module.exports = NodeHelper.create({
   start: function () {
-    // Log.log('Starting node_helper for: ' + this.name);
-    console.log('Starting node_helper for: ' + this.name)
+    Log.log('Starting node_helper for: ' + this.name)
   },
 
   getDirectoryTree(dirPath) {
@@ -42,17 +41,42 @@ module.exports = NodeHelper.create({
       })
     }
     catch (error) {
-      // Log.error('[MMM-MyStandings] Could not load data.', error)
-      console.error('[MMM-MyStandings] Could not load data.', error)
+      Log.error('[MMM-MyStandings] Could not load data.', error)
     }
+  },
+
+  async getSNETData(notification, payload) {
+    var queryYear = new Date().getFullYear()
+    var standings = []
+    while (standings.length === 0 && queryYear > 2020) {
+      try {
+        const response = await fetch(payload.url + queryYear)
+        // Log.debug(payload.url + queryYear)
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        const data = await response.json()
+        if (data['data']['teams']) {
+          standings = data['data']['teams']
+        }
+        if (standings.length === 0) {
+          queryYear = queryYear - 1
+        }
+      }
+      catch (error) {
+        Log.error('[MMM-MyStandings] Could not load data.', error)
+      }
+    }
+    // Log.debug(notification.split('-')[1])
+    this.sendSocketNotification(`STANDINGS_RESULT_SNET-${queryYear}_${notification.split('-')[1]}`, {
+      result: standings,
+      uniqueID: payload.uniqueID,
+    })
   },
 
   // Subclass socketNotificationReceived received.
   socketNotificationReceived: function (notification, payload) {
-    if (notification.startsWith('STANDINGS_RESULT')) {
-      this.getData(notification, payload)
-    }
-    else if (notification == 'MMM-MYSTANDINGS-GET-LOCAL-LOGOS') {
+    if (notification == 'MMM-MYSTANDINGS-GET-LOCAL-LOGOS') {
       this.localLogos = {}
       const fsTree = this.getDirectoryTree('./modules/MMM-MyStandings/logos')
       fsTree.forEach((league) => {
@@ -66,6 +90,12 @@ module.exports = NodeHelper.create({
       })
 
       this.sendSocketNotification('MMM-MYSTANDINGS-LOCAL-LOGO-LIST', { uniqueID: payload.uniqueID, logos: this.localLogos })
+    }
+    else if (payload.url.includes('stats-api.sportsnet.ca/web_standings')) {
+      this.getSNETData(notification, payload)
+    }
+    else if (notification.startsWith('STANDINGS_RESULT')) {
+      this.getData(notification, payload)
     }
   },
 })

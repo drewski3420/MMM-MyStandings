@@ -45,17 +45,11 @@
 				<td colspan="2"><span>{{division.shortName}}</span></td>
 			{% if currentSport === "NHL" or currentSport === "NHL_PLAYOFFS" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">OTL</td><td class="dataCell bold">PTS</td>
-			{% elseif currentSport === "MLB" or currentSport === "MLB_PLAYOFFS" or currentSport === "MLB_WILDCARD" %}
-				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
-			{% elseif currentSport === "NBA" or currentSport === "WNBA" or currentSport === "NBAG" %}
+			{% elseif currentSport === "MLB" or currentSport === "MLB_PLAYOFFS" or currentSport === "MLB_WILDCARD" or currentSport === "NBA" or currentSport === "WNBA" or currentSport === "NBAG" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">GB</td>
 			{% elseif currentSport === "NFL" or currentSport === "NFL_PLAYOFFS" or currentSport === "NHL_WILDCARD" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">T</td>
-			{% elseif currentSport === "MLS" %}
-				<td class="dataCell">W</td><td class="dataCell">T</td><td class="dataCell">L</td><td class="dataCell bold">PTS</td>
-			{% elseif currentSport === "NCAAF" %}
-				<td class="dataCell">Conf</td><td class="dataCell">Overall</td>
-			{% elseif currentSport === "NCAAM" or currentSport === "NCAAW" %}
+			{% elseif currentSport === "NCAAF" or currentSport === "NCAAM" or currentSport === "NCAAW" %}
 				<td class="dataCell">Conf</td><td class="dataCell">Overall</td>
 			{% elseif "Rugby" in currentSport %}
 				<td class="dataCell">W</td><td class="dataCell">D</td><td class="dataCell">L</td><td class="dataCell bold">PTS</td>
@@ -63,16 +57,18 @@
 				<td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">D</td><td class="dataCell bold">PTS</td>
 			{% elseif currentSport === "PLL" or currentSport === "NLL" %}
 				<td class="dataCell">W</td><td class="dataCell">L</td>
-			{% elseif currentSport === "F1" %}
-				<td class="dataCell">Rank</td><td class="dataCell bold">Points</td>
-			{% else %}
+			{% elseif "Olympics" in currentSport %}
+				<td class="dataCell"><img src="https://a.espncdn.com/i/oly/medals/gold.svg" width="20px"/></td><td class="dataCell"><img src="https://a.espncdn.com/i/oly/medals/silver.svg" width="20px"/></td><td class="dataCell"><img src="https://a.espncdn.com/i/oly/medals/bronze.svg" width="20px"/></td><td class="dataCell">Tot</td>
+			{% elseif currentSport === "CFL" %}
+        <td class="dataCell">W</td><td class="dataCell">L</td><td class="dataCell">T</td><td class="dataCell bold">PTS</td>
+      {% else %}
 				<td class="dataCell">W</td><td class="dataCell">T</td><td class="dataCell">L</td><td class="dataCell bold">PTS</td>
 			{% endif %}
 			</tr>
 			{% for tm in division.standings.entries %}
 				<tr>
 					{% if config.showLogos === true %}
-						<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}" {% if config.colored === false %}class="grayscale"{% endif %}/></td>
+						<td class="logo" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}"/></td>
 						<td class="nameCell">
 					{% else %}
 						<td></td>
