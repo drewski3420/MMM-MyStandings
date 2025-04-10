@@ -27,7 +27,6 @@ Module.register('MMM-MyStandings', {
     fadeSpeed: 2000,
     rankingLength: 25,
     colored: true, // true, then display logos in color.  false, then display logos in grayscale
-    uniqueID: '',
     addLeagueToTitle: true,
   },
 
@@ -86,8 +85,6 @@ Module.register('MMM-MyStandings', {
 
   // Start the module.
   start: function () {
-    // Set a uniqueId for this instance
-    this.defaults.uniqueID = JSON.stringify(this.config.sports)
 
     // Set Playoff Field Sizes
     this.config.playoffFieldSize = {}
@@ -120,7 +117,7 @@ Module.register('MMM-MyStandings', {
     var self = this
 
     if (this.config.useLocalLogos) {
-      self.sendSocketNotification('MMM-MYSTANDINGS-GET-LOCAL-LOGOS', { uniqueID: this.defaults.uniqueID })
+      self.sendSocketNotification('MMM-MYSTANDINGS-GET-LOCAL-LOGOS', { uniqueID: self.identifier })
     }
 
     setTimeout(function () {
@@ -305,7 +302,7 @@ Module.register('MMM-MyStandings', {
           'STANDINGS_RESULT_ESPN-' + this.config.sports[i].league + notificationSuffix,
           {
             url: sportUrls[j],
-            uniqueID: this.defaults.uniqueID,
+            uniqueID: this.identifier,
           },
         )
       }
@@ -314,7 +311,7 @@ Module.register('MMM-MyStandings', {
 
   socketNotificationReceived: function (notification, payload) {
     var receivedLeague = notification.split('-')[1]
-    if (notification.startsWith('STANDINGS_RESULT') && payload.uniqueID == this.defaults.uniqueID) {
+    if (notification.startsWith('STANDINGS_RESULT') && payload.uniqueID == this.identifier) {
       Log.info('MyStandings notification received for ' + receivedLeague)
       for (var leagueIdx in this.config.sports) {
         if (this.config.sports[leagueIdx].league === receivedLeague && this.config.sports[leagueIdx].groups === undefined && payload.result.children.length > 1) {
@@ -338,11 +335,11 @@ Module.register('MMM-MyStandings', {
         }
       }
     }
-    if (notification.includes('Rankings') && payload.uniqueID == this.defaults.uniqueID) {
+    if (notification.includes('Rankings') && payload.uniqueID == this.identifier) {
       this.standingsInfo.push(this.cleanupRankings(payload.result.rankings, receivedLeague))
       this.standingsSportInfo.push(receivedLeague)
     }
-    else if (notification.startsWith('STANDINGS_RESULT') && payload.uniqueID == this.defaults.uniqueID) {
+    else if (notification.startsWith('STANDINGS_RESULT') && payload.uniqueID == this.identifier) {
       if (notification.startsWith('STANDINGS_RESULT_SNET')) {
         this.standingsInfo.push(this.cleanupSNETData(payload.result, receivedLeague))
       }
@@ -360,7 +357,7 @@ Module.register('MMM-MyStandings', {
         // Log.info(this.standingsInfo)
       }
     }
-    else if (notification === 'MMM-MYSTANDINGS-LOCAL-LOGO-LIST' && payload.uniqueID == this.defaults.uniqueID) {
+    else if (notification === 'MMM-MYSTANDINGS-LOCAL-LOGO-LIST' && payload.uniqueID == this.identifier) {
       this.localLogos = payload.logos
     }
   },
