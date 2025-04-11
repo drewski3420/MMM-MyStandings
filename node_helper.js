@@ -30,7 +30,6 @@ module.exports = NodeHelper.create({
 
   async getData(notification, payload) {
     try {
-      Log.debug(`Fetching ${payload.url} for ${payload.uniqueID}`)
       const response = await fetch(payload.url)
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
@@ -51,9 +50,7 @@ module.exports = NodeHelper.create({
     var standings = []
     while (standings.length === 0 && queryYear > 2020) {
       try {
-        Log.debug(`Fetching ${payload.url + queryYear} for ${payload.uniqueID}`)
         const response = await fetch(payload.url + queryYear)
-        // Log.debug(payload.url + queryYear)
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
@@ -69,7 +66,6 @@ module.exports = NodeHelper.create({
         Log.error('[MMM-MyStandings] Could not load data.', error)
       }
     }
-    // Log.debug(notification.split('-')[1])
     this.sendSocketNotification(`STANDINGS_RESULT_SNET-${queryYear}_${notification.split('-')[1]}`, {
       result: standings,
       uniqueID: payload.uniqueID,
