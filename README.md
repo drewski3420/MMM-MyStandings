@@ -57,7 +57,7 @@ The following example config shows all available configuration options except so
 | useLocalLogos    | Display logos from folder if they are available (`true`) or displays all logos from the ESPN url (`false`)<br><br>**Type:** `boolean` <br> **Default value:** `true`
 | colored          | Chooses whether to display the module in full color (`true`) or grayscale (`false`)<br><br>**Type:** `boolean` <br> **Default value:** `true`
 | showByDivision   | Rotate through each division/group separately (`true`) or show all divisions/groups at once stacked on top of one another (`false`).  Note that `false` only combines divisions of the same type.  For example, in MLB, divisions will be grouped together, NL/AL leagues will be grouped together, playoffs will be grouped together, and wild cards will be grouped together.<br><br>**Type:** `boolean` <br> **Default value:** `true`
-| fadeSpeed        | Time in milliseconds to display the module<br><br>**Type:** `int` <br> **Default value:** `2000` (2 seconds)
+| fadeSpeed        | Time in milliseconds to fade in the module<br><br>**Type:** `int` <br> **Default value:** `2000` (2 seconds)
 | rankingLength    | The number of teams to display when using `NCAAF Rankings`, `NCAAM Rankings`, `NCAAW Rankings`, or `Olympics`<br><br>**Type:** `int` <br> **Default value:** `25`
 | addLeagueToTitle | Adds the league name to the displayed table title<br><br>**Type:** `boolean` <br> **Default value:** `true`
 
