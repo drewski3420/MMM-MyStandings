@@ -166,6 +166,15 @@ For any league, select the groups you want to rotate through or no groups to rot
 </details>
 
 <details>
+  <summary><b>Available CFL (Canadian Football League) Groups</b> (click to expand)</summary>
+
+### Divisions
+- `West Division`
+- `East Division`
+    
+</details>
+
+<details>
   <summary><b>Available NHL Groups</b> (click to expand)</summary>
 
 ### Divisions
