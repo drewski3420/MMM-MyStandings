@@ -463,6 +463,7 @@ For any soccer league that does not have any groups, you should list only the le
 
 - `AFC Champions League Elite`
 - `Australian A-League Men`
+- `Australian A-League Women`
 - `Chinese Super League`
 - `Indonesian Liga 1`
 - `Indian I-League`
