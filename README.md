@@ -52,7 +52,7 @@ The following example config shows all available configuration options except so
 | sports           | The leagues and groups (i.e., divisions, conferences, or other combinations) you would like to display.  See below for the various options.<br><br>**Type:** `array` of `dict`s <br> **Default value:** A random combination that gives a flavor of what the module can do.
 | updateInterval   | Time in milliseconds to update data from ESPN<br><br>**Type:** `int` <br> **Default value:** `4 * 60 * 60 * 1000` (every 4 hours)
 | rotateInterval   | Time in milliseconds to rotate through the leagues or divisions<br><br>**Type:** `int` <br> **Default value:** `1 * 60 * 1000` (every 1 minute)
-| nameStyle        | Display abbreviation, full name, or short name for the team<br><br>**Type:** `string` Options: `abbreviation`, `full`, or `short`<br> **Default value:** `short`
+| nameStyle        | Display abbreviation (e.g., "TOR"), full name (e.g., "Toronto Blue Jays"), or short name (e.g., "Blue Jays") for the team<br><br>**Type:** `string` Options: `abbreviation`, `full`, or `short`<br> **Default value:** `short`
 | showLogos        | Display logos (true) or not (false)<br><br>**Type:** `boolean` <br> **Default value:** `true`
 | useLocalLogos    | Display logos from folder if they are available (`true`) or displays all logos from the ESPN url (`false`)<br><br>**Type:** `boolean` <br> **Default value:** `true`
 | colored          | Chooses whether to display the module in full color (`true`) or grayscale (`false`)<br><br>**Type:** `boolean` <br> **Default value:** `true`
