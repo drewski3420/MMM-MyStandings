@@ -5,19 +5,13 @@ Module.register('MMM-MyStandings', {
   defaults: {
     updateInterval: 4 * 60 * 60 * 1000, // every 4 hours
     rotateInterval: 1 * 60 * 1000, // every 1 minute
-    initialLoadDelay: 10 * 1000, // 10 second initial load delay
     lang: config.language,
     sports: [
-      { league: 'NBA', groups: ['Southeast'] },
       { league: 'MLB', groups: ['American League East'] },
       { league: 'NFL', groups: ['AFC North'] },
       { league: 'NHL', groups: ['Metropolitan Division'] },
-      { league: 'MLS', groups: ['Western Conference'] },
       { league: 'NCAAF', groups: ['Mountain West Conference'] },
       { league: 'NCAAM', groups: ['Conference USA'] },
-      { league: 'NCAAW', groups: ['Big East Conference'] },
-      { league: 'NCAAF Rankings', groups: ['FCS Coaches Poll'] },
-      { league: 'NCAAM Rankings', groups: ['Coaches Poll'] },
       { league: 'NCAAW Rankings', groups: ['AP Top 25'] },
     ],
     nameStyle: 'short', // "abbreviation", "full", or "short"
@@ -106,6 +100,12 @@ Module.register('MMM-MyStandings', {
     this.config.shortNameLookup['National Hockey League'] = 'NHL'
     this.config.shortNameLookup['American League'] = 'American League'
     this.config.shortNameLookup['National League'] = 'National League'
+  },
+
+  firstLoad: function () {
+    if (this.config.useLocalLogos) {
+      this.sendSocketNotification('MMM-MYSTANDINGS-GET-LOCAL-LOGOS', { uniqueID: this.identifier })
+    }
 
     // Get initial API data
     this.getData(false)
@@ -114,17 +114,10 @@ Module.register('MMM-MyStandings', {
     this.scheduleUpdate()
 
     // Schedule the first UI load
-    var self = this
-
-    if (this.config.useLocalLogos) {
-      self.sendSocketNotification('MMM-MYSTANDINGS-GET-LOCAL-LOGOS', { uniqueID: self.identifier })
-    }
-
-    setTimeout(function () {
-      self.rotateStandings()
-    }, this.config.initialLoadDelay)
+    this.rotateStandings()
 
     // Schedule the UI load based on normal interval
+    var self = this
     setInterval(function () {
       self.rotateStandings()
     }, this.config.rotateInterval)
@@ -354,11 +347,16 @@ Module.register('MMM-MyStandings', {
       }
       else {
         this.standingsSportInfo.push(receivedLeague)
-        // Log.info(this.standingsInfo)
       }
     }
     else if (notification === 'MMM-MYSTANDINGS-LOCAL-LOGO-LIST' && payload.uniqueID == this.identifier) {
       this.localLogos = payload.logos
+    }
+  },
+
+  notificationReceived: function(notification, payload, sender) {
+    if (notification === 'DOM_OBJECTS_CREATED') {
+      this.firstLoad()
     }
   },
 
@@ -485,7 +483,6 @@ Module.register('MMM-MyStandings', {
         }
       }
       if (formattedStandingsObject[h] !== null) {
-        // Log.debug(formattedStandingsObject[h].name)
         if (this.config.shortNameLookup[formattedStandingsObject[h].name] !== undefined) {
           formattedStandingsObject[h].shortName = this.config.shortNameLookup[formattedStandingsObject[h].name]
         }
