@@ -537,6 +537,13 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ### Developer commands
 
+You will need to first install the dev dependencies:
+
+```bash
+cd ~/MagicMirror/modules/MMM-MyStandings
+npm install
+```
+
 - `npm run lint` - Run linting checks.
 - `npm run lint:fix` - Fix automatically fixable linting errors.
 
