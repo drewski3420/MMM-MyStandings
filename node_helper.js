@@ -31,6 +31,7 @@ module.exports = NodeHelper.create({
   async getData(notification, payload) {
     try {
       const response = await fetch(payload.url)
+      Log.debug(payload.url + ' fetched')
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
       }
@@ -76,7 +77,7 @@ module.exports = NodeHelper.create({
   socketNotificationReceived: function (notification, payload) {
     if (notification == 'MMM-MYSTANDINGS-GET-LOCAL-LOGOS') {
       this.localLogos = {}
-      const fsTree = this.getDirectoryTree('./modules/MMM-MyStandings/logos')
+      var fsTree = this.getDirectoryTree('./modules/MMM-MyStandings/logos')
       fsTree.forEach((league) => {
         if (league.children) {
           var logoFiles = []
@@ -86,8 +87,20 @@ module.exports = NodeHelper.create({
           this.localLogos[league.name] = logoFiles
         }
       })
+      
+      this.localLogosCustom = {}
+      fsTree = this.getDirectoryTree('./modules/MMM-MyStandings/logos_custom')
+      fsTree.forEach((league) => {
+        if (league.children) {
+          var logoFiles = []
+          league.children.forEach((file) => {
+            logoFiles.push(file.name)
+          })
+          this.localLogosCustom[league.name] = logoFiles
+        }
+      })
 
-      this.sendSocketNotification('MMM-MYSTANDINGS-LOCAL-LOGO-LIST', { uniqueID: payload.uniqueID, logos: this.localLogos })
+      this.sendSocketNotification('MMM-MYSTANDINGS-LOCAL-LOGO-LIST', { uniqueID: payload.uniqueID, logos: this.localLogos, logosCustom: this.localLogosCustom })
     }
     else if (payload.url.includes('stats-api.sportsnet.ca/web_standings')) {
       this.getSNETData(notification, payload)

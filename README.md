@@ -1,8 +1,9 @@
 # MMM-MyStandings
 
-MagicMirror module to get ESPN standings for the major US sports.  This is a fork of the original MMM-MyStandings from user vincep5.  It has been updated with the ability to display multiple modules simultaneously and to patch some vulnerabilities.
+A MagicMirror² module to display standings and rankings for your favorite leagues and divisions from many major sports, including Olympics.  
 
-vincep5 was inspired by MMM-MyScoreboard and figured that this will complement it nicely.
+This is a fork of the original MMM-MyStandings from user vincep5.  It has been updated with the ability to display multiple modules simultaneously and to patch some vulnerabilities. vincep5 was inspired by MMM-MyScoreboard and figured that this will complement it nicely.
+
 The module will rotate through different sports.  If you only want to show one sport or one division, the module will just display one without rotating.
 
 ## Preview
@@ -525,6 +526,10 @@ For any soccer league that does not have any groups, you should list only the le
 - `Mitre 10 Cup Rugby`
     
 </details>
+
+## Logos
+
+You can add your own custom personal logos into the `logos_custom` folder, and they will not be disturbed when you update the module.  [Specific guidance can be found here](https://github.com/dathbe/MMM-MyStandings/tree/4.7.2/logos_custom).  (But if you have a logo that you think should be added for all users, please [share it by opening an issue](https://github.com/dathbe/MMM-MyStandings/issues).)
 
 ## Contributing
 

@@ -1,1 +1,3 @@
 node_modules/
+/logos_custom/**
+!/logos_custom/README.md**
