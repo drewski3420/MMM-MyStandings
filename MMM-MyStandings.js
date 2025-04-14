@@ -356,7 +356,7 @@ Module.register('MMM-MyStandings', {
     }
   },
 
-  notificationReceived: function(notification, payload, sender) {
+  notificationReceived: function(notification) {
     if (notification === 'DOM_OBJECTS_CREATED') {
       this.firstLoad()
     }
