@@ -28,8 +28,7 @@ git pull
 
 ## Config
 
-Add `MMM-MyStandings` module to the `modules` array in the `config/config.js` file.
-The following example config shows all available configuration options except soccer and rugby leagues, which are listed further below.  if you paste this full example config into your config.js file, you will be making MANY api calls, so pick just the standings you actually want to see.
+Add MMM-MyStandings module to the `modules` array in the `config/config.js` file. The following example config shows a minimal configuration option. More options are described below.
 
 ```javascript
 {
