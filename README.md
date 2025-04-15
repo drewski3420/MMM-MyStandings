@@ -6,6 +6,8 @@ This is a fork of the original MMM-MyStandings from user vincep5.  It has been u
 
 The module will rotate through different sports.  If you only want to show one sport or one division, the module will just display one without rotating.
 
+Intended to match the design aesthetic of, and pair nicely with, [MMM-MyScoreboard](https://github.com/dathbe/MMM-MyScoreboard/).
+
 ## Preview
 
 ![screenshot](screenshot.png)
