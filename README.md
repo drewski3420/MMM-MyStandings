@@ -1,10 +1,10 @@
 # MMM-MyStandings
 
-A MagicMirror² module to display standings and rankings for your favorite leagues and divisions from many major sports, including Olympics.  
-
-This is a fork of the original MMM-MyStandings from user vincep5.  It has been updated with the ability to display multiple modules simultaneously and to patch some vulnerabilities. vincep5 was inspired by MMM-MyScoreboard and figured that this will complement it nicely.
+A [MagicMirror²](https://magicmirror.builders/) module to display standings and rankings for your favorite leagues and divisions from many major sports, including Olympics.  
 
 The module will rotate through different sports.  If you only want to show one sport or one division, the module will just display one without rotating.
+
+This is a fork of the original MMM-MyStandings from user vincep5.  It has been updated with bug fixes, security patches, and many feature additions. 
 
 Intended to match the design aesthetic of, and pair nicely with, [MMM-MyScoreboard](https://github.com/dathbe/MMM-MyScoreboard/).
 
@@ -12,21 +12,23 @@ Intended to match the design aesthetic of, and pair nicely with, [MMM-MyScoreboa
 
 ![screenshot](screenshot.png)
 
-## Installing the module
+## Installing the Module
 
 ```bash
 cd ~/MagicMirror/modules
 git clone https://github.com/dathbe/MMM-MyStandings
 ```
 
-## Updating the module
+No dependencies required!
+
+## Updating the Module
 
 ```bash
 cd ~/MagicMirror/modules/MMM-MyStandings
 git pull
 ```
 
-## Config
+## Configuration
 
 Add MMM-MyStandings module to the `modules` array in the `config/config.js` file. The following example config shows a minimal configuration option. More options are described below.
 
