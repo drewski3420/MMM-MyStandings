@@ -6,10 +6,10 @@ Files placed in this folder will not be overwritten when you update the mudule.
 
 For the logo to be properly picked up by the module, follow these simple rules:
 
-1) place the logo in a subfolder named for the league the team plays in (e.g., "MLB" or "ENG_PREMIERE_LEAGUE")
+1) place the logo in a subfolder named for the league the team plays in (e.g., "MLB" or "English Premier League")
 2) name the file for the abbreviated team name (e.g., "TEX" or "TOT")
 3) you may use either a "png" or an "svg" file extension
 
-For example, adding the file `/logos_custom/MLB/TEX.svg` will display your personal Texas Rangers logo instead of the logo that comes with the module.
+For example, adding the file `/logos_custom/English Premier League/TOT.svg` will display your personal Tottenham Hotspur logo instead of the logo that comes with the module.
 
 SVG files have priority over PNG files of the same name.
