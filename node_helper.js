@@ -87,7 +87,7 @@ module.exports = NodeHelper.create({
           this.localLogos[league.name] = logoFiles
         }
       })
-      
+
       this.localLogosCustom = {}
       fsTree = this.getDirectoryTree('./modules/MMM-MyStandings/logos_custom')
       fsTree.forEach((league) => {

@@ -80,7 +80,6 @@ Module.register('MMM-MyStandings', {
 
   // Start the module.
   start: function () {
-
     // Set Playoff Field Sizes
     this.config.playoffFieldSize = {}
     this.config.playoffFieldSize['NFL_PLAYOFFS'] = 7
@@ -356,7 +355,7 @@ Module.register('MMM-MyStandings', {
     }
   },
 
-  notificationReceived: function(notification) {
+  notificationReceived: function (notification) {
     if (notification === 'DOM_OBJECTS_CREATED') {
       this.firstLoad()
     }
