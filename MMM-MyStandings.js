@@ -512,14 +512,16 @@ Module.register('MMM-MyStandings', {
           if (leagueForLogoPath.startsWith('NCAA')) {
             leagueForLogoPath = 'NCAA'
           }
-          if (this.localLogos[leagueForLogoPath]) {
+          if (this.localLogosCustom[leagueForLogoPath]) {
             if (this.localLogosCustom[leagueForLogoPath].indexOf(team.abbreviation + '.svg') !== -1) {
               team.logos[0].href = this.file('logos_custom/' + leagueForLogoPath + '/' + team.abbreviation + '.svg')
             }
             else if (this.localLogosCustom[leagueForLogoPath].indexOf(team.abbreviation + '.png') !== -1) {
               team.logos[0].href = this.file('logos_custom/' + leagueForLogoPath + '/' + team.abbreviation + '.png')
             }
-            else if (this.localLogos[leagueForLogoPath].indexOf(team.abbreviation + '.svg') !== -1) {
+          }
+          else if (this.localLogos[leagueForLogoPath]) {
+            if (this.localLogos[leagueForLogoPath].indexOf(team.abbreviation + '.svg') !== -1) {
               team.logos[0].href = this.file('logos/' + leagueForLogoPath + '/' + team.abbreviation + '.svg')
             }
             else if (this.localLogos[leagueForLogoPath].indexOf(team.abbreviation + '.png') !== -1) {
@@ -1076,14 +1078,16 @@ Module.register('MMM-MyStandings', {
           if (leagueForLogoPath.startsWith('NCAA')) {
             leagueForLogoPath = 'NCAA'
           }
-          if (this.localLogos[leagueForLogoPath]) {
+          if (this.localLogosCustom[leagueForLogoPath]) {
             if (this.localLogosCustom[leagueForLogoPath].indexOf(team.abbreviation + '.svg') !== -1) {
               team.logos[0].href = this.file('logos_custom/' + leagueForLogoPath + '/' + team.abbreviation + '.svg')
             }
             else if (this.localLogosCustom[leagueForLogoPath].indexOf(team.abbreviation + '.png') !== -1) {
               team.logos[0].href = this.file('logos_custom/' + leagueForLogoPath + '/' + team.abbreviation + '.png')
             }
-            else if (this.localLogos[leagueForLogoPath].indexOf(team.abbreviation + '.svg') !== -1) {
+          }
+          else if (this.localLogos[leagueForLogoPath]) {
+            if (this.localLogos[leagueForLogoPath].indexOf(team.abbreviation + '.svg') !== -1) {
               team.logos[0].href = this.file('logos/' + leagueForLogoPath + '/' + team.abbreviation + '.svg')
             }
             else if (this.localLogos[leagueForLogoPath].indexOf(team.abbreviation + '.png') !== -1) {
