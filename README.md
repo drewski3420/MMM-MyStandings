@@ -19,7 +19,8 @@ cd ~/MagicMirror/modules
 git clone https://github.com/dathbe/MMM-MyStandings
 ```
 
-No dependencies required!
+Dependencies:
+* None!
 
 ## Updating the Module
 
