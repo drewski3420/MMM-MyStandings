@@ -4,6 +4,14 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [2.8.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.7.0...v2.8.0) - 2025-04-17
+
+- **NEW FEATURE**: Added `logos_custom` folder where users can place their own custom team logos that will not be overwritten when updating the module.
+- **NEW FEATURE**: Australian A-League Women's soccer added
+- Replace custom uniqueID with built-in `this.identifier`
+- Change startup logic so updates only begin after module is fully loaded for more reliability
+
 ## [2.7.0](https://github.com/dathbe/MMM-MyStandings/compare/v2.6.2...v2.7.0) - 2025-04-08
 
 - **NEW FEATURE**: Olympics medal count standings now available

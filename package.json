@@ -1,7 +1,7 @@
 {
   "name": "mmm-mystandings",
-  "version": "2.7.0",
-  "description": "A MagicMirror² module to display standings for your favorite leagues and divisions from many major sports.",
+  "version": "2.8.0",
+  "description": "A MagicMirror² module to display standings and rankings for your favorite leagues and divisions from many major sports, including Olympics.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dathbe/MMM-MyStandings.git"
@@ -10,8 +10,29 @@
     "MagicMirror",
     "Module",
     "Sports",
-    "Sport",
-    "Standings"
+    "Standings",
+    "Rankings",
+    "Medal Count",
+    "Olympics",
+    "NBA",
+    "WNBA",
+    "NCAA",
+    "NCAAM",
+    "NCAAW",
+    "Basketball",
+    "MLB",
+    "Baseball",
+    "NFL",
+    "NCAAF",
+    "CFL",
+    "Football",
+    "NHL",
+    "Hockey",
+    "MLS",
+    "NWSL",
+    "Soccer",
+    "Lacrosse",
+    "Rugby"
   ],
   "author": "vincep5",
   "contributors": [
