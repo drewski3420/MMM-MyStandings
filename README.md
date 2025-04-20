@@ -55,7 +55,7 @@ Add MMM-MyStandings module to the `modules` array in the `config/config.js` file
 | Option           | Description
 | -------          |  -------
 | sports           | The leagues and groups (i.e., divisions, conferences, or other combinations) you would like to display.  See below for the various options.<br><br>**Type:** `array` of `dict`s <br> **Default value:** A random combination that gives a flavor of what the module can do.
-| updateInterval   | Time in milliseconds to update data from ESPN<br><br>**Type:** `int` <br> **Default value:** `4 * 60 * 60 * 1000` (every 4 hours)
+| updateInterval   | Time in milliseconds to update data from ESPN<br><br>**Type:** `int` <br> **Default value:** `2 * 60 * 60 * 1000` (every 2 hours)
 | rotateInterval   | Time in milliseconds to rotate through the leagues or divisions<br><br>**Type:** `int` <br> **Default value:** `1 * 60 * 1000` (every 1 minute)
 | nameStyle        | Display abbreviation (e.g., "TOR"), full name (e.g., "Toronto Blue Jays"), or short name (e.g., "Blue Jays") for the team<br><br>**Type:** `string` Options: `abbreviation`, `full`, or `short`<br> **Default value:** `short`
 | showLogos        | Display logos (true) or not (false)<br><br>**Type:** `boolean` <br> **Default value:** `true`
