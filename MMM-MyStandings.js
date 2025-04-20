@@ -3,7 +3,7 @@
 Module.register('MMM-MyStandings', {
   // Default module config.
   defaults: {
-    updateInterval: 4 * 60 * 60 * 1000, // every 4 hours
+    updateInterval: 2 * 60 * 60 * 1000, // every 2 hours
     rotateInterval: 1 * 60 * 1000, // every 1 minute
     lang: config.language,
     sports: [
