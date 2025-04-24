@@ -4,7 +4,7 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.8.1](https://github.com/dathbe/MMM-MyStandings/compare/v2.8.0...v2.8.1) - 2025-04-XX
+## [2.8.1](https://github.com/dathbe/MMM-MyStandings/compare/v2.8.0...v2.8.1) - 2025-04-24
 
 - Change default `updateInterval` to 2 hours
 - Update README to include instructions on dynamically creating config options
