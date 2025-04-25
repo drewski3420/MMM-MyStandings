@@ -8,6 +8,9 @@ This is a fork of the original MMM-MyStandings from user vincep5.  It has been u
 
 Intended to match the design aesthetic of, and pair nicely with, [MMM-MyScoreboard](https://github.com/dathbe/MMM-MyScoreboard/).
 
+[![Platform](https://img.shields.io/badge/platform-MagicMirror²-informational)](https://MagicMirror.builders)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE.md)
+
 ## Preview
 
 ![screenshot](screenshot.png)
