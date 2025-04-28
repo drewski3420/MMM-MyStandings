@@ -1,6 +1,4 @@
 node_modules/
 
-package-lock.json
-
 /logos_custom/**
 !/logos_custom/README.md**
