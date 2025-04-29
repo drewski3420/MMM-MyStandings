@@ -80,6 +80,8 @@ Module.register('MMM-MyStandings', {
 
   // Start the module.
   start: function () {
+    Log.info('Starting module: ' + this.name)
+    
     // Set Playoff Field Sizes
     this.config.playoffFieldSize = {}
     this.config.playoffFieldSize['NFL_PLAYOFFS'] = 7
@@ -305,7 +307,7 @@ Module.register('MMM-MyStandings', {
   socketNotificationReceived: function (notification, payload) {
     var receivedLeague = notification.split('-')[1]
     if (notification.startsWith('STANDINGS_RESULT') && payload.uniqueID == this.identifier) {
-      Log.info('MyStandings notification received for ' + receivedLeague)
+      Log.debug('[MMM-MyStandings] notification received for ' + receivedLeague)
       for (var leagueIdx in this.config.sports) {
         if (this.config.sports[leagueIdx].league === receivedLeague && this.config.sports[leagueIdx].groups === undefined && payload.result.children.length > 1) {
           this.config.sports[leagueIdx].groups = []
