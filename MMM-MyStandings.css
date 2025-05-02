@@ -72,6 +72,10 @@
 	padding: 0 0 0 7px;
 }
 
+.MMM-MyStandings .league-separator .dataCell {
+  color: #f8dd70;
+}
+
 .MMM-MyStandings .bold {
 	font-weight: bold;
 }
