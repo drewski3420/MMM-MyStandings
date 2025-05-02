@@ -31,7 +31,7 @@ module.exports = NodeHelper.create({
   async getData(notification, payload) {
     try {
       const response = await fetch(payload.url)
-      Log.debug(payload.url + ' fetched')
+      Log.debug(`[MMM-MyStandings] ${payload.url} fetched`)
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
       }
@@ -42,7 +42,7 @@ module.exports = NodeHelper.create({
       })
     }
     catch (error) {
-      Log.error('[MMM-MyStandings] Could not load data.', error)
+      Log.error(`[MMM-MyStandings] Could not load data: ${error}`)
     }
   },
 
@@ -64,7 +64,7 @@ module.exports = NodeHelper.create({
         }
       }
       catch (error) {
-        Log.error('[MMM-MyStandings] Could not load data.', error)
+        Log.error(`[MMM-MyStandings] Could not load data: ${error}`)
       }
     }
     this.sendSocketNotification(`STANDINGS_RESULT_SNET-${queryYear}_${notification.split('-')[1]}`, {

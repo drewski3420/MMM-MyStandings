@@ -80,6 +80,8 @@ Module.register('MMM-MyStandings', {
 
   // Start the module.
   start: function () {
+    Log.info('Starting module: ' + this.name)
+
     // Set Playoff Field Sizes
     this.config.playoffFieldSize = {}
     this.config.playoffFieldSize['NFL_PLAYOFFS'] = 7
@@ -304,8 +306,7 @@ Module.register('MMM-MyStandings', {
 
   socketNotificationReceived: function (notification, payload) {
     var receivedLeague = notification.split('-')[1]
-    if (notification.startsWith('STANDINGS_RESULT') && payload.uniqueID == this.identifier) {
-      Log.info('MyStandings notification received for ' + receivedLeague)
+    /*     if (notification.startsWith('STANDINGS_RESULT') && payload.uniqueID == this.identifier) {
       for (var leagueIdx in this.config.sports) {
         if (this.config.sports[leagueIdx].league === receivedLeague && this.config.sports[leagueIdx].groups === undefined && payload.result.children.length > 1) {
           this.config.sports[leagueIdx].groups = []
@@ -320,14 +321,11 @@ Module.register('MMM-MyStandings', {
             }
           }
         }
-        /* else if (this.config.sports[leagueIdx].league === 'Olympics' && this.config.sports[leagueIdx].groups === undefined) {
-          this.config.sports[leagueIdx].groups = ['Total', 'Gold', 'Silver', 'Bronze']
-        } */
         else if (this.defaultSNETGroups[this.config.sports[leagueIdx].league] && this.config.sports[leagueIdx].groups === undefined) {
           this.config.sports[leagueIdx].groups = this.defaultSNETGroups[this.config.sports[leagueIdx].league]
         }
       }
-    }
+    } */
     if (notification.includes('Rankings') && payload.uniqueID == this.identifier) {
       this.standingsInfo.push(this.cleanupRankings(payload.result.rankings, receivedLeague))
       this.standingsSportInfo.push(receivedLeague)
@@ -423,7 +421,7 @@ Module.register('MMM-MyStandings', {
   cleanupData: function (standingsObject, sport) {
     var g, h, i, j
     var formattedStandingsObject = []
-    var isSoccer = this.isSoccerLeague(sport)
+    /* var isSoccer = false */
 
     if (standingsObject.standings !== undefined) {
       formattedStandingsObject.push(standingsObject)
@@ -453,19 +451,19 @@ Module.register('MMM-MyStandings', {
       // We only want to show divisions/groups that we have configured
       for (var leagueIdx in this.config.sports) {
         if (this.config.sports[leagueIdx].league === sport) {
-          if (this.config.sports[leagueIdx].groups !== undefined && this.config.sports[leagueIdx].groups.includes(formattedStandingsObject[h].name)) {
+          if ((this.config.sports[leagueIdx].groups !== undefined && this.config.sports[leagueIdx].groups.includes(formattedStandingsObject[h].name)) || this.config.sports[leagueIdx].groups === undefined) {
             hasMatch = true
           }
           else {
             // Soccer is the only sport where we do not really need to look for divisions/groups
             // We must have found a match for all other non-soccer sports
             // For soccer, if there is a group defined in the config, only do those divisions/groups
-            if (isSoccer) {
+            /* if (isSoccer) {
               hasMatch = true
-            }
-            else {
-              formattedStandingsObject[h] = null // remove the division from memory to save space
-            }
+            } */
+            // else {
+            formattedStandingsObject[h] = null // remove the division from memory to save space
+            // }
           }
         }
         else if (this.config.sports[leagueIdx].league + '_PLAYOFFS' === sport) {
@@ -1200,7 +1198,7 @@ Module.register('MMM-MyStandings', {
   },
 
   // Returns true when the sport is not found in the config (means that it's from one of the long list of soccer leagues)
-  isSoccerLeague: function (sportToCheck) {
+/*   isSoccerLeague: function (sportToCheck) {
     for (var sport in this.defaults.sports) {
       if (this.defaults.sports[sport].league === sportToCheck) {
         return false
@@ -1208,5 +1206,5 @@ Module.register('MMM-MyStandings', {
     }
 
     return true
-  },
+  }, */
 })
