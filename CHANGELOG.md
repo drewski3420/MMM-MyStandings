@@ -4,7 +4,12 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.8.2](https://github.com/dathbe/MMM-MyStandings/compare/v2.8.0...v2.8.2) - 2025-05-01
+## [2.8.3](https://github.com/dathbe/MMM-MyStandings/compare/v2.8.2...v2.8.3) - 2025-05-06
+
+- Bump dev dependencies versions
+- Minor cosmetic changes
+
+## [2.8.2](https://github.com/dathbe/MMM-MyStandings/compare/v2.8.1...v2.8.2) - 2025-05-01
 
 - BUG FIX: `isSoccer` check removed because it no longer works for most leagues
 
