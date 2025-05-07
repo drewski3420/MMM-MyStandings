@@ -141,10 +141,10 @@ For any league, select the groups you want to rotate through or no groups to rot
 - `Major League Baseball`
 
 ### Playoffs
-- `AL Playoffs` - will remove teams from standings when eliminated
-- `NL Playoffs` - will remove teams from standings when eliminated
-- `AL Wild Card` - will remove teams from standings when eliminated
-- `NL Wild Card` - will remove teams from standings when eliminated
+- `AL Playoffs` - will remove teams from standings when eliminated from the regular season playoff race
+- `NL Playoffs` - will remove teams from standings when eliminated from the regular season playoff race
+- `AL Wild Card` - will remove teams from standings when eliminated from the regular season wild card race
+- `NL Wild Card` - will remove teams from standings when eliminated from the regular season wild card race
     
 </details>
 
@@ -169,8 +169,8 @@ For any league, select the groups you want to rotate through or no groups to rot
 - `National Football League`
 
 ### Playoffs
-- `AFC Playoffs` - will remove teams from standings when eliminated 
-- `NFC Playoffs` - will remove teams from standings when eliminated
+- `AFC Playoffs` - will remove teams from standings when eliminated from the regular season playoff race
+- `NFC Playoffs` - will remove teams from standings when eliminated from the regular season playoff race
     
 </details>
 
@@ -200,10 +200,10 @@ For any league, select the groups you want to rotate through or no groups to rot
 - `National Hockey League`
 
 ### Playoffs
-- `West Playoffs` - will remove teams from standings when eliminated
-- `East Playoffs` - will remove teams from standings when eliminated
-- `West Wild Card` - will remove teams from standings when eliminated
-- `East Wild Card` - will remove teams from standings when eliminated
+- `West Playoffs` - will remove teams from standings when eliminated from the regular season playoff race
+- `East Playoffs` - will remove teams from standings when eliminated from the regular season playoff race
+- `West Wild Card` - will remove teams from standings when eliminated from the regular season wild card race
+- `East Wild Card` - will remove teams from standings when eliminated from the regular season wild card race
     
 </details>
 
