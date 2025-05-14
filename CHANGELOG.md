@@ -4,6 +4,11 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.8.4](https://github.com/dathbe/MMM-MyStandings/compare/v2.8.3...v2.8.4) - 2025-05-14
+
+- Bump dev dependency version
+- Lint style changes
+
 ## [2.8.3](https://github.com/dathbe/MMM-MyStandings/compare/v2.8.2...v2.8.3) - 2025-05-06
 
 - Bump dev dependencies versions
