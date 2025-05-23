@@ -18,7 +18,7 @@ Module.register('MMM-MyStandings', {
     showLogos: true,
     useLocalLogos: true, // true, then display logos from folder.  false, then display logos from the ESPN url
     showByDivision: true, // true, then display one division at a time.  false, display all divisions per sport
-    fadeSpeed: 2000,
+    fadeSpeed: 750,
     rankingLength: 25,
     colored: true, // true, then display logos in color.  false, then display logos in grayscale
     addLeagueToTitle: true,
@@ -102,18 +102,13 @@ Module.register('MMM-MyStandings', {
     this.config.shortNameLookup['National Hockey League'] = 'NHL'
     this.config.shortNameLookup['American League'] = 'American League'
     this.config.shortNameLookup['National League'] = 'National League'
-  },
-
-  firstLoad: function () {
+    
     if (this.config.useLocalLogos) {
       this.sendSocketNotification('MMM-MYSTANDINGS-GET-LOCAL-LOGOS', { uniqueID: this.identifier })
     }
 
     // Get initial API data
     this.getData(false)
-
-    // Schedule the API data update.
-    this.scheduleUpdate()
 
     // Schedule the first UI load
     this.rotateStandings()
@@ -144,18 +139,6 @@ Module.register('MMM-MyStandings', {
       currentDivision: this.currentDivision,
       ignoreDivision: this.ignoreDivision,
     }
-  },
-
-  scheduleUpdate: function (delay) {
-    var nextLoad = this.config.updateInterval
-    if (typeof delay !== 'undefined' && delay >= 0) {
-      nextLoad = delay
-    }
-
-    var self = this
-    setInterval(function () {
-      self.getData(true)
-    }, nextLoad)
   },
 
   getData: function (clearAll) {
@@ -302,30 +285,23 @@ Module.register('MMM-MyStandings', {
         )
       }
     }
+
+    var nextLoad = this.config.updateInterval
+    if (typeof delay !== 'undefined' && delay >= 0) {
+      nextLoad = delay
+    }
+    else if (this.standings === null) {
+      nextLoad = 60 * 1000
+    }
+
+    var self = this
+    setTimeout(function () {
+      self.getData(true)
+    }, nextLoad)
   },
 
   socketNotificationReceived: function (notification, payload) {
     var receivedLeague = notification.split('-')[1]
-    /*     if (notification.startsWith('STANDINGS_RESULT') && payload.uniqueID == this.identifier) {
-      for (var leagueIdx in this.config.sports) {
-        if (this.config.sports[leagueIdx].league === receivedLeague && this.config.sports[leagueIdx].groups === undefined && payload.result.children.length > 1) {
-          this.config.sports[leagueIdx].groups = []
-          for (var childIdx in payload.result.children) {
-            if (payload.result.children[childIdx].children !== undefined) {
-              for (var child2Idx in payload.result.children[childIdx].children) {
-                this.config.sports[leagueIdx].groups.push(payload.result.children[childIdx].children[child2Idx].name)
-              }
-            }
-            else {
-              this.config.sports[leagueIdx].groups.push(payload.result.children[childIdx].name)
-            }
-          }
-        }
-        else if (this.defaultSNETGroups[this.config.sports[leagueIdx].league] && this.config.sports[leagueIdx].groups === undefined) {
-          this.config.sports[leagueIdx].groups = this.defaultSNETGroups[this.config.sports[leagueIdx].league]
-        }
-      }
-    } */
     if (notification.includes('Rankings') && payload.uniqueID == this.identifier) {
       this.standingsInfo.push(this.cleanupRankings(payload.result.rankings, receivedLeague))
       this.standingsSportInfo.push(receivedLeague)
@@ -351,11 +327,8 @@ Module.register('MMM-MyStandings', {
       this.localLogos = payload.logos
       this.localLogosCustom = payload.logosCustom
     }
-  },
-
-  notificationReceived: function (notification) {
-    if (notification === 'DOM_OBJECTS_CREATED') {
-      this.firstLoad()
+    if (this.standings === null) {
+      this.rotateStandings()
     }
   },
 
