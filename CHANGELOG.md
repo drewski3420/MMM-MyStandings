@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 - Quicker initial load time
 - Quicker refresh if data does not load the first time
+- New screenshot photo to show new style
 - Update devDependencies
 
 ## [2.8.4](https://github.com/dathbe/MMM-MyStandings/compare/v2.8.3...v2.8.4) - 2025-05-14
