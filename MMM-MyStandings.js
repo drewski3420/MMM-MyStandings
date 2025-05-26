@@ -102,7 +102,7 @@ Module.register('MMM-MyStandings', {
     this.config.shortNameLookup['National Hockey League'] = 'NHL'
     this.config.shortNameLookup['American League'] = 'American League'
     this.config.shortNameLookup['National League'] = 'National League'
-    
+
     if (this.config.useLocalLogos) {
       this.sendSocketNotification('MMM-MYSTANDINGS-GET-LOCAL-LOGOS', { uniqueID: this.identifier })
     }
@@ -287,10 +287,7 @@ Module.register('MMM-MyStandings', {
     }
 
     var nextLoad = this.config.updateInterval
-    if (typeof delay !== 'undefined' && delay >= 0) {
-      nextLoad = delay
-    }
-    else if (this.standings === null) {
+    if (this.standings === null) {
       nextLoad = 60 * 1000
     }
 
