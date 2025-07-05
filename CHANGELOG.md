@@ -4,7 +4,7 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.8.8](https://github.com/dathbe/MMM-MyStandings/compare/v2.8.7...v2.8.8) - 2025-06-XX
+## [2.8.8](https://github.com/dathbe/MMM-MyStandings/compare/v2.8.7...v2.8.8) - 2025-07-05
 
 - Update dependencies
 - Update dependabot file
