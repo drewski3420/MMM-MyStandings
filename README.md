@@ -41,7 +41,7 @@ Add MMM-MyStandings module to the `modules` array in the `config/config.js` file
   module: "MMM-MyStandings",
   position: "top_right",
   config: {
-    rotateInterval: 2 * 60 * 1000 // every 2 minutes
+    rotateInterval: 2 * 60 * 1000, // every 2 minutes
     sports: [
       // See below in the README for different league and group options 
       { league: "WNBA", groups: ["Women's National Basketball Assoc."] },
