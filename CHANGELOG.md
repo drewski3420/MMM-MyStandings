@@ -4,6 +4,11 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.8.10](https://github.com/dathbe/MMM-MyStandings/compare/v2.8.9...v2.8.10) - 2025-10-17
+
+- Fix SportsNet urls
+- Update dependencies
+
 ## [2.8.9](https://github.com/dathbe/MMM-MyStandings/compare/v2.8.8...v2.8.9) - 2025-07-20
 
 - Add comma to default config in readme to avoid config errors
