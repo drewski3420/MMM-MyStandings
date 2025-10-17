@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [2.8.10](https://github.com/dathbe/MMM-MyStandings/compare/v2.8.9...v2.8.10) - 2025-09-XX
 
+- Fix SportsNet urls
 - Update dependencies
 
 ## [2.8.9](https://github.com/dathbe/MMM-MyStandings/compare/v2.8.8...v2.8.9) - 2025-07-20
