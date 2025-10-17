@@ -258,10 +258,10 @@ Module.register('MMM-MyStandings', {
           sportUrls.push(this.url + 'lacrosse/nll/standings?sort=winPercentage:desc')
           break
         case 'Olympics':
-          sportUrls.push(`https://stats-api.sportsnet.ca/web_standings?league=oly&season_year=`)
+          sportUrls.push(`https://stats-api.sportsnet.ca/web_standings?league=oly&season_year=${new Date().getFullYear()}`)
           break
         case 'CFL':
-          sportUrls.push(`https://stats-api.sportsnet.ca/web_standings?league=cfl&season_year=`)
+          sportUrls.push(`https://stats-api.sportsnet.ca/web_standings?league=cfl&season_year=${new Date().getFullYear()}`)
           break
         default: // soccer & rugby
           sportUrls.push(this.url + this.SOCCER_LEAGUE_PATHS[this.config.sports[i].league] + '/standings?sort=rank:asc')
