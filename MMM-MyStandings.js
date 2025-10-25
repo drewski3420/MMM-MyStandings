@@ -20,8 +20,12 @@ Module.register('MMM-MyStandings', {
     showByDivision: true, // true, then display one division at a time.  false, display all divisions per sport
     fadeSpeed: 750,
     rankingLength: 25,
-    colored: true, // true, then display logos in color.  false, then display logos in grayscale
     addLeagueToTitle: true,
+    colored: true, // true, then display logos in color.  false, then display logos in grayscale
+    coloredLogo: true,
+    coloredHeader: true,
+    highlightColumnIndex: 0,
+    highlightTeams: [],
   },
 
   url: 'https://site.api.espn.com/apis/v2/sports/',
