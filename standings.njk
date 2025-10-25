@@ -17,7 +17,7 @@
 								<td></td>
 								<td class="nameCell nameCellNoLogo">
 							{% endif %}
-							<div class="rank">{{tm.current}}</div>
+							<div class="rank {% if config.coloredRank === false %}grayscale{% endif %}">{{tm.current}}</div>
 							{% if config.nameStyle === "full" %}
 								{{tm.team.nickname}} {{tm.team.name}}</td>
 							{% elseif config.nameStyle === "abbreviation" %}
@@ -82,7 +82,7 @@
 						(currentSport === "NWSL")
 					)
 					and loop.index <= config.playoffFieldSize[currentSport] %}
-					<div class="rank">{{loop.index}}</div>{% elseif (currentSport === "NBA" and "Conference" in division.name) and loop.index <= config.playoffFieldSize["NBA_PLAYIN"]%}<div class="rank grayscale">{{loop.index}}</div>
+					<div class="rank {% if config.coloredRank === false %}grayscale{% endif %}">{{loop.index}}</div>{% elseif (currentSport === "NBA" and "Conference" in division.name) and loop.index <= config.playoffFieldSize["NBA_PLAYIN"]%}<div class="rank grayscale">{{loop.index}}</div>
 					{% endif %}
 					{% if config.nameStyle === "full" %}
 						{{tm.team.displayName}}</td>

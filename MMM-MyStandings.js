@@ -21,9 +21,10 @@ Module.register('MMM-MyStandings', {
     fadeSpeed: 750,
     rankingLength: 25,
     addLeagueToTitle: true,
-    colored: true, // true, then display logos in color.  false, then display logos in grayscale
+    colored: true, // false -- removes color from the entire table. Included for backwards compatibility, use the individual flags for more control
     coloredLogo: true,
     coloredHeader: true,
+    coloredRank: true,
     highlightTeams: [],
   },
 
