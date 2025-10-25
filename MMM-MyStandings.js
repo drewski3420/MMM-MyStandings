@@ -24,7 +24,6 @@ Module.register('MMM-MyStandings', {
     colored: true, // true, then display logos in color.  false, then display logos in grayscale
     coloredLogo: true,
     coloredHeader: true,
-    highlightColumnIndex: 0,
     highlightTeams: [],
   },
 
@@ -174,6 +173,8 @@ Module.register('MMM-MyStandings', {
             rules.forEach(rule => {
               if (rule.league.toUpperCase() === league.toUpperCase() && rule.teamAbbreviaton.toUpperCase() === team.team.abbreviation.toUpperCase()) {
                 team.highlightClass = "highlight-" + team.team.abbreviation.toLowerCase()
+                team.bgColor = rule.bgColor;
+                team.fgColor = rule.fgColor;
                 console.log('we found one');
               }
             });
