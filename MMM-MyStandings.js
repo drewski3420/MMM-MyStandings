@@ -169,7 +169,7 @@ Module.register('MMM-MyStandings', {
           if (Array.isArray(rules)) {
             rules.forEach(rule => {
               if (rule.league.toUpperCase() === league.toUpperCase() && rule.teamAbbreviaton.toUpperCase() === team.team.abbreviation.toUpperCase()) {
-                team.highlightClass = "highlight-" + team.team.abbreviation.toLowerCase()
+                team.highlightClass = "highlight-" + league.toLowerCase() + "-" + team.team.abbreviation.toLowerCase()
                 team.bgColor = rule.bgColor;
                 team.fgColor = rule.fgColor;
               }
