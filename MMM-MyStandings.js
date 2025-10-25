@@ -156,16 +156,13 @@ Module.register('MMM-MyStandings', {
 
     // Loop over each division and its teams
     if (data.standings && Array.isArray(data.standings)) {
-//      console.log('there is data.standings')
           data.standings.forEach(division => {
-//        console.log(division.standings)
         let teams = division.standings.entries
         if (!teams) return;
 
         teams.forEach(team => {
           const league = this.currentSport; // current league/sport
           let highlightClass = "";
-          console.log('in the teams loop ' +  team.team.abbreviation)
 
           let rules = this.config.highlightTeams
           // Check if this team should be highlighted
@@ -175,14 +172,12 @@ Module.register('MMM-MyStandings', {
                 team.highlightClass = "highlight-" + team.team.abbreviation.toLowerCase()
                 team.bgColor = rule.bgColor;
                 team.fgColor = rule.fgColor;
-                console.log('we found one');
               }
             });
           };
         });
       });
     }
-    console.log('data is ', data);
     return data;
   },
 

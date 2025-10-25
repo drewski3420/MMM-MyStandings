@@ -9,7 +9,7 @@
 				</tr>
 				{% for tm in poll.ranks %}
 					{% if tm.current <= config.rankingLength %}
-						<tr class="{{ tm.highlightClass }}">
+						<tr class="{{ tm.highlightClass }}" style="{% if tm.bgColor %}background-color:{{ tm.bgColor }} !important;{% endif %}{% if tm.fgColor %}color:{{ tm.fgColor }} !important;{% endif %}">
 							{% if config.showLogos === true %}
 								<td class="logo {% if config.coloredLogo === false %}grayscale{% endif %}" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}"/></td>
 								<td class="nameCell">
@@ -66,9 +66,7 @@
 			{% endif %}
 			</tr>
 			{% for tm in division.standings.entries %}
-        <!-- {{ tm | dump }} -->
-				<tr style="{% if tm.bgColor %}background-color:{{ tm.bgColor }} !important;{% endif %}{% if tm.fgColor %}color:{{ tm.fgColor }} !important;{% endif %}">
-				<!--<tr class="{{ tm.highlightClass }}">-->
+				<tr class="{{ tm.highlightClass }}" style="{% if tm.bgColor %}background-color:{{ tm.bgColor }} !important;{% endif %}{% if tm.fgColor %}color:{{ tm.fgColor }} !important;{% endif %}">
 					{% if config.showLogos === true %}
 						<td class="logo {% if config.coloredLogo === false %}grayscale{% endif %}" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}"/></td>
 						<td class="nameCell">
