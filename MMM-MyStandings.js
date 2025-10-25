@@ -134,15 +134,55 @@ Module.register('MMM-MyStandings', {
     return 'standings.njk'
   },
 
-  // Add all the data to the template.
+//  // Add all the data to the template.
+//  getTemplateData: function () {
+//    return {
+//      config: this.config,
+//      standings: this.standings,
+//      currentSport: this.currentSport,
+//      currentDivision: this.currentDivision,
+//      ignoreDivision: this.ignoreDivision,
+//    }
+//  },
+
   getTemplateData: function () {
-    return {
+    // base data returned to template
+    const data = {
       config: this.config,
       standings: this.standings,
       currentSport: this.currentSport,
       currentDivision: this.currentDivision,
       ignoreDivision: this.ignoreDivision,
+    };
+
+    // Loop over each division and its teams
+    if (data.standings && Array.isArray(data.standings)) {
+//      console.log('there is data.standings')
+          data.standings.forEach(division => {
+//        console.log(division.standings)
+        let teams = division.standings.entries
+        if (!teams) return;
+
+        teams.forEach(team => {
+          const league = this.currentSport; // current league/sport
+          let highlightClass = "";
+          console.log('in the teams loop ' +  team.team.abbreviation)
+
+          let rules = this.config.highlightTeams
+          // Check if this team should be highlighted
+          if (Array.isArray(rules)) {
+            rules.forEach(rule => {
+              if (rule.league.toUpperCase() === league.toUpperCase() && rule.teamAbbreviaton.toUpperCase() === team.team.abbreviation.toUpperCase()) {
+                team.highlightClass = "highlight-" + team.team.abbreviation.toLowerCase()
+                console.log('we found one');
+              }
+            });
+          };
+        });
+      });
     }
+    console.log('data is ', data);
+    return data;
   },
 
   getData: function (clearAll) {

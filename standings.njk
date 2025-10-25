@@ -9,7 +9,7 @@
 				</tr>
 				{% for tm in poll.ranks %}
 					{% if tm.current <= config.rankingLength %}
-						<tr>
+						<tr class="{{ tm.highlightClass }}">
 							{% if config.showLogos === true %}
 								<td class="logo {% if config.coloredLogo === false %}grayscale{% endif %}" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}"/></td>
 								<td class="nameCell">
@@ -66,7 +66,9 @@
 			{% endif %}
 			</tr>
 			{% for tm in division.standings.entries %}
-				<tr>
+        <!-- {{ tm | dump }} -->
+				<tr class="{{ tm.highlightClass }}">
+				<!--<tr class="{{ tm.highlightClass }}">-->
 					{% if config.showLogos === true %}
 						<td class="logo {% if config.coloredLogo === false %}grayscale{% endif %}" align="center" valign="middle"><img src="{{tm.team.logos[0].href}}"/></td>
 						<td class="nameCell">
