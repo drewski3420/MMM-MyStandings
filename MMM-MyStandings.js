@@ -135,16 +135,6 @@ Module.register('MMM-MyStandings', {
   },
 
 //  // Add all the data to the template.
-//  getTemplateData: function () {
-//    return {
-//      config: this.config,
-//      standings: this.standings,
-//      currentSport: this.currentSport,
-//      currentDivision: this.currentDivision,
-//      ignoreDivision: this.ignoreDivision,
-//    }
-//  },
-
   getTemplateData: function () {
     // base data returned to template
     const data = {
