@@ -147,19 +147,18 @@ Module.register('MMM-MyStandings', {
 
     // Loop over each division and its teams
     if (data.standings && Array.isArray(data.standings)) {
-          data.standings.forEach(division => {
+        data.standings.forEach(division => {
         let teams = division.standings.entries
         if (!teams) return;
 
         teams.forEach(team => {
           const league = this.currentSport; // current league/sport
           let highlightClass = "";
-
           let rules = this.config.highlightTeams
           // Check if this team should be highlighted
           if (Array.isArray(rules)) {
             rules.forEach(rule => {
-              if (rule.league.toUpperCase() === league.toUpperCase() && rule.teamAbbreviaton.toUpperCase() === team.team.abbreviation.toUpperCase()) {
+              if (league.toUpperCase().startsWith(rule.league.toUpperCase()) && rule.teamAbbreviation.toUpperCase() === team.team.abbreviation.toUpperCase()) {
                 team.highlightClass = "highlight-" + league.toLowerCase() + "-" + team.team.abbreviation.toLowerCase()
                 team.bgColor = rule.bgColor;
                 team.fgColor = rule.fgColor;
