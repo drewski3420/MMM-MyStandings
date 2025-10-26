@@ -134,7 +134,6 @@ Module.register('MMM-MyStandings', {
     return 'standings.njk'
   },
 
-//  // Add all the data to the template.
   getTemplateData: function () {
     // base data returned to template
     const data = {
@@ -145,29 +144,49 @@ Module.register('MMM-MyStandings', {
       ignoreDivision: this.ignoreDivision,
     };
 
-    // Loop over each division and its teams
-    if (data.standings && Array.isArray(data.standings)) {
-        data.standings.forEach(division => {
-        let teams = division.standings.entries
+    let league = data.currentSport; // current league/sport
+    if (!league) {
+      return;
+    } else if (league.toUpperCase().includes("RANKINGS")) { //rankings not standings
+      if (data.standings.length === 0) {
+        return;
+      }
+      let poll = data.standings[0];
+      poll.forEach(team => {
+        let rules = this.config.highlightTeams;
+        // Check if this team should be highlighted
+        if (Array.isArray(rules)) {
+          rules.forEach(rule => {
+            if (league.toUpperCase().includes(rule.league.toUpperCase()) &&
+                rule.teamAbbreviation.toUpperCase() === team.team?.abbreviation?.toUpperCase()) {
+              team.highlightClass = "highlight-" + league.toLowerCase() + "-" + team.team.abbreviation.toLowerCase();
+              team.bgColor = rule.bgColor;
+              team.fgColor = rule.fgColor;
+            }
+          });
+        }
+      });;
+    } else if (data.standings) {
+      data.standings.forEach(division => {
+        let teams = division.standings?.entries;
         if (!teams) return;
-
         teams.forEach(team => {
-          const league = this.currentSport; // current league/sport
-          let highlightClass = "";
-          let rules = this.config.highlightTeams
+          let rules = this.config.highlightTeams;
           // Check if this team should be highlighted
           if (Array.isArray(rules)) {
             rules.forEach(rule => {
-              if (league.toUpperCase().startsWith(rule.league.toUpperCase()) && rule.teamAbbreviation.toUpperCase() === team.team.abbreviation.toUpperCase()) {
-                team.highlightClass = "highlight-" + league.toLowerCase() + "-" + team.team.abbreviation.toLowerCase()
+              if (league.toUpperCase().includes(rule.league.toUpperCase()) &&
+                  rule.teamAbbreviation.toUpperCase() === team.team?.abbreviation?.toUpperCase()) {
+                team.highlightClass = "highlight-" + league.toLowerCase() + "-" + team.team.abbreviation.toLowerCase();
                 team.bgColor = rule.bgColor;
                 team.fgColor = rule.fgColor;
               }
             });
-          };
+          }
         });
       });
     }
+
     return data;
   },
 
