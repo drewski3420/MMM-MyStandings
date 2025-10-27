@@ -134,6 +134,7 @@ Module.register('MMM-MyStandings', {
     return 'standings.njk'
   },
 
+  // Add all the data to the template.
   getTemplateData: function () {
     // base data returned to template
     const data = {
@@ -190,7 +191,6 @@ Module.register('MMM-MyStandings', {
         });
       });
     }
-
     return data;
   },
 
