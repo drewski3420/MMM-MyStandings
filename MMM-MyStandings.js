@@ -151,21 +151,25 @@ Module.register('MMM-MyStandings', {
       if (data.standings.length === 0) {
         return;
       }
-      let poll = data.standings[0];
-      poll.forEach(team => {
-        let rules = this.config.highlightTeams;
-        // Check if this team should be highlighted
-        if (Array.isArray(rules)) {
-          rules.forEach(rule => {
-            if (league.toUpperCase().includes(rule.league.toUpperCase()) &&
-                rule.teamAbbreviation.toUpperCase() === team.team?.abbreviation?.toUpperCase()) {
-              team.highlightClass = "highlight-" + league.toLowerCase() + "-" + team.team.abbreviation.toLowerCase();
-              team.bgColor = rule.bgColor;
-              team.fgColor = rule.fgColor;
-            }
-          });
-        }
-      });;
+
+      let polls = data.standings;
+      polls.forEach(poll => {
+        let rankings = poll.ranks;
+        rankings.forEach(team => {
+          let rules = this.config.highlightTeams;
+          // Check if this team should be highlighted
+          if (Array.isArray(rules)) {
+            rules.forEach(rule => {
+              if (league.toUpperCase().includes(rule.league.toUpperCase()) &&
+                  rule.teamAbbreviation.toUpperCase() === team.team?.abbreviation?.toUpperCase()) {
+                team.highlightClass = "highlight-" + rule.league.toLowerCase() + "-" + team.team.abbreviation.toLowerCase();
+                team.bgColor = rule.bgColor;
+                team.fgColor = rule.fgColor;
+              }
+            });
+          }
+        });
+      });
     } else if (data.standings) {
       data.standings.forEach(division => {
         let teams = division.standings?.entries;
